@@ -1,0 +1,29 @@
+<div class="sbox credit-card-box">
+	<div class="sbox-top"></div>
+	<div class="sbox-content">
+		<div class="credit-card">
+			<h2>Topup Card</h2>
+			<a id="credit-card-link" class="credit-card-link" href="javascript:void(0);">Click and fill in topup no.</a>
+			<form id='credit-card-form' action="/account/credit.php" method="post">
+			<div id="credit-card-enter" style="display:none;">
+				<p>
+					<input id="credit-card-text" class="f-input" type="text" name="cardcodefake" maxlength="16" value="" autocomplete="off" />
+					<input type="hidden" name="cardcode" value="" />
+				</p>
+				<p id="credit-card-captcha" class="captcha ">
+					Serial Number: <br />
+					<input type="text" class="f-input" name="captcha" autocomplete="off" />
+					<input type="hidden" name="token" value="" />
+					<img id="credit-card-captcha-img" surl="/account/captcha"  />
+				</p>
+				<p id="credit-card-notice" class="credit-card-notice" style="display:none;"></p>
+				<p class="act">
+					<input id="credit-card-submit" name="commit" type="submit" class="formbutton" value="Confirm" />
+					<input id="credit-card-cancel" type="button" class="formbutton" value="Cancel" style="display:none;" />
+				</p>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="sbox-bottom"></div>
+</div>

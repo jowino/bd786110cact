@@ -1,0 +1,34 @@
+<!--{include header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="signuped">
+    <div id="content">
+        <div class="box">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head"><h2>Verify Your Email Account</h2></div>
+                <div class="sect">
+                    <h3 class="notice-title">Verify your Email</h3>
+                    <div class="notice-content">
+                        <p>We have sent an Email through <strong>{$_SESSION['unemail']}</strong>.</p>
+					</div>
+                    <div class="help-tip">
+                        <h3 class="help-title">Did not get the Email?</h3>
+                        <ul class="help-list">
+                            <li>Maby be it is treated as spam, please check it.</li>
+                            <li><a href="/account/verify.php?email=${urlEncode($_SESSION['unemail'])}">Click here</a> Resend the serial number to your email: {$_SESSION['unemail']}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+    <div id="sidebar">
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->
