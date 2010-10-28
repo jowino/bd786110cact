@@ -4,7 +4,25 @@ require_once(dirname(dirname(__FILE__)) . '/app.php');
 need_partner();
 $partner_id = abs(intval($_SESSION['partner_id']));
 $login_partner = Table::Fetch('partner', $partner_id);
-
+	foreach ($_GET as $key=>$val) {
+		if($val=='Checkoff')
+		{
+			$coupon=Table::Fetch('coupon',$key);
+			$array=array('consume','consume_time');
+			$coupon['consume']='Y';
+			$coupon['consume_time']=time();
+			$table=new Table('coupon',$coupon);
+			$flag=$table->update($array);
+			if($flag)
+			{
+				Session::Set('notice', 'coupon has been Checkoff.');
+			}
+		}
+		elseif ($val=='Print')
+		{
+			print_r("this is priint");
+		}
+	}
 $title = strval($_GET['title']);
 $condition = $t_con = array(
 	'partner_id' => $partner_id,
