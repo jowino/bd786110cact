@@ -1,0 +1,8 @@
+=SVN Setup=
+ 
+Short Tutorial on how to use TortoiseSVN to get the latest sources of bd786110cact
+
+  * Create an empty folder named moosavings
+  * Open the folder, right-click on a blank area, and select SVN Checkout...
+  * In the URL of Repository, enter [http://bd786110cact.googlecode.com/svn/] and press OK
+  * Wait 20 seconds and you will have all the Source Codes and the latest Documentation!
