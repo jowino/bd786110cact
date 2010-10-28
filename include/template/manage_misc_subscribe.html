@@ -1,0 +1,41 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_misc('subscribe')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Email Subscribed List</h2>
+					<ul class="filter">
+						<li><form action="/manage/misc/subscribe.php" method="get">City: <input type="text" name="cs" value="${htmlspecialchars($cs)}" class="h-input" />&nbsp;Email: <input type="text" name="like" value="${htmlspecialchars($like)}" class="h-input" />&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/><form></li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="350">Email</th><th width="80">City</th><th width="350">Security key</th><th width="80">Operation</th></tr>
+					<!--{loop $subscribes $index $one}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td>{$one['email']}</td>
+						<td>{$cities[$one['city_id']]['name']}</td>
+						<td>{$one['secret']}</td>
+						<td class="op"><a ask="Delete or not?" href="/ajax/manage.php?action=subscriberemove&id={$one['id']}" class="ajaxlink">Delete</a></td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->

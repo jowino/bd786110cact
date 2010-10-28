@@ -1,0 +1,23 @@
+<?php
+require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
+
+need_manager();
+
+$system = Table::Fetch('system', 1);
+
+if ($_POST) {
+	unset($_POST['commit']);
+	$INI = Config::MergeINI($INI, $_POST);
+	unset($INI['db']);
+	unset($INI['sn']);
+
+	$value = Utility::ExtraEncode($INI);
+	$table = new Table('system', array('value'=>$value));
+	if ( $system ) $table->SetPK('id', 1);
+	$flag = $table->update(array( 'value'));
+
+	Session::Set('notice', 'Update information done');
+	Utility::Redirect( WEB_ROOT . '/manage/system/email.php');	
+}
+
+include template('manage_system_email');
