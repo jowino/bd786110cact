@@ -32,6 +32,18 @@
                             <input type="text" size="30" name="password" id="settings-password" class="f-input" />
                             <span class="hint">Leave blank if don't want to change.</span>
                         </div>
+                        <div class="field">
+                            <label>User Group</label>
+				            <select name="user_group_id">
+				            <!--{loop $user_groups $index $user_group}-->
+				            <!--{if $user_group['id'] == $user_group_id}-->
+				              <option value="{$user_group['id']}" selected="selected">{$user_group['name']}</option>
+				              <!--{else}-->
+				              <option value="{$user_group['id']}">{$user_group['name']}</option>
+				              <!--{/if}-->
+				              <!--{/loop}-->
+				            </select>
+                        </div>
 						<div class="wholetip clear"><h3>2. Basic Info</h3></div>
                         <div class="field">
                             <label>Post Code</label>

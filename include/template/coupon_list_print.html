@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">	
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body onclick="window.print();"> 
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+						<tr><th width="200" nowrap>Coupon's Number</th><th width="200" nowrap>Coupon's Password</th><th width="100" nowrap>Valid Date</th></tr>
+					<!--{loop $coupons $index $one}-->
+						<tr ${$index%2?'':'class="alt"'}>
+							<td align="center">{$one['id']}</td>
+							<td align="center">{$one['secret']}</td>
+							<td align="center">${date('Y-m-d', $one['expire_time'])}</td>
+						</tr>	
+					<!--{/loop}-->
+						<tr><td colspan="6">{$pagestring}</td></tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+</body> 
+</html>

@@ -18,6 +18,9 @@
 					</ul>
 				</div>
                 <div class="sect">
+                <form action="/coupon/couponprint.php" method="post">
+					<div style="float:right;margin-right:20px;"><input type="submit" value="Print Coupons" /></div>
+				
 					<!--{if $selector=='index'&&!$coupons}-->
 					<div class="notice">There is no usable {$INI['system']['couponname']}</div>
 					<!--{/if}-->
@@ -29,11 +32,13 @@
 							<td>{$one['id']}</td>
 							<td>{$one['secret']}</td>
 							<td>${date('Y-m-d', $one['expire_time'])}</td>
-							<td><a href="/ajax/coupon.php?action=sms&id={$one['id']}" class="ajaxlink">SMS</a></td>
+							<td><a href="/coupon/couponprint.php?id={$one['id']}" >Print</a></td>
+							<td><input type="checkbox" name="print[]" value="{$one['id']}" /></td>
 						</tr>	
 					<!--{/loop}-->
 						<tr><td colspan="5">{$pagestring}</td></tr>
                     </table>
+                    </form>
 				</div>
             </div>
             <div class="box-bottom"></div>

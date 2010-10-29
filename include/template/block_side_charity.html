@@ -1,0 +1,16 @@
+<!--{if $charities}-->
+<div class="sbox side-others">
+	<div class="sbox-top"></div>
+	<div class="sbox-content">
+		<div class="tip">
+		<h2>Charity of the Deal</h2>
+		<!--{loop $charities $one}-->
+			<b>${++$index}. {$one['name']}</b>
+			<p><img src="${team_image($one['image'])}" width="195" height="60" border="0" /></p>
+			<hr />
+		<!--{/loop}-->
+		</div>
+	</div>
+	<div class="sbox-bottom"></div>
+</div>
+<!--{/if}-->

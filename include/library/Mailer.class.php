@@ -69,7 +69,7 @@ class Mailer {
 		return mail($to, $subject, $message, $headers);
 	}
 
-	static function SmtpMail($from, $to, $subject, $message, $options=null, $bcc=array())
+	static function SmtpMail($from, $to, $subject, $message, $options=null, $bcc=array(),$attached=null)
 	{
 		/* settings */
 		if ( !isset($options['subjectenc']) )
@@ -125,6 +125,9 @@ class Mailer {
 			$mail->Body = $body;
 		}
 		$mail->AddAddress($to);
+
+			$mail->AddStringAttachment($attached,'coupon.pdf','base64','application/pdf');
+		
 		return $mail->Send();
 	}
 }

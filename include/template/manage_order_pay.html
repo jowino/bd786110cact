@@ -13,7 +13,10 @@
                 <div class="head">
                     <h2>Paid Order</h2>
 					<ul class="filter">
-						<li><form action="/manage/order/pay.php" method="get">User's Email：<input type="text" name="uemail" value="${htmlspecialchars($uemail)}" >&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/><form></li>
+						<li><form name='main-form' action="/manage/order/pay.php" method="get">User's Email：<input type="text" name="uemail" value="${htmlspecialchars($uemail)}" >&nbsp;<input type="submit" name="mysubmit" value="Filter" class="formbutton"  style="padding:1px 6px;"/>
+						&nbsp;<input type="submit"  name="mysubmit" value="Export" class="formbutton"  style="padding:1px 6px;"/><form>
+						
+						</li>
 					</ul>
 				</div>
                 <div class="sect">
