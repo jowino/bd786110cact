@@ -56,6 +56,7 @@ class ZCoupon
 					);
 			DB::Insert('coupon', $coupon);
 			$count = Table::Count('coupon', $ccon);
+			mail_coupon($team, $partner, $order, $login_user, $coupon);
 		}
 	}
 }

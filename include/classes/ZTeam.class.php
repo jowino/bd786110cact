@@ -24,6 +24,10 @@ class ZTeam
 		ZFlow::CreateFromOrder($order);
 		ZCoupon::CheckOrder($order);
 		ZInvite::CheckInvite($order);
+		$partner = Table::Fetch('partner', $team['partner_id']);
+		$city = Table::Fetch('category', $team['city_id']);
+		$user=Table::Fetch('user',$order['user_id']);
+		mail_purchase($city, $team, $partner, $order, $user);
 	}
 	
 	/* only for cron */
