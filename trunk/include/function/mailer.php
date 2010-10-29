@@ -78,3 +78,83 @@ function mail_subscribe($city, $team, $partner, $subscribe)
 		Mailer::SmtpMail($from, $to, $subject, $message, $options);
 	}
 }
+
+function mail_purchase($city, $team, $partner,$order, $subscribe) 
+{
+	global $INI;
+	$week = array('S','M','T','W','T','F','S');
+	$today = date('m.d.Y') . $week[date('w')];
+	$vars = array(
+		'today' => $today,
+		'team' => $team,
+		'city' => $city,
+		'subscribe' => $subscribe,
+		'partner' => $partner,
+		'order'=>$order,
+		'help_email' => $INI['subscribe']['helpemail'],
+		'help_mobile' => $INI['subscribe']['helpphone'],
+		'notice_email' => $INI['mail']['reply'],
+	);
+	$message = render('mail_order_info', $vars);
+	$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	$options = array(
+		'contentType' => 'text/html',
+		'encoding' => 'GBK',
+	);
+	$from = $INI['mail']['from'];
+	$to = $subscribe['email'];
+	$subject = $INI['system']['sitename'] . ": Your Order Details";
+
+	if ($INI['mail']['mail']=='mail') {
+		Mailer::SendMail($from, $to, $subject, $message, $options);
+	} else {
+		Mailer::SmtpMail($from, $to, $subject, $message, $options);
+	}
+}
+
+function mail_coupon( $team, $partner,$order, $user,$coupon) 
+{
+	global $INI;
+	$week = array('S','M','T','W','T','F','S');
+	$today = date('m.d.Y') . $week[date('w')];
+	$vars = array(
+		'today' => $today,
+		'team' => $team,
+		'city' => $city,
+		'user' => $user,
+		'partner' => $partner,
+		'order'=>$order,
+		'coupon'=>$coupon,
+		'help_email' => $INI['subscribe']['helpemail'],
+		'help_mobile' => $INI['subscribe']['helpphone'],
+		'notice_email' => $INI['mail']['reply'],
+	);
+	$message = render('mail_coupon_info', $vars);
+	$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	$options = array(
+		'contentType' => 'text/html',
+		'encoding' => 'GBK',
+	);
+	$from = $INI['mail']['from'];
+	$to = $user['email'];
+	$subject = $INI['system']['sitename'] . ": Your Coupon Details";
+	$content=createpdf(render('mail_coupon_pdf',$vars));
+	if ($INI['mail']['mail']=='mail') {
+		Mailer::SendMail($from, $to, $subject, $message, $options);
+	} else {
+		Mailer::SmtpMail($from, $to, $subject, $message, $options,null,$content);
+	}
+}
+
+function  createpdf($content)
+{
+	$dir=realpath(dirname(dirname(dirname(__FILE__))));
+	require_once ($dir.'/dompdf/dompdf_config.inc.php');
+	//$newTemp=tempnam($dir.'/tmp/', 'coupon_');
+	$dompdf=new DOMPDF();
+	$dompdf->load_html($content);
+	$dompdf->render();
+	file_put_contents($newTemp,$dompdf->output());
+	return $dompdf->output();
+	//return $newTemp;
+}
