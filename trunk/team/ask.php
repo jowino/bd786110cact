@@ -8,7 +8,8 @@ if (!$id || !$team = Table::Fetch('team', $id) ) {
 }
 
 $pagetitle = $team['title'];
-$condition = array( 'team_id > 0', 'length(comment)>0' );
+//$condition = array( 'team_id > 0', 'length(comment)>0' );
+$condition = array( 'team_id='.$id );
 
 //$condition['team_id'] = $id;
 /*$myc = array( 'team_id' => $id, 'parent_id' => 0,);

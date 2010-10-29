@@ -31,7 +31,16 @@ $bar_size = ceil(190*($team['now_number']/$team['min_number']));
 $bar_offset = ceil(5*($team['now_number']/$team['min_number']));
 
 $partner = Table::Fetch('partner', $team['partner_id']);
-
+  //view counter
+	  if(!$_SESSION['counter'])
+	  {
+	   $query='update team set count=count+1 where id='.$team['id'];
+	   $result=DB::Query($query);
+	   if($result)
+	   {
+	    $_SESSION['counter']=true;
+	   }
+	  }
 /* other teams */
 if ( abs(intval($INI['system']['sideteam'])) ) {
 	$oc = array( 
@@ -60,5 +69,19 @@ if ($login_user_id && $team['state'] == 'none' ) {
 	));
 }
 /* end order */
+
+	/*$charitycondition = array( 
+			'd.charity_id'=>'d.charity_id',
+			'd.deal_id' => $id, 
+			);*/
+			$sql='SELECT c.name, d.deal_id, c.image
+					FROM  `charity` c, deals_charity d
+					WHERE c.id = d.charity_id and d.deal_id='.$id;
+			$charities=DB::GetQueryResult($sql,false);
+	/*$charities = DB::LimitQuery('deals_charity d,charity,c', array(
+				'condition' => $charitycondition,
+				'order' => 'ORDER BY c.id DESC',
+				'select' => 'c.name,c.image',
+				));*/
 
 include template('team_view');
