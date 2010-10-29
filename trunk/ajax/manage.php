@@ -1,18 +1,24 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 
-need_manager();
-
 $action = strval($_GET['action']);
+if(!need_manager())
+{
+	if(!check_permission('modify', $action))
+	{
+		json('You do no have the permission', 'alert');
+	}
+}
 $id = abs(intval($_GET['id']));
 
-if ( 'orderrefund' == $action) {
+/*if ( 'orderrefund' == $action) {
 	$order = Table::Fetch('order', $id);
 	ZFlow::CreateFromRefund($order);
 	Session::Set('notice', 'Refund successfully');
 	json(null, 'refresh');
 }
-else if ( 'ordercash' == $action ) {
+else */
+if ( 'ordercash' == $action ) {
 	$order = Table::Fetch('order', $id);
 	ZOrder::CashIt($order);
 	$user = Table::Fetch('user', $order['user_id']);
@@ -49,6 +55,7 @@ else if ( 'teamremove' == $action) {
 	}
 	Table::Delete('team', $id);
 	Table::Delete('order', $id, 'team_id');
+	Table::Delete('deals_charity',$id,'deal_id');
 	Session::Set('notice', "Deal {$id} is deleted successfully!");
 	json(null, 'refresh');
 }
@@ -198,4 +205,45 @@ elseif ( 'categoryremove' == $action ) {
 	Table::Delete('category', $id);
 	Session::Set('notice', 'Delete OK');
 	json(null, 'refresh');
+}
+else if ( 'groupremove' == $action ) {
+	$group = Table::Fetch('user_group', $id);
+	$count = Table::Count('user', array('user_group_id' => $id) );
+	if ($group && $count==0) {
+		Table::Delete('user_group', $id);
+		Session::Set('notice', "User Group {$id} deleted");
+		json(null, 'refresh');
+	}
+	if ( $count > 0 ) {
+		json('User Group has users, cannot delete', 'alert'); 
+	}
+	json('User Group delete error.', 'alert'); 
+}
+elseif ( 'charityedit' == $action ) {
+	if ($id) {
+		$charity = Table::Fetch('charity', $id);
+		if (!$charity) json('No Data', 'alert');
+		} 
+
+	$html = render('ajax_dialog_charityedit');
+	json($html, 'dialog');
+}
+elseif ( 'charityreport' == $action ) {
+	$condition = array(
+		'charity_id' => $id,
+	);
+	$count = Table::Count('deals_charity', $condition);
+	list($pagesize, $offset, $pagestring) = pagestring($count, 20);
+	$charityreport = DB::LimitQuery ( 'deals_charity', array (
+								'condition' => $condition, 
+								'select' => '*,(
+									SELECT SUM( origin ) 
+									FROM  `order` 
+									WHERE state =  "pay"
+									AND team_id = deal_id
+									) AS dealamount',
+									'size' => $pagesize,
+									'offset' => $offset, ) );
+	$html = render('ajax_dialog_charityreport');
+	json($html, 'dialog');
 }
