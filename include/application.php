@@ -26,6 +26,7 @@ define('IMG_ROOT', dirname(DIR_ROOT) . '/static');
 $docroot = rtrim(str_replace('\\','/',$_SERVER['DOCUMENT_ROOT']),'/');
 $webroot = trim(substr(WWW_ROOT, strlen($docroot)), '\\/');
 define('WEB_ROOT', $webroot ? "/{$webroot}" : '');
+$ajax_root = $webroot ? "/{$webroot}" : '';
 
 /* important function */
 function __autoload($class_name) {

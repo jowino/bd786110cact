@@ -1,7 +1,7 @@
 <div id="order-pay-dialog" class="order-pay-dialog-c" style="width:450px;">
 	<h3><span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">Close</span>${$charity?'Edit':'New'}</h3>
 	<div style="overflow-x:hidden;padding:10px;">
-<form method="post" action="/manage/charity/charityedit.php" enctype="multipart/form-data" class="validator">
+<form method="post" action="{$ajax_root}/manage/charity/charityedit.php" enctype="multipart/form-data" class="validator">
 	<input type="hidden" name="id" value="{$charity['id']}" />
 	<table width="96%" class="coupons-table">
 		<tr><td width="80" nowrap><b>Name: </b></td><td><input type="text" name="name" value="{$charity['name']}" require="true" datatype="require" class="f-input" /></td></tr>
