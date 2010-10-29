@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'system/index');
+}
 $system = Table::Fetch('system', 1);
 
 if ($_POST) {
@@ -14,9 +17,8 @@ if ($_POST) {
 	$table = new Table('system', array('value'=>$value));
 	if ( $system ) $table->SetPK('id', 1);
 	$flag = $table->update(array( 'value'));
-
 	Session::Set('notice', 'Add new information done.');
-	Utility::Redirect( WEB_ROOT . '/manage/system/index.php');	
+	//Utility::Redirect( WEB_ROOT . '/manage/system/index.php');	
 }
 
 include template('manage_system_index');

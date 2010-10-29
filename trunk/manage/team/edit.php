@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager(true);
+if(!need_manager(true))
+{
+	need_permission('modify', 'team/edit');
+}
 $id = abs(intval($_GET['id']));
 if (!$id || !$team = Table::Fetch('team', $id)) {
 	Utility::Redirect( WEB_ROOT . '/team/create.php');

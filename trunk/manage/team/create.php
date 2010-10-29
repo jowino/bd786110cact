@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager(true);
+if(!need_manager(true))
+{
+	need_permission('modify', 'team/create');
+}
 
 if ($_POST) {
 	$team = $_POST;
@@ -22,6 +25,15 @@ if ($_POST) {
 	$table = new Table('team', $team);
 	$table->SetStrip('summary', 'detail', 'systemreview', 'notice');
 	if ( $team_id = $table->insert($insert) ) {
+		if($team['charity_id']!=0)
+		{
+			$dealcharity['charity_id']=$team['charity_id'];
+			$dealcharity['value']=$team['value'];
+			$dealcharity['deal_id']=$team_id;
+			$dcTable=new Table('deals_charity',$dealcharity);
+			$dealinsert=array('charity_id','value','deal_id',);
+			$dcTable->insert($dealinsert);
+		}
 		Utility::Redirect( WEB_ROOT . "/manage/team/index.php");
 	}
 }
@@ -49,8 +61,18 @@ $groups = DB::LimitQuery('category', array(
 			));
 $groups = Utility::OptionArray($groups, 'id', 'name');
 
+$cities = DB::LimitQuery('category', array(
+			'condition' => array( 'zone' => 'city', ),
+			));
+$cities = Utility::OptionArray($cities, 'id', 'name');
+
 $partners = DB::LimitQuery('partner', array(
 			'order' => 'ORDER BY id DESC',
 			));
 $partners = Utility::OptionArray($partners, 'id', 'title');
+$charities = DB::LimitQuery('charity',array(
+			  'order'=>'ORDER BY id DESC',
+				));
+$charities = Utility::OptionArray($charities,'id','name');
+array_unshift($charities,"--Select--");
 include template('manage_team_create');

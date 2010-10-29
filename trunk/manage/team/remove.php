@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'team/remove');
+}
 $id = abs(intval($_GET['id']));
 $team = Table::Fetch('team', $id);
 $order = Table::Fetch('order', $id, 'team_id');

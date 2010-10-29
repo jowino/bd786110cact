@@ -1,12 +1,15 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('access', 'team/success');
+}
 $now = time();
 $condition = array(
 	'system' => 'Y',
 	"end_time < $now",
-	"now_number > min_number"
+	"now_number >= min_number"
 );
 
 $count = Table::Count('team', $condition);

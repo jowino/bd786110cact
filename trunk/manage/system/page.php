@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'system/page');
+}
 $pages = array(
 	'help_tour' => 'Tour ' . $INI['system']['abbreviation'],
 	'help_faqs' => 'FAQ',

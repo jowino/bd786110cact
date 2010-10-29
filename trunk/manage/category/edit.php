@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'category/edit');
+}
 $id = abs(intval($_REQUEST['id']));
 $category = Table::Fetch('category', $id);
 $table = new Table('category', $_POST);

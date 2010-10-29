@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('access', 'misc/invite');
+}
 
 $memail = strval($_GET['memail']);
 $oemail = strval($_GET['oemail']);
