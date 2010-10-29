@@ -4,6 +4,7 @@ function current_frontend() {
 	$a = array(
 			'/index.php' => 'Todays Deal',
 			'/team/index.php' => 'Recent Deals',
+			'/charity.php'=>'Charity',
 			'/help/tour.php' => 'How ' . $INI['system']['abbreviation'] . ' Works',
 			'/subscribe.php' => 'Subscribe',
 			);
@@ -11,6 +12,7 @@ function current_frontend() {
 	if (preg_match('#/team#',$r)) $l = '/team/index.php';
 	elseif (preg_match('#/help#',$r)) $l = '/help/tour.php';
 	elseif (preg_match('#/subscribe#',$r)) $l = '/subscribe.php';
+	elseif (preg_match('#/charity#',$r)) $l = '/charity.php';
 	else $l = '/index.php';
 	return current_link($l, $a);
 }
@@ -24,6 +26,7 @@ function current_backend() {
 			'/manage/coupon/index.php' => $INI['system']['couponname'],
 			'/manage/user/index.php' => 'User',
 			'/manage/partner/index.php' => 'Partner',
+			'/manage/charity/charity.php'=>'Charity',
 			'/manage/category/index.php' => 'Category',
 			'/manage/system/index.php' => 'System',
 			);
@@ -31,6 +34,7 @@ function current_backend() {
 	if (preg_match('#/manage/team#',$r)) $l = '/manage/team/index.php';
 	elseif (preg_match('#/manage/order#',$r)) $l = '/manage/order/index.php';
 	elseif (preg_match('#/manage/coupon#',$r)) $l = '/manage/coupon/index.php';
+	elseif (preg_match('#/manage/charity#',$r)) $l = '/manage/charity/charity.php';
 	elseif (preg_match('#/manage/category#',$r)) $l = '/manage/category/index.php';
 	elseif (preg_match('#/manage/partner#',$r)) $l = '/manage/partner/index.php';
 	elseif (preg_match('#/manage/user#',$r)) $l = '/manage/user/index.php';
@@ -80,6 +84,7 @@ function current_account($selector='/account/settings.php') {
 	$a = array(
 		'/order/index.php' => 'My Order',
 		'/coupon/index.php' => 'My ' . $INI['system']['couponname'],
+		'/my/gift_cards/index.php' => 'My Gifts',
 		'/credit/index.php' => 'Balance',
 		'/account/settings.php' => 'Account Setting',
 	);
@@ -158,6 +163,7 @@ function mcurrent_order($selector=null) {
 function mcurrent_user($selector=null) {
 	$a = array(
 		'/manage/user/index.php' => 'User List',
+		'/manage/user/usergroup.php'=>"User Group",
 	);
 	$l = "/manage/user/{$selector}.php";
 	return current_link($l,$a,true);
@@ -168,6 +174,7 @@ function mcurrent_team($selector=null) {
 		'/manage/team/success.php' => 'Good Deal',
 		'/manage/team/failure.php' => 'Failed Deal',
 		'/manage/team/create.php' => 'New Deal',
+		'/manage/team/dealreport.php'=>'Deal Report',
 	);
 	$l = "/manage/team/{$selector}.php";
 	return current_link($l,$a,true);
@@ -216,8 +223,15 @@ function mcurrent_system($selector=null) {
 		'/manage/system/city.php' => 'City',
 		'/manage/system/page.php' => 'Page',
 		'/manage/system/cache.php' => 'Cache',
-		'/manage/system/template.php' => 'Template',
+		'/manage/system/template.php' => 'Template'
 	);
 	$l = "/manage/system/{$selector}.php";
+	return current_link($l,$a,true);
+}
+function mcurrent_charity($selector=null) {
+	$a = array(
+		'/manage/charity/charity.php' => 'Charity',
+	);
+	$l = "/manage/charity/{$selector}.php";
 	return current_link($l,$a,true);
 }

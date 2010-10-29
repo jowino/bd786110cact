@@ -107,7 +107,7 @@ function need_post() {
 	return is_post() ? true : redirect(WEB_ROOT . '/index.php');
 }
 function need_manager() {
-	return is_manager() ? true : redirect( WEB_ROOT . '/account/login.php');
+	return is_manager() ? true : false;//redirect( WEB_ROOT . '/account/login.php');
 }
 function need_partner() {
 	return is_partner() ? true : redirect( WEB_ROOT . '/biz/login.php');
@@ -379,6 +379,9 @@ function upload_image($inputname, $image=null, $type='team', $width=440) {
 		else if($type=='team') {
 			Image::Convert($z['tmp_name'], $path, $width,0,Image::MODE_SCALE);
 		}
+		else if($type=='charity'){
+			Image::convert($z['tmp_name'],$path,0,0,Image::MODE_SCALE);
+		}
 		return $image;
 	} 
 	return $image;
@@ -473,4 +476,21 @@ function get_zones($zone=null) {
 		$zone = 'city';
 	}
 	return array($zone, $zones[$zone]);
+}
+
+ function hasPermission($key, $value) {
+ 	global $login_user;
+ 	$permissions=unserialize($login_user['permission']);
+    if (isset($permissions[$key])) {
+	  	return in_array($value, $permissions[$key]);
+	} else {
+	  	return FALSE;
+	}
+  }
+  
+  function need_permission($action,$target) {
+	return hasPermission($action, $target) ? true : redirect( '/manage/permission.php?action='.$action);
+}
+ function check_permission($action,$target) {
+	return hasPermission($action, $target) ? true :false;
 }
