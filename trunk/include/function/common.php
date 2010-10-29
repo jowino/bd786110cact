@@ -127,6 +127,20 @@ function is_manager() {
 function is_partner() {
 	return ($_SESSION['partner_id']>0);
 }
+function is_customer(){
+	global $user_group;
+	if(isset($user_group))
+	{
+		if(!array_key_exists('name',$user_group)||strtolower($user_group['name'])=='customer')
+		{
+			return true;
+		}
+		return false;
+	}
+	else {
+		return true;
+	}
+}
 
 function is_newbie(){ return (cookieget('newbie')!='N'); }
 function is_get() { return ! is_post(); }
