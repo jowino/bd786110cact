@@ -1,4 +1,3 @@
-
 <?php include template("html_header");?>
 
 <div id="hdw">
@@ -14,7 +13,7 @@
 				<ul><?php echo current_city($city['ename'], $INI['hotcity']); ?></ul>
 			</div>
 			<?php }?>
-			<?php if(is_manager()){?>
+			<?php if((is_manager()||!is_customer())){?>
 			<li><a href="/manage/index.php">Manage <?php echo $INI['system']['abbreviation']; ?></a></li>
 			<?php }?>
 		</div>
