@@ -37,8 +37,12 @@
 						</div>
                         <div class="field">
                             <label>Verify Email</label>
-                            <input type="text" size="30" name="system[emailverify]" class="number" value="{$INI['system']['emailverify']}"/>
-							<span class="inputtip">1 Will verify, 0 Will not verify</span>
+                             <!--{if (isset($INI['system']['emailverify']))}-->
+                            <input type="checkbox" size="30" name="system[emailverify]" class="number" checked/>
+                            <!--{else} -->
+                            <input type="checkbox" size="30" name="system[emailverify]" class="number"/>
+                            <!--{/if} -->
+							<span class="inputtip"></span>
 						</div>
                         <div class="field">
                             <label>Side Bar Deal?</label>

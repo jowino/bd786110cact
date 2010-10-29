@@ -13,7 +13,7 @@
 				<ul>${current_city($city['ename'], $INI['hotcity'])}</ul>
 			</div>
 			<!--{/if}-->
-			<!--{if is_manager()}-->
+			<!--{if (is_manager()||!is_customer())}-->
 			<li><a href="/manage/index.php">Manage {$INI['system']['abbreviation']}</a></li>
 			<!--{/if}-->
 		</div>
