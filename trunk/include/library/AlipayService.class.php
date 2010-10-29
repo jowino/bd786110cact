@@ -2,7 +2,7 @@
 class AlipayService {
 
 	var $gateway = "https://www.alipay.com/cooperate/gateway.do?";  //支付接口
-	var $parameter;       //全部需要传递的参数
+	var $parameter;     //全部需要传递的参数
 	var $security_code;   //安全校验码
 	var $mysign;          //签名
 

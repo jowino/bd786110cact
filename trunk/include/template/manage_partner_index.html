@@ -22,7 +22,7 @@
 						<td style="text-align:left;">{$one['contact']}</td>
 						<td>{$one['phone']}<br/>{$one['mobile']}</td>
 						<td>${date('Y-m-d',$one['create_time'])}</td>
-						<td class="op"><a href="/manage/partner/edit.php?id={$one['id']}">Edit</a>｜<a href="/ajax/manage.php?action=partnerremove&id={$one['id']}" class="ajaxlink" ask="Sure to delete this partner?">Delete</a></td>
+						<td class="op"><a href="/manage/partner/edit.php?id={$one['id']}">Edit</a>|<a href="/ajax/manage.php?action=partnerremove&id={$one['id']}" class="ajaxlink" ask="Sure to delete this partner?">Delete</a></td>
 					</tr>
 					<!--{/loop}-->
 					<tr><td colspan="5">{$pagestring}</td></tr>

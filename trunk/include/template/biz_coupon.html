@@ -7,15 +7,18 @@
 		<div class="box clear">
             <div class="box-top"></div>
             <div class="box-content">
+            <form action="/biz/coupon.php" method="get">
                 <div class="head">
                     <h2>{$INI['system']['couponname']} List </h2>
 					<ul class="filter">
-						<li><form action="/biz/coupon.php" method="get">Item: <input type="text" class="h-input" name="title" value="${htmlspecialchars($title)}" >&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/><form></li>
+						<li>Item: <input type="text" class="h-input" name="title" value="${htmlspecialchars($title)}" >&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/>
+							&nbsp;<a href="couponlistprint.php">print coupons outstanding</a>
+						</li>
 					</ul>
 				</div>
                 <div class="sect">
 					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
-						<tr><th width="400">Deal Item</th><th width="180">Buyer </th><th width="100" nowrap>Coupon's Number</th><th width="60" nowrap>Coupon's Password</th><th width="100" nowrap>Valid Date</th><th width="60">Status</th></tr>
+						<tr><th width="400">Deal Item</th><th width="180">Buyer </th><th width="100" nowrap>Coupon's Number</th><th width="60" nowrap>Coupon's Password</th><th width="100" nowrap>Valid Date</th><th width="60">Status</th><th width="60">Operation</th></tr>
 					<!--{loop $coupons $index $one}-->
 						<tr ${$index%2?'':'class="alt"'}>
 							<td><a href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
@@ -24,11 +27,15 @@
 							<td>********</td>
 							<td>${date('Y-m-d', $one['expire_time'])}</td>
 							<td><!--{if $one['consume']=='Y'}-->Consumed<!--{elseif $one['expire_time']<time()}-->Has Expired<!--{else}-->Valid<!--{/if}--></td>
+							<!--{if $one['consume']=='N'}-->
+							<td><input type="submit" name="{$one['id']}" value="Checkoff" /></td>
+							<!--{/if} -->
 						</tr>	
 					<!--{/loop}-->
 						<tr><td colspan="6">{$pagestring}</td></tr>
                     </table>
 				</div>
+				</form>
             </div>
             <div class="box-bottom"></div>
         </div>

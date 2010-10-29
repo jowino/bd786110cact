@@ -20,6 +20,10 @@
 							<input id="enter-address-mail" name="email" class="f-input f-mail" type="text" value="{$login_user['email']}" size="20" require="true" datatype="email" />
 							<span class="tip">(Don't worry, your email is safe with us!)</span>
 						</div>
+						<div class="mail">
+						<label>Select your City:</label>
+						<select name="city_id" class="f-input" style="width:150px;">${Utility::Option($cities, $city['id'])}</select>
+						</div>
 						<div class="city">
 							<label>&nbsp;</label>
 							<input id="enter-address-commit" type="submit" class="formbutton" value="Submit" />

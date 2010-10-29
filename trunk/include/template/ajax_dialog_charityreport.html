@@ -1,0 +1,24 @@
+<div id="order-pay-dialog" class="order-pay-dialog-c" style="width:450px;">
+	<h3><span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">Close</span>Charity Report</h3>
+	<div style="overflow-x:hidden;padding:10px;">
+	<input type="hidden" name="id" value="{$charityreport['id']}" />
+		<!-- <b>Name: </b></td><td>{$charity['name']} -->
+		<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="100">Deal ID</th><th width="250">Deal Amount</th><th width="200">Charity Amount</th></tr>
+					<!--{loop $charityreport $index $one}-->
+					<tr ${$index%2?'':'class="alt"'}>
+						<td>{$one['deal_id']}</td>
+						<td>${moneyit($one['dealamount'])}</td>
+						<td>
+							<!--{if $one['value']<1}-->
+							${moneyit($one['value']*$one['dealamount'])}
+							<!--{else}-->
+							${moneyit($one['value'])}
+							<!--{/if}-->
+						</td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</td></tr>
+       </table>
+	</div>
+</div>

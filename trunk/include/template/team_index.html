@@ -12,7 +12,7 @@
 					<ul class="deals-list">
 					<!--{loop $teams $index $one}-->
 						<li class="${$index++%2?'alt':''} ${$index<=2?'first':''}">
-							<p class="time">${date('m.d.Y', $one['begin_time'])}</p>
+							<p class="time">End Time:${date('m.d.Y', $one['end_time'])}&nbsp;&nbsp;{$one['now_number']} BOUGHT,  TOTAL SAVED:<strong><span class="money">{$currency}</span>${moneyit(($one['market_price']-$one['team_price'])*$one['now_number'])}</strong></p>
 							<h4><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank">{$one['title']}</a></h4>
 							<div class="pic"><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank"><img alt="{$one['title']}" src="${team_image($one['image'])}" width="200" height="121"></a></div>
 							<div class="info"><p class="total"><strong class="count">{$one['now_number']}</strong> Buyers</p><p class="price">Value: <strong

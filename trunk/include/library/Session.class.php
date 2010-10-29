@@ -56,8 +56,6 @@ class Session
 	}
 
 	function __out($data) {
-                echo $data;
-                return;
 		$HTTP_ACCEPT_ENCODING = $_SERVER["HTTP_ACCEPT_ENCODING"]; 
 		if( strpos($HTTP_ACCEPT_ENCODING, 'x-gzip') !== false ) 
 			$encoding = 'x-gzip'; 

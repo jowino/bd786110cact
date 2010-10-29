@@ -1,0 +1,48 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_team($selector)}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Deal Report</h2>
+                    <ul class="filter">
+                    <li><form action="/manage/team/dealreport.php" method="post">
+                    	City：<select name="city_id" class="f-input" style="width:200px;">${Utility::Option($cities, $city_id, 'All')}</select>&nbsp;
+                    	<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/>
+                    	<form>
+                    </li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="500">Deal</th><th width="120" nowrap>City/Category</th><th width="100">Date</th><th width="60" nowrap>Current Price</th><th width="60" nowrap>Sales</th><th width="140">Operation</th></tr>
+					<!--{loop $teams $index $one}-->
+					<!--${$one['state'] = team_state($one)}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td style="text-align:left;"><a class="deal-title" href="/team.php?id={$one['id']}" target="_blank">{$one['title']}</a></td>
+						<td>{$cities[$one['city_id']]}<br/>{$groups[$one['group_id']]['name']}</td>
+						<td>${date('Y-m-d',$one['begin_time'])}<br/>${date('Y-m-d',$one['end_time'])}</td>
+						<td><span class="money">{$currency}</span>${moneyit($one['team_price'])}<br/><span class="money">{$currency}</span>${moneyit($one['market_price'])}</td>
+						<td>{$one['now_number']}</td>
+						<td class="op" nowrap><a href="/ajax/manage.php?action=teamdetail&id={$one['id']}" class="ajaxlink">Detail</a><!--{if $one['state']=='none'}-->｜<a href="/manage/team/edit.php?id={$one['id']}">Edit</a><!--{if $one['now_number']==0}-->｜<a href="/ajax/manage.php?action=teamremove&id={$one['id']}" class="ajaxlink" ask="Delete this item, are you sure?" >Delete</a><!--{/if}--><!--{elseif in_array($one['state'],array('success','soldout'))}-->｜<a href="/manage/team/down.php?id={$one['id']}" target="_blank">Download</a><!--{elseif $one['state']=='failure'}-->｜<a href="/ajax/manage.php?action=teamrefund&id={$one['id']}" class="ajaxlink" ask="Refund, are you sure?">Refund</a><!--{else}-->Already Refund<!--{/if}--></td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->
