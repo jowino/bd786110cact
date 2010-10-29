@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('access', 'coupon/expire');
+}
 $daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'consume' => 'N',

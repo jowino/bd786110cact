@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'system/template');
+}
 $template_id = trim(strval($_GET['id']));
 $template_id = str_replace('/', '_', $template_id);
 

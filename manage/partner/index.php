@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('access', 'partner/index');
+}
 $condition = array();
 $count = Table::Count('partner', $condition);
 list($pagesize, $offset, $pagestring) = pagestring($count, 20);

@@ -1,7 +1,10 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'misc/askedit');
+}
 $id = abs(intval($_GET['id']));
 $ask = Table::Fetch('ask', $id);
 if (!$ask) {

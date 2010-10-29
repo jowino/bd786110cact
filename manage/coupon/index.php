@@ -1,7 +1,11 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('access', 'coupon/index');
+}
+
 $daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'consume' => 'N',
@@ -21,4 +25,5 @@ $coupons = DB::LimitQuery('coupon', array(
 $users = Table::Fetch('user', Utility::GetColumn($coupons, 'user_id'));
 $teams = Table::Fetch('team', Utility::GetColumn($coupons, 'team_id'));
 $selector = 'index';
+
 include template('manage_coupon_index');

@@ -1,14 +1,19 @@
 <?php
 require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 
-need_manager();
+if(!need_manager())
+{
+	need_permission('modify', 'user/edit');
+}
 $id = abs(intval($_GET['id']));
 $user = Table::Fetch('user', $id);
+$user_groups=DB::LimitQuery('user_group');
+$user_group_id=$user['user_group_id'];
 
 if ( $_POST && $id==$_POST['id'] ) {
 	$table = new Table('user', $_POST);
 	$up_array = array(
-			'username', 'realname', 'mobile', 'zipcode', 'address',
+			'user_group_id','username', 'realname', 'mobile', 'zipcode', 'address',
 			);
 
 	if ($table->password ) {
