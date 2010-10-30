@@ -1,10 +1,10 @@
-<!--{include header}-->
+<?php include template("header");?>
 
 <div id="bdw" class="bdw">
 <div id="bd" class="cf">
 <div id="order-detail">
 	<div class="dashboard" id="dashboard">
-		<ul>${current_account(null)}</ul>
+		<ul><?php echo current_account(null); ?></ul>
 	</div>
     <div id="content">
 		<div class="box clear">
@@ -18,9 +18,9 @@
 <table cellspacing="0" cellpadding="0" border="0" class="data-table">
     <tr>
         <th>Order Number: </th>
-        <td class="orderid"><strong>{$order['id']}</strong></td>
+        <td class="orderid"><strong><?php echo $order['id']; ?></strong></td>
         <th>Order Time:</th>
-        <td><span>${date('m.d.Y:i',$order['create_time'])}</span></td>
+        <td><span><?php echo date('m.d.Y:i',$order['create_time']); ?></span></td>
     </tr>
 </table>
 
@@ -36,24 +36,24 @@
         <th width="150">Status</th>
     </tr>
     <tr>
-        <td class="left"><a class="deal-title" href="/team.php?id={$order['team_id']}" target="_blank">{$team['title']}</a></td>
-        <td><span class="money">{$currency}</span>${moneyit($team['team_price'])}</td>
+        <td class="left"><a class="deal-title" href="/team.php?id=<?php echo $order['team_id']; ?>" target="_blank"><?php echo $team['title']; ?></a></td>
+        <td><span class="money"><?php echo $currency; ?></span><?php echo moneyit($team['team_price']); ?></td>
         <td>x</td>
-        <td>{$order['quantity']}</td>
+        <td><?php echo $order['quantity']; ?></td>
         <td>=</td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($team['team_price']*$order['quantity'])}</td>
-        <td>${$order['service']=='cash'?"Cash on Delivery":$order['service']}</td>
-        <td class="status"><!--{if $order['state']=='unpay'}-->Pending<!--{elseif !$express}-->Done<!--{else}-->-<!--{/if}--></td>
+        <td class="total"><span class="money"><?php echo $currency; ?></span><?php echo moneyit($team['team_price']*$order['quantity']); ?></td>
+        <td><?php echo $order['service']=='cash'?"Cash on Delivery":$order['service']; ?></td>
+        <td class="status"><?php if($order['state']=='unpay'){?>Pending<?php } else if(!$express) { ?>Done<?php } else { ?>-<?php }?></td>
     </tr>
 
-<!--{if $express}-->
+<?php if($express){?>
     <tr>
         <td class="left">Express Delivery</td>
-        <td>${moneyit($team['fare'])}</td>
+        <td><?php echo moneyit($team['fare']); ?></td>
         <td>x</td>
         <td>1</td>
         <td>=</td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($team['fare'])}</td>
+        <td class="total"><span class="money"><?php echo $currency; ?></span><?php echo moneyit($team['fare']); ?></td>
         <td class="status">-</td>
     </tr>
     <tr>
@@ -62,25 +62,25 @@
         <td></td>
         <td></td>
         <td></td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($order['origin'])}</td>
+        <td class="total"><span class="money"><?php echo $currency; ?></span><?php echo moneyit($order['origin']); ?></td>
         <td class="status">Done</td>
     </tr>
-<!--{/if}-->
+<?php }?>
 
 </table>
 
-<!--{if $team['delivery']=='coupon'}-->
+<?php if($team['delivery']=='coupon'){?>
 <table cellspacing="0" cellpadding="0" border="0" class="data-table">
     <tr>
-        <th>{$INI['system']['couponname']}：</th>
-        <td class="other-coupon"><!--{if empty($coupons)}-->{$INI['system']['couponname']}System will send it when the deal is on.<!--{/if}--><!--{loop $coupons $one}--><p>{$one['id']} - {$one['secret']}</p><!--{/loop}--></td>
+        <th><?php echo $INI['system']['couponname']; ?>：</th>
+        <td class="other-coupon"><?php if(empty($coupons)){?><?php echo $INI['system']['couponname']; ?>System will send it when the deal is on.<?php }?><?php if(is_array($coupons)){foreach($coupons AS $one) { ?><p><?php echo $one['id']; ?> - <?php echo $one['secret']; ?></p><?php }}?></td>
     </tr>
     <tr>
         <th>How To Use: </th>
-        <td>Please show {$INI['system']['couponname']} when you are using this coupon. Be cooperative when your coupon and password is confirmed.</td>
+        <td>Please show <?php echo $INI['system']['couponname']; ?> when you are using this coupon. Be cooperative when your coupon and password is confirmed.</td>
     </tr>
 </table>
-<!--{elseif $team['delivery']=='express'}-->
+<?php } else if($team['delivery']=='express') { ?>
 <table cellspacing="0" cellpadding="0" border="0" class="data-table">
     <tr>
         <th>Delivery: </th>
@@ -88,18 +88,18 @@
     </tr>
     <tr>
         <th>Recieptant: </th>
-        <td>{$order['realname']}</td>
+        <td><?php echo $order['realname']; ?></td>
     </tr>
     <tr>
         <th>Order Address: </th>
-        <td>{$order['address']}</td>
+        <td><?php echo $order['address']; ?></td>
     </tr>
     <tr>
         <th>Handphone:  </th>
-        <td>{$order['mobile']}</td>
+        <td><?php echo $order['mobile']; ?></td>
     </tr>
 </table>
-<!--{elseif $team['delivery']=='pickup'}-->
+<?php } else if($team['delivery']=='pickup') { ?>
 <table cellspacing="0" cellpadding="0" border="0" class="data-table">
     <tr>
         <th>Self Withdraw: </th>
@@ -107,14 +107,14 @@
     </tr>
     <tr>
         <th>Withdraw Address: </th>
-        <td>{$team['address']}</td>
+        <td><?php echo $team['address']; ?></td>
     </tr>
     <tr>
         <th>Handphone: </th>
-        <td>{$team['mobile']}</td>
+        <td><?php echo $team['mobile']; ?></td>
     </tr>
 </table>
-<!--{/if}-->
+<?php }?>
                 </div>
             </div>
             <div class="box-bottom"></div>
@@ -127,4 +127,4 @@
 </div> <!-- bd end -->
 </div> <!-- bdw end -->
 
-<!--{include footer}-->
+<?php include template("footer");?>

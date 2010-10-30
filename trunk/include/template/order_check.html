@@ -54,6 +54,7 @@
 					</div>  
 				<!--{if $login_user['money']<$order['origin']}-->
 					<ul class="typelist">
+					<li><input id="check-cod" type="radio" name="paytype" value="cash" {$ordercheck['cod']} /><label for="check-paypal" class="cod">Cash on Delivery</label></li>
 					<!--{if $INI['paypal']['mid']}-->
 						<li><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal">PayPal payment for international users</label></li>
 					<!--{/if}-->					

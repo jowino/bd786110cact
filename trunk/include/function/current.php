@@ -25,6 +25,7 @@ function current_backend() {
 			'/manage/order/index.php' => 'Order',
 			'/manage/coupon/index.php' => $INI['system']['couponname'],
 			'/manage/user/index.php' => 'User',
+			'/manage/customer/index.php' => 'Customer',
 			'/manage/partner/index.php' => 'Partner',
 			'/manage/charity/charity.php'=>'Charity',
 			'/manage/category/index.php' => 'Category',
@@ -38,6 +39,7 @@ function current_backend() {
 	elseif (preg_match('#/manage/category#',$r)) $l = '/manage/category/index.php';
 	elseif (preg_match('#/manage/partner#',$r)) $l = '/manage/partner/index.php';
 	elseif (preg_match('#/manage/user#',$r)) $l = '/manage/user/index.php';
+	elseif (preg_match('#/manage/customer#',$r)) $l = '/manage/customer/index.php';
 	elseif (preg_match('#/manage/system#',$r)) $l = '/manage/system/index.php';
 	else $l = '/manage/misc/index.php';
 	return current_link($l, $a);
@@ -166,6 +168,14 @@ function mcurrent_user($selector=null) {
 		'/manage/user/usergroup.php'=>"User Group",
 	);
 	$l = "/manage/user/{$selector}.php";
+	return current_link($l,$a,true);
+}
+function mcurrent_customer($selector=null) {
+	$a = array(
+		'/manage/customer/index.php' => 'Customer List',
+
+	);
+	$l = "/manage/customer/{$selector}.php";
 	return current_link($l,$a,true);
 }
 function mcurrent_team($selector=null) {
