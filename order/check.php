@@ -12,6 +12,7 @@ if ( $team['state'] != 'none' ) {
 }
 
 if ( $order['state'] == 'unpay' ) {
+	
 	if($INI['paypal'] && $order['service']=='paypal') {
 		$ordercheck['paypal'] = 'checked';
 	}
@@ -30,6 +31,7 @@ if ( $order['state'] == 'unpay' ) {
 	else if($INI['chinabank']) {
 		$ordercheck['chinabank'] = 'checked';
 	}
+	
 	die(include template('order_check'));
 }
 
