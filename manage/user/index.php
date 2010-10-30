@@ -8,10 +8,27 @@ if(!need_manager())
 $like = strval($_GET['like']);
 $cs = strval($_GET['cs']);
 
+$usergroup=Table::Fetch('user_group','customer','name');
 /* build condition */
-$condition = array();
+//$condition = array();
 if ($like) { 
-	$condition[] = "email like '%".mysql_escape_string($like)."%'";
+	if(empty($usergroup))
+	{
+		$condition=array('or'=>array("'user_group_id'!=0","manager='Y'"),"email like '%".mysql_escape_string($like)."%'",);
+	}
+	else
+    {
+		$condition=array('or'=>array('and'=>array("user_group_id!=0","user_group_id!=".$usergroup['id']),"manager='Y'"),"email like '%".mysql_escape_string($like)."%'");	
+	}
+}
+else {
+	if(empty($usergroup))
+	{
+		$condition=array('or'=>array("user_group_id!=0","manager='Y'"));
+	}
+	else {
+		$condition=array('or'=>array('and'=>array("user_group_id!=0","user_group_id!=".$usergroup['id']),"manager='Y'"));
+	}
 }
 
 $count = Table::Count('user', $condition);
