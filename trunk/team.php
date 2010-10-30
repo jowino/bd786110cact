@@ -64,6 +64,7 @@ if ($login_user_id && $team['state'] == 'none' ) {
 			'team_id' => $id,
 			'user_id' => $login_user_id,
 			'state' => 'unpay',
+			"service!='cash'"
 		),
 		'one' => true,
 	));
