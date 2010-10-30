@@ -29,6 +29,14 @@ if ( $order['state'] == 'pay' ) {
 	}
 }
 
+if(is_post()&&isset($_POST['cod']))
+{
+	$carray = array( 'remark' => strtolower($_POST['remark']),'service'=>'cash' );
+	Table::UpdateCache('order', $order_id, $carray);
+	$team = Table::Fetch('team', $order['team_id']);
+		die(include template('order_pay_success'));		
+}
+
 $team = Table::Fetch('team', $order['team_id']);
 $randno = rand(1000,9999);
 $total_money = moneyit($order['origin'] - $login_user['money']);
@@ -154,6 +162,16 @@ else if ( $order['service'] == 'paypal') {
         $paypal->add_field('txn_id', $out_trade_no);
 
 	$sign = $paypal->submit_verify();
+	include template('order_pay');
+}else if ( $order['service'] == 'cash' ) {
+	Table::UpdateCache('order', $order_id, array(
+				'service' => 'cash',
+				'money' => 0,
+				'state' => 'unpay',
+				'credit' => 0,
+				));
+	$order = Table::FetchForce('order', $order_id);
+	ZTeam::BuyOne($order);
 	include template('order_pay');
 }
 else if ( $order['service'] == 'credit' ) {

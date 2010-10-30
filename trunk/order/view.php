@@ -9,7 +9,7 @@ if(!$order_id || !($order = Table::Fetch('order', $order_id))) {
 if ( $order['user_id'] != $login_user['id']) {
 	Utility::Redirect( WEB_ROOT . "/team.php?id={$order['team_id']}");
 }
-if ( $order['state']=='unpay') {
+if ( $order['state']=='unpay'&&$order['service']!='cash') {
 	Utility::Redirect( WEB_ROOT . "/team.php?id={$order['team_id']}");
 }
 
