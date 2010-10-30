@@ -18,7 +18,7 @@ $cityname = preg_split('/[,]+/', $_POST['hotcity'], -1, PREG_SPLIT_NO_EMPTY);
 		$city = DB::LimitQuery('category', array(
 					'condition' => array(
 						'zone' => 'city',
-						'name' => $one,
+						'name' => trim($one),
 						),
 					'one' => 'true',
 					));
