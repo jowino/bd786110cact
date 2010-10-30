@@ -25,8 +25,8 @@
 							<td style="text-align:left;"><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
 							<td>{$one['quantity']}</td>
 							<td><span class="money">{$currency}</span>${moneyit($one['origin'])}</td>
-							<td><!--{if $one['state']=='pay'}-->Have paid<!--{elseif $teams[$one['team_id']]['state']!='none'}-->Is expired<!--{else}-->Unpaid<!--{/if}--><!--{/if}--></td>
-							<td class="op"><!--{if ($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')}--><a href="/order/pay.php?id={$one['id']}">Pay</a><!--{elseif $one['state']=='pay'}--><a href="/order/view.php?id={$one['id']}">Detail</a><!--{/if}--></td>
+							<td><!--{if $one['state']=='pay'}-->Have paid<!--{elseif $one['state']=='unpay'&&$one['service']=='cash'}-->Pending<!--{elseif $teams[$one['team_id']]['state']!='none'}-->Is expired<!--{else}-->Unpaid<!--{/if}--><!--{/if}--></td>
+							<td class="op"><!--{if ($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')&&$one['service']!='cash'}--><a href="/order/pay.php?id={$one['id']}">Pay</a><!--{elseif $one['state']=='pay'||$one['service']=='cash'}--><a href="/order/view.php?id={$one['id']}">Detail</a><!--{/if}--></td>
 						</tr>
 					<!--{/loop}-->
 						<tr><td colspan="5">{$pagestring}</td></tr>

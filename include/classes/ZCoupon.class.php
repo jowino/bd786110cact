@@ -35,6 +35,8 @@ class ZCoupon
 	}
 
 	static public function Create($order) {
+		if($order['state']=='unpay')
+			return;
 		$team = Table::Fetch('team', $order['team_id']);
 		$partner = Table::Fetch('partner', $order['partner_id']);
 		$ccon = array('order_id' => $order['id']);

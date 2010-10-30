@@ -21,6 +21,14 @@
 	<input type="hidden" name="service" value="credit" />
 	<input type="submit" class="formbutton gotopay" value="Use account balance" />
 </form>
+<!--{elseif $order['service']=='cash'}-->
+<form id="order-pay-form" method="post" sid="{$order['id']}">
+	<input type="hidden" name="order_id" value="{$order_id}" />
+	<input type="hidden" name="service" value="cash" />
+	<label>Cash on Delivery:</label><textarea cols="45" rows="5" name="remark"></textarea><br>
+	<input type="submit" name="cod" class="formbutton gotopay" value="Confirm Order" />
+</form>
+<br />
 <!--{elseif $order['service']=='paypal'}-->
 <form id="order-pay-form" method="post" action="https://www.paypal.com/cgi-bin/webscr" target="_blank" sid="{$order['id']}">
 	<input type="hidden" name="rm" value="2" />

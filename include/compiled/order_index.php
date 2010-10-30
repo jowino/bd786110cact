@@ -25,8 +25,8 @@
 							<td style="text-align:left;"><a class="deal-title" href="/team.php?id=<?php echo $one['team_id']; ?>" target="_blank"><?php echo $teams[$one['team_id']]['title']; ?></a></td>
 							<td><?php echo $one['quantity']; ?></td>
 							<td><span class="money"><?php echo $currency; ?></span><?php echo moneyit($one['origin']); ?></td>
-							<td><?php if($one['state']=='pay'){?>Have paid<?php } else if($teams[$one['team_id']]['state']!='none') { ?>Is expired<?php } else { ?>Unpaid<?php }?><!--{/if}--></td>
-							<td class="op"><?php if(($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')){?><a href="/order/pay.php?id=<?php echo $one['id']; ?>">Pay</a><?php } else if($one['state']=='pay') { ?><a href="/order/view.php?id=<?php echo $one['id']; ?>">Detail</a><?php }?></td>
+							<td><?php if($one['state']=='pay'){?>Have paid<?php } else if($one['state']=='unpay'&&$one['service']=='cash') { ?>Pending<?php } else if($teams[$one['team_id']]['state']!='none') { ?>Is expired<?php } else { ?>Unpaid<?php }?><!--{/if}--></td>
+							<td class="op"><?php if(($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')&&$one['service']!='cash'){?><a href="/order/pay.php?id=<?php echo $one['id']; ?>">Pay</a><?php } else if($one['state']=='pay'||$one['service']=='cash') { ?><a href="/order/view.php?id=<?php echo $one['id']; ?>">Detail</a><?php }?></td>
 						</tr>
 					<?php }}?>
 						<tr><td colspan="5"><?php echo $pagestring; ?></td></tr>
