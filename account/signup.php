@@ -17,6 +17,10 @@ if ( $_POST ) {
 		if ( $INI['system']['emailverify'] ) { 
 			$u['enable'] = 'N'; 
 		}
+		$usergroup=Table::Fetch('user_group','customer','name');
+		if (!empty($usergroup)){
+			$u['user_group_id']=$usergroup['id'];
+		}
 		if ( $user_id = ZUser::Create($u) ) {
 			if ( $INI['system']['emailverify'] ) {
 				mail_sign_id($user_id);
