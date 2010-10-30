@@ -56,7 +56,7 @@ if (!$order) {
 	$order = array();
 	$order['quantity'] = 1;
 } else {
-	if ($order['state']!='unpay') {
+	if ($order['state']!='unpay'||$order['service']=='cash') {
 		Session::Set('error', 'Only buy once for each person, you have bought.');
 		Utility::Redirect( WEB_ROOT . '/index.php'); 
 	}
