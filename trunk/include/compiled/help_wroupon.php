@@ -22,7 +22,9 @@
 	</div>
 	<div id="sidebar">
 		<?php include template("block_side_business");?>
+		<div class="side-bar-1">
 		<?php include template("block_side_subscribe");?>
+		</div>
 	</div>
 </div>
 </div> <!-- bd end -->

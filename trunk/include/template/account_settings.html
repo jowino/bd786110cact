@@ -6,14 +6,14 @@
 	<div class="dashboard" id="dashboard">
 		<ul>${current_account('/account/settings.php')}</ul>
 	</div>
-    <div id="content" class="clear settings-box">
-		<div class="box clear">
+    <div id="content" class="clr settings-box">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Setting</h2></div>
                 <div class="sect">
                     <form id="settings-form" method="post" action="/account/settings.php" enctype="multipart/form-data" class="validator">
-						<div class="wholetip clear"><h3>1. Basic Info</h3></div>
+						<div class="wholetip clr"><h3>1. Basic Info</h3></div>
                         <div class="field email">
                             <label>Email</label>
                             <input type="text" size="30" name="email" id="settings-email-address" class="f-input readonly" readonly="readonly" value="{$login_user['email']}" />
@@ -39,7 +39,7 @@
                             <label>Confirm New Password</label>
                             <input type="password" size="30" name="password2" id="settings-password-confirm" class="f-input" />
                         </div>
-						<div class="wholetip clear"><h3>2. Delivery Info </h3></div>
+						<div class="wholetip clr"><h3>2. Delivery Info </h3></div>
                         <div class="field mobile">
                             <label>Handphone</label>
                             <input type="text" size="30" name="mobile" id="settings-mobile" class="f-input" value="{$login_user['mobile']}" />
@@ -58,7 +58,7 @@
                             <input type="text" size="30" name="address" id="settings-address" class="f-input" value="{$login_user['address']}" />
                             <span class="hint">Address should be in "BLK xxx, xxxx Street xxx, #xx-xxx"</span>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clr"></div>
                         <div class="act">
                             <input type="submit" value="Change" name="commit" id="settings-submit" class="formbutton"/>
                         </div>
@@ -70,7 +70,7 @@
     </div>
     <div id="sidebar" class="rail">
 		<!--{include block_side_credit}-->
-		<div class="clear"></div>
+		<div class="clr"></div>
 		<!--{include block_side_credittip}-->
     </div>
 </div>

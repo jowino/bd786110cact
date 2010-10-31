@@ -1,0 +1,27 @@
+ <h1>Questions About the Deal</h1>
+<!--{loop $asks $one}-->
+          <div class="comment">
+
+            <p class="green">{$users[$one['user_id']]['username']}</p>
+
+            <p>(${Utility::HumanTime($one['create_time'])})</p>
+
+            <div class="comment-box">
+
+              <div class="comment-top"></div>
+
+              <div class="comment-middle">
+
+                <p>{$one['content']} </p>
+				<!--{if $one['comment']!=""}-->
+				<p style="color:red;">Reply:{$one['comment']}</p>
+				<!--{/if}-->
+              </div>
+
+              <div class="comment-bottom"></div>
+
+            </div>
+
+          </div>
+          <!--{/loop}-->
+          

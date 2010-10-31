@@ -1,16 +1,17 @@
+
 <!--{if $others}-->
-<div class="sbox side-others">
-	<div class="sbox-top"></div>
-	<div class="sbox-content">
-		<div class="tip">
-		<h2>Today's side deal</h2>
-		<!--{loop $others $one}-->
-			<b>${++$index}. {$one['title']}</b>
-			<p><a href="/team.php?={$one['id']}"><img src="${team_image($one['image'])}" width="195" height="148" border="0" /></a><br/><a href="/team.php?id={$one['id']}">&raquo;&nbsp;Check Detail</a></p>
-			<hr />
-		<!--{/loop}-->
-		</div>
-	</div>
-	<div class="sbox-bottom"></div>
-</div>
-<!--{/if}-->
+       <div class="side-bar-heading">
+          <h2>
+          Side Deal
+          </h2>
+        </div>
+        <!--{loop $others $one}-->
+        <div class="side-bar-inner">
+          <p>${++$index}. {$one['title']}</p>
+          <a href="/team.php?={$one['id']}"><img src="${team_image($one['image'])}" width="195" height="148" border="0" /></a>
+          <div class="valued">
+            <a href="/team.php?id={$one['id']}">&raquo;&nbsp;Check Detail</a>
+          </div>
+        </div>
+        <!--{/loop}-->
+  <!--{/if}-->

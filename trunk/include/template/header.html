@@ -1,61 +1,92 @@
 <!--{include html_header}-->
+<div id="main-wrapper">
 
-<div id="hdw">
-	<div id="hd">
-		<div id="logo"><a href="/index.php" class="link"><img src="/static/css/i/logo.png" /></a></div>
-		<div class="guides">
-			<div class="city">
-				<h2>{$city['name']}</h2>
-			</div>
+  <div id="header">
+
+    <div class="logo"><img src="/static/images/logo.jpg" title="Moosavings" alt="Moosavings"/></div>
+
+    <div class="header-box-2">
+
+    <!--  <ul class="button">
+
+        <li class="button-left"></li>
+
+        <li>Visit More Cities<a class="button-arrow" href="#"></a></li>
+
+        <li class="button-right"></li>
+        <li>Current City :{$city['name']}</li>
+
+      </ul> --> 
 			<!--{if count($INI['hotcity'])>1||!in_array($city['ename'], array_keys($INI['hotcity']))}-->
-			<div id="guides-city-change" class="change">Change</div>
+		
+			<div class="button-left"></div>
+			<div id="guides-city-change" class="change">Visit More Cities</div>
+			<div class="button-right"></div>
 			<div id="guides-city-list" class="city-list">
 				<ul>${current_city($city['ename'], $INI['hotcity'])}</ul>
 			</div>
 			<!--{/if}-->
+			<span style="font-size:15px;color:#78A22F;font-weight:bold;">Current City :{$city['name']}</span>
+    </div>
+
+    <div class="header-box-3">
+
+      <ul class="button">
+
+        <li class="button-left"></li>
+
+        <li><a  href="/account/invite.php">Refer Friends, Get {$currency} {$INI['system']['invitecredit']}</a></li>
+
+        <li class="button-right"></li>
+
+      </ul>
+
+      <div class="clr"></div>
+
+      <p class="telephone">+971 4 2831911</p>
+
+      <p class="mailto"><a href="mailto:info@moosavings.com">info@moosavings.com</a></p>
+
+      <div class="social-button"> <a href="#"><img src="/static/images/fb-icon.jpg" alt="Facebook" border="0" title="Facebook" /></a> <a href="#"><img src="/static/images/twitter-icon.jpg" alt="Twitter" border="0" title="Twitter" /></a> </div>
 			<!--{if (is_manager()||!is_customer())}-->
-			<li><a href="/manage/index.php">Manage {$INI['system']['abbreviation']}</a></li>
+			<div><a href="/manage/index.php">Manage {$INI['system']['abbreviation']}</a></div>
 			<!--{/if}-->
-		</div>
-		<ul class="nav cf">${current_frontend()}</ul>
-		<div class="refer">&raquo;&nbsp;<a href="/subscribe.php">Subscribe</a>&nbsp;&nbsp;&nbsp;&raquo;&nbsp;<a
-            href="/account/invite.php">Invite</a>&nbsp;&nbsp;&nbsp;&raquo;&nbsp;<a id="verify-coupon-id"
-            href="javascript:;">{$INI['system']['couponname']}Verify&Claim</a>
-		</div>
-		<!--{if $login_user}-->
+    </div>
+
+  </div>
+    <div class="clr"></div>
+
+  <div id="header-menu">
+
+    <div class="main-menu">
+
+      <ul><!-- ${current_frontend()} -->
+
+        <li><a href="/index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('daily-deals','','{$ajax_root}/static/images/daily-deals-hvr.jpg',1)"><img src="/static/images/daily-deals.jpg" alt="daily-deals" name="daily-deals" width="167" height="38" border="0" id="daily-deals" /></a></li>
+
+        <li><a href="/team/index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('past-deals','','{$ajax_root}/static/images/past-deals-hvr.jpg',1)"><img src="/static/images/past-deals.jpg" alt="past-deals" name="past-deals" width="150" height="38" border="0" id="past-deals" /></a></li>
+
+        <li><a href="/help/tour.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('how-moosavings-works','','{$ajax_root}/static/images/how-moosavings-works-hvr.jpg',1)"><img src="/static/images/how-moosavings-works.jpg" alt="how-moosavings-works" name="how-moosavings-works" width="270" height="38" border="0" id="how-moosavings-works" /></a></li>
+
+        <li><a href="/team/ask.php?id={$team['id']}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('discussion','','{$ajax_root}/static/images/discussion-hvr.jpg',1)"><img src="/static/images/discussion.jpg" alt="discussion" name="discussion" width="131" height="38" border="0" id="discussion" /></a></li>
+
+      </ul>
+
+    </div>
+<!--{if $login_user}-->
 		<div class="logins">
 			<ul id="account">
-				<li class="username">Welcome, {$login_user['username']}!</li>
-				<li class="account"><a href="/order/index.php" id="myaccount" class="account">My {$INI['system']['abbreviation']}</a></li>
+				<li class="username">Hi, {$login_user['username']}!</li>
+				<li class="account"><a href="/order/index.php" id="myaccount" class="account">My Stuff</a></li>
 				<li class="logout"><a href="/account/logout.php">Exit</a></li>
 			</ul>
 			<div class="line islogin"></div>
 		</div>
-		<ul id="myaccount-menu">
-			<li><a href="/order/index.php">My Order</a></li>
-			<li><a href="/coupon/index.php">My {$INI['system']['couponname']}</a></li>
-			<li><a href="/account/settings.php">Setting</a></li>
-		</ul>
 		<!--{else}-->
-		<div class="logins">
-			<ul id="account">
-				<li class="login"><a href="/account/login.php">Login</a></li>
-				<li class="signup"><a href="/account/signup.php">Register </a></li>				</ul>
-			<div class="line "></div>
-		</div>
-		<div style=" position:absolute; right:150pt;;top:80px"">
-					<?php if ($_SESSION['user_id']=='') { include "fb_connector.php"; }?>
-				</div>
-
-				<div style=" position:absolute; right:300px;top:80px">
-				<?php if ($_SESSION['user_id']=='') { ?>
-				<a href="/redirect.php"><img src="/tw_connect/images/lighter.png" alt="Sign in with Twitter"/>
-				<?php }?>
-				</a>
-		</div>
+		    <div class="fb-connect"><a href="fb_connector.php"><img src="/static/images/fb-connect.jpg" alt="Facebook Connect" border="0" title="Facebook Connect" /></a></div>
+    		<div class="sign-in"><a href="/account/login.php"><img src="/static/images/sign-in.jpg" alt="Sign In" border="0" title="Sign In" /></a></div>
 		<!--{/if}-->
-	</div>
-</div>
+  </div>
 
 <!--{if $session_notice=Session::Get('notice',true)}-->
 <div class="sysmsgw" id="sysmsg-success"><div class="sysmsg"><p>{$session_notice}</p><span class="close">Close</span></div></div>

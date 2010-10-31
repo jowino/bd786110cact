@@ -20,18 +20,22 @@
 							<input id="enter-address-mail" name="email" class="f-input f-mail" type="text" value="<?php echo $login_user['email']; ?>" size="20" require="true" datatype="email" />
 							<span class="tip">(Don't worry, your email is safe with us!)</span>
 						</div>
-						<div class="city">
+						<div class="mail">
+						<label>Select your City:</label>
+						<select name="city_id" class="f-input" style="width:150px;"><?php echo Utility::Option($cities, $city['id']); ?></select>
+						</div>
+						<div class="city"> 
 							<label>&nbsp;</label>
-							<input id="enter-address-commit" type="submit" class="formbutton" value="Submit" />
+							<input id="enter-address-commit" type="submit" class="submit" value="Submit" />
 							<?php if(false){?>
 							<label>Subscribe City: <b><?php echo $city['name']; ?></b></label>
-							<input id="enter-address-commit" type="submit" class="formbutton" value="Submit" />
+							<input id="enter-address-commit" type="submit" class="submit" value="Submit" />
 							<span class="tip"><a id="subscribe-other" href="/city.php?r=<?php echo $currefer; ?>">Not Your City? </a></span>
 							<?php }?>
 						</div>
 						</form>
 					</div>
-					<div class="clear"></div>
+					<div class="clr"></div>
 				</div>
 				<div class="intro">
 					<p>Our daily deals consist of:</p>

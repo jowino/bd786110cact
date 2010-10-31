@@ -1,0 +1,48 @@
+<?php include template("manage_header");?>
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul><?php echo mcurrent_team($selector); ?></ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Deal Report</h2>
+                    <ul class="filter">
+                    <li><form action="/manage/team/dealreport.php" method="post">
+                    	City：<select name="city_id" class="f-input" style="width:200px;"><?php echo Utility::Option($cities, $city_id, 'All'); ?></select>&nbsp;
+                    	<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/>
+                    	<form>
+                    </li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="500">Deal</th><th width="120" nowrap>City/Category</th><th width="100">Date</th><th width="60" nowrap>Current Price</th><th width="60" nowrap>Sales</th><th width="140">Operation</th></tr>
+					<?php if(is_array($teams)){foreach($teams AS $index=>$one) { ?>
+					<?php $one['state'] = team_state($one); ?>
+					<tr <?php echo $index%2?'':'class="alt"'; ?> id="team-list-id-<?php echo $one['id']; ?>">
+						<td style="text-align:left;"><a class="deal-title" href="/team.php?id=<?php echo $one['id']; ?>" target="_blank"><?php echo $one['title']; ?></a></td>
+						<td><?php echo $cities[$one['city_id']]; ?><br/><?php echo $groups[$one['group_id']]['name']; ?></td>
+						<td><?php echo date('Y-m-d',$one['begin_time']); ?><br/><?php echo date('Y-m-d',$one['end_time']); ?></td>
+						<td><span class="money"><?php echo $currency; ?></span><?php echo moneyit($one['team_price']); ?><br/><span class="money"><?php echo $currency; ?></span><?php echo moneyit($one['market_price']); ?></td>
+						<td><?php echo $one['now_number']; ?></td>
+						<td class="op" nowrap><a href="/ajax/manage.php?action=teamdetail&id=<?php echo $one['id']; ?>" class="ajaxlink">Detail</a><?php if($one['state']=='none'){?>｜<a href="/manage/team/edit.php?id=<?php echo $one['id']; ?>">Edit</a><?php if($one['now_number']==0){?>｜<a href="/ajax/manage.php?action=teamremove&id=<?php echo $one['id']; ?>" class="ajaxlink" ask="Delete this item, are you sure?" >Delete</a><?php }?><?php } else if(in_array($one['state'],array('success','soldout'))) { ?>｜<a href="/manage/team/down.php?id=<?php echo $one['id']; ?>" target="_blank">Download</a><?php } else if($one['state']=='failure') { ?>｜<a href="/ajax/manage.php?action=teamrefund&id=<?php echo $one['id']; ?>" class="ajaxlink" ask="Refund, are you sure?">Refund</a><?php } else { ?>Already Refund<?php }?></td>
+					</tr>
+					<?php }}?>
+					<tr><td colspan="6"><?php echo $pagestring; ?></tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<?php include template("footer");?>

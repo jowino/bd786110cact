@@ -7,7 +7,7 @@
 		<ul><?php echo current_account(null); ?></ul>
 	</div>
     <div id="content">
-		<div class="box clear">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">

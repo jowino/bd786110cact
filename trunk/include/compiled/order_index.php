@@ -6,8 +6,8 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo current_account('/order/index.php'); ?></ul>
 	</div>
-    <div id="content" class="coupons-box clear">
-		<div class="box clear">
+    <div id="content" class="coupons-box clr">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">

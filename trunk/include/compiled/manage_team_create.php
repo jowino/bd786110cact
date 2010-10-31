@@ -48,6 +48,12 @@
 						<span class="hint">Starts at start date 00:00:00, ends at end date 00:00:00</span>
 					</div>
 					<div class="field">
+						<label>Charity</label>
+						<select name="charity_id" class="f-input" style="width:200px;"><?php echo Utility::Option($charities); ?></select>
+						<label style="width:125px">Charity Amount(%)</label>
+						<input type="text" size="10" name="value" id="deal-charity-value" value="0%" class="number" datatype="number"  />
+					</div>
+					<div class="field">
 						<label>Brief Introduction</label>
 						<div style="float:left;"><textarea cols="45" rows="5" name="summary" id="team-create-summary" class="xheditor-simple"></textarea></div>
 					</div>
@@ -128,7 +134,7 @@
 						</div>
 						<div class="field">
 							<label>Deliver address</label>
-							<div style="float:left;"><textarea cols="45" rows="5" name="express" id="team-create-express" class="xheditor-simple"><?php echo $team['express']; ?></textarea></div>
+							<div style="float:left;"><textarea cols="45" rows="5"  name="express" id="team-create-express"><?php echo $team['express']; ?></textarea></div>
 						</div>
 					</div>
 					<div class="act">

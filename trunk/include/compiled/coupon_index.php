@@ -6,8 +6,8 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo current_account('/coupon/index.php'); ?></ul>
 	</div>
-    <div id="content" class="coupons-box clear">
-		<div class="box clear">
+    <div id="content" class="coupons-box clr">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">
@@ -18,6 +18,9 @@
 					</ul>
 				</div>
                 <div class="sect">
+                <form action="/coupon/couponprint.php" method="post">
+					<div style="float:right;margin-right:20px;"><input type="submit" value="Print Coupons" /></div>
+				
 					<?php if($selector=='index'&&!$coupons){?>
 					<div class="notice">There is no usable <?php echo $INI['system']['couponname']; ?></div>
 					<?php }?>
@@ -29,11 +32,13 @@
 							<td><?php echo $one['id']; ?></td>
 							<td><?php echo $one['secret']; ?></td>
 							<td><?php echo date('Y-m-d', $one['expire_time']); ?></td>
-							<td><a href="/ajax/coupon.php?action=sms&id=<?php echo $one['id']; ?>" class="ajaxlink">SMS</a></td>
+							<td><a href="/coupon/couponprint.php?id=<?php echo $one['id']; ?>" >Print</a></td>
+							<td><input type="checkbox" name="print[]" value="<?php echo $one['id']; ?>" /></td>
 						</tr>	
 					<?php }}?>
 						<tr><td colspan="5"><?php echo $pagestring; ?></td></tr>
                     </table>
+                    </form>
 				</div>
             </div>
             <div class="box-bottom"></div>

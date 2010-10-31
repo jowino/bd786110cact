@@ -68,7 +68,7 @@
 				<?php } else { ?>
 					<input type="hidden" name="paytype" value="credit" />
 				<?php }?>
-					<div class="clear"></div>
+					<div class="clr"></div>
 					<p class="check-act">
 					<input type="hidden" name="order_id" value="<?php echo $order['id']; ?>" />
 					<input type="hidden" name="team_id" value="<?php echo $order['team_id']; ?>" />
