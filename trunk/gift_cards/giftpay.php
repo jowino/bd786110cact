@@ -2,7 +2,7 @@
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 
 need_login();
-if (is_post()) {
+if (is_post()&&isset($_POST['giftpay'])) {
 	if (!$_POST['from'] || !$_POST['to'] || !$_POST['amount']) {
 		Session::Set('error', 'Please do not submit it untill finished.');
 	}
@@ -17,7 +17,7 @@ if (is_post()) {
 	$order_id=$table->Insert(array(
 		'user_id','from', 'to', 'message', 'amount','code','email', 'create_time','paytype',
 	));
-	}
+
 if(!$order_id || !($order = Table::Fetch('gift_card', $order_id))) {
 	die('404 Not Found');
 }
@@ -43,7 +43,7 @@ if ( $order['paytype'] == 'paypal') {
 	$out_trade_no = "paypal-{$order['id']}-{$randno}";
 
 	$return_url = $INI['system']['wwwprefix'] . '/order/paypal/return.php';
-	$notify_url = $INI['system']['wwwprefix'] . '/order/paypal/notify.php';
+	$notify_url = $INI['system']['wwwprefix'] . '/order/paypal/giftnotify.php';
 	$show_url =   $INI['system']['wwwprefix'] . "/gift_cards/index.php";
 
 	$subject = preg_replace('/[\r\n\s]+/','',strip_tags('Gift_Card'));
@@ -66,4 +66,34 @@ if ( $order['paytype'] == 'paypal') {
 	$sign = $paypal->submit_verify();
 	include template('gift_pay');
 }
+else if ( $order['paytype'] == 'cash' ) {
+	include template('gift_pay');
+}
+
 else Utility::Redirect( WEB_ROOT. '/index.php');
+	}
+elseif ($_POST&&isset($_POST['cod']))
+{
+	$carray = array( 'remark' => strtolower($_POST['remark']),'paytype'=>'cash','state'=>'unpay' );
+	Table::UpdateCache('gift_card', $_POST['order_id'], $carray);
+	$team = Table::Fetch('team', $order['team_id']);
+		die(include template('gift_pay_success'));	
+}
+else {
+if (is_post()) {
+	$order_id = abs(intval($_POST['order_id']));
+} else {
+	$order_id = $id = abs(intval($_GET['id']));
+}
+if(!$order_id || !($order = Table::Fetch('gift_card', $order_id))) {
+	die('404 Not Found');
+}
+if ( $order['state'] == 'pay' ) {  
+	if ( is_get() ) {
+		$team = Table::Fetch('team', $order['team_id']);
+		die(include template('gift_pay_success'));		
+	} else {
+		Utility::Redirect(WEB_ROOT  . "/gift_cards/index.php");
+	}
+}
+}
