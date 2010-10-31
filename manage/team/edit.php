@@ -29,13 +29,28 @@ if ($_POST) {
 	$error_tip = array();
 	if ( !$error_tip)  {
 		if ( $table->update($insert) ) {
-			Utility::Redirect( WEB_ROOT. "/manage/team/edit.php?id={$team['id']}");
+		if($_POST['charity_id']!=0)
+		{
+			if($_POST['deal_charity_id']!="")
+				$dealcharity['id']=$_POST['deal_charity_id'];
+			$dealcharity['charity_id']=$_POST['charity_id'];
+			$dealcharity['value']=str_replace('%', '',$_POST['charityvalue']);
+			$dealcharity['deal_id']=$_POST['id'];
+			$dcTable=new Table('deals_charity',$dealcharity);
+			$dealinsert=array('charity_id','value','deal_id',);
+			$dcTable->update($dealinsert);
+		}
+			//Utility::Redirect( WEB_ROOT. "/manage/team/edit.php?id={$team['id']}");
 		} else {
 			Session::Set('error', 'Modify team information failed, check your system setting please.');
 		}
 	}
 }
-
+$charity=Table::Fetch('deals_charity',$id,'deal_id');
+if($charity)
+{
+	$charityvalue=$charity['value'].'%';
+}
 $groups = DB::LimitQuery('category', array(
 			'condition' => array( 'zone' => 'group', ),
 			));
@@ -45,4 +60,9 @@ $partners = DB::LimitQuery('partner', array(
 			'order' => 'ORDER BY id DESC',
 			));
 $partners = Utility::OptionArray($partners, 'id', 'title');
+$charities = DB::LimitQuery('charity',array(
+			  'order'=>'ORDER BY id DESC',
+				));
+$charities = Utility::OptionArray($charities,'id','name');
+array_unshift($charities,"--Select--");
 include template('manage_team_edit');

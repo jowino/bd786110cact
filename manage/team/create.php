@@ -28,7 +28,7 @@ if ($_POST) {
 		if($team['charity_id']!=0)
 		{
 			$dealcharity['charity_id']=$team['charity_id'];
-			$dealcharity['value']=$team['value'];
+			$dealcharity['value']=str_replace('%', '',$team['value']);
 			$dealcharity['deal_id']=$team_id;
 			$dcTable=new Table('deals_charity',$dealcharity);
 			$dealinsert=array('charity_id','value','deal_id',);
