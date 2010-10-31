@@ -6,8 +6,8 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo current_about('privacy'); ?></ul>
 	</div>
-	<div id="content" class="about clear">
-		<div class="box clear"> 
+	<div id="content" class="about clr">
+		<div class="box clr"> 
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Privacy</h2></div>

@@ -3,13 +3,13 @@
 <div id="bdw" class="bdw">
 <div id="bd" class="cf">
 <div id="feedback">
-    <div id="content" class="clear">
+    <div id="content" class="clr">
         <div class="box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Gift Card</h2></div>
                 <div class="sect">
-					<p class="notice">Customize Your Gift Card.</p>
+					<p>Customize Your Gift Card.</p>
                     <form id="feedback-user-form" method="post" action="/gift_cards/giftpay.php" class="validator">
                         <div class="field from">
                             <label for="feedback-fullname">From</label>
@@ -39,12 +39,12 @@
 		                    
 		                    </span>
                         </div>
-                        <div class="clear"></div>
+                        <div class="clr"></div>
                         <div class="paytype">
 				<div class="order-check-form "> 
 					<ul class="typelist">
 					<!--{if $INI['paypal']['mid']}-->
-						<li><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal">PayPal payment for international users</label></li>
+						<li><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal">PayPal</label></li>
 					<!--{/if}-->					
 					<!--{if $INI['alipay']['mid']}-->
 						<li><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">Apipay payment for taobao users</label></li>
@@ -52,10 +52,11 @@
 					<!--{if $INI['chinabank']['mid']}-->
 						<li><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></li>
 					<!--{/if}-->
+					<li><input id="check-alipay" type="radio" name="paytype" value="cash" {$ordercheck['alipay']} /><label>Cash on Delivery</label></li>
 					</ul>
-					<div class="clear"></div>
+					<div class="clr"></div>
 					<p class="check-act">
-					<input type="submit" value="Confirm and pay the order" class="formbutton" />
+					<input type="submit" name="giftpay" value="Confirm and pay the order" class="formbutton" />
 					</p>
 				</div>
 				</div>

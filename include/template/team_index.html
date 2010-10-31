@@ -1,37 +1,84 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="recent-deals">
-    <div id="content">
-        <div class="box">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>{$city['name']} Recent Deal</h2></div>
-				<div class="sect">
-					<ul class="deals-list">
-					<!--{loop $teams $index $one}-->
-						<li class="${$index++%2?'alt':''} ${$index<=2?'first':''}">
-							<p class="time">End Time:${date('m.d.Y', $one['end_time'])}&nbsp;&nbsp;{$one['now_number']} BOUGHT,  TOTAL SAVED:<strong><span class="money">{$currency}</span>${moneyit(($one['market_price']-$one['team_price'])*$one['now_number'])}</strong></p>
-							<h4><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank">{$one['title']}</a></h4>
-							<div class="pic"><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank"><img alt="{$one['title']}" src="${team_image($one['image'])}" width="200" height="121"></a></div>
-							<div class="info"><p class="total"><strong class="count">{$one['now_number']}</strong> Buyers</p><p class="price">Value: <strong
-                           class="old"><span class="money">{$currency}</span>${moneyit($one['market_price'])}</strong><br />Discount: <strong class="discount">${moneyit((100*($one['market_price'] - $one['team_price'])/$one['market_price']))}</strong>%off<br />Price: <strong><span class="money">{$currency}</span>${moneyit($one['team_price'])}</strong><br />You Save: <strong><span class="money">{$currency}</span>${moneyit($one['market_price']-$one['team_price'])}</strong><br /></p></div>
-						</li>
-					<!--{/loop}-->
-					</ul>
-					<div class="clear"></div>
-					<div>{$pagestring}</div>
-				</div>
+
+<div class="clr"></div>
+
+  <div id="inner-content">
+
+  	<div class="inner-content-top"></div>
+
+	<div class="inner-content-middle">
+
+	<div class="past-deals-heading">
+
+		<div class="heading-past-deals"><h1 class="past-deals">Sign Up</h1><h2 class="past-deals">For our daily email so you never miss another Groupon!</h2></div><div class="input-pasrt-deals">
+
+		<form action="/subscribe.php" method="post">
+
+		<input type="text" name="email" /><input class="past-deals-submit" type="submit" value="Submit" /></form></div>
+		</div>
+
+		<div class="clr"></div>
+
+		<div id="past-deals-content">
+<!--{loop $teams $index $one}-->
+		<div class="past-deals-box">
+
+		<p>${date('m.d.Y', $one['end_time'])}</p>
+
+		<div class="products-details-box">
+
+		<h3><p><a style="height:32px;float:left;overflow:hidden;" href="/team.php?id={$one['id']}">{$one['title']}</a></p></h3>
+
+		<div class="products-details-box-left">
+
+		<div class="value-button">
+
+		<div class="moo-bought">{$one['now_number']}<br /><span class="moo">Moo Bought</span></div>
+
+                <span class="value-arrow">
+
+				<span>Price: ${moneyit($one['team_price'])}</span>
+
+				</span>
+
+                <div class="clr"></div>
+
+              <div class="show-value">
+
+			  <p>Value: ${moneyit($one['market_price'])} </p>
+
+			  <p>Savings: ${moneyit($one['market_price']-$one['team_price'])}</p>
+
+			  </div>
+
             </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-	<div id="sidebar">
-		<!--{include block_side_subscribe}-->
+
+		</div>
+
+		<div class="products-details-box-right">
+
+		<a title="{$one['title']}" href="/team.php?id={$one['id']}"><img alt="{$one['title']}" src="${team_image($one['image'])}" width="190" height="105"></a>
+
+		</div>
+
+		</div>
+
+		</div>
+
+<!--{/loop}-->
+<div class="clr"></div>
+					<div>{$pagestring}</div>
+
+		</div>
+
+		<div class="clr"></div>
+
 	</div>
-</div>
-    </div> <!-- bd end -->
-</div> <!-- bdw end -->
+
+	<div class="inner-content-bottom"></div>  
+
+  </div>
+
 
 <!--{include footer}-->

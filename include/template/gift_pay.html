@@ -15,12 +15,20 @@
                 </div>
                 <div class="sect">
                     <div style="text-align:left;">
-<!--{if $order['service']=='credit'}-->
+<!--{if $order['paytype']=='credit'}-->
 <form id="order-pay-credit-form" method="post" sid="{$order_id}">
 	<input type="hidden" name="order_id" value="{$order_id}" />
 	<input type="hidden" name="service" value="credit" />
 	<input type="submit" class="formbutton gotopay" value="Use account balance" />
 </form>
+<!--{elseif $order['paytype']=='cash'}-->
+<form id="order-pay-form" method="post" sid="{$order['id']}">
+	<input type="hidden" name="order_id" value="{$order_id}" />
+	<input type="hidden" name="service" value="cash" />
+	<label>Cash on Delivery:</label><textarea cols="45" rows="5" name="remark"></textarea><br>
+	<input type="submit" name="cod" class="formbutton gotopay" value="Confirm Order" />
+</form>
+<br />
 <!--{elseif $order['paytype']=='paypal'}-->
 <form id="order-pay-form" method="post" action="https://www.paypal.com/cgi-bin/webscr" target="_blank" sid="{$order['id']}">
 	<input type="hidden" name="rm" value="2" />
@@ -31,13 +39,13 @@
 	<input type="hidden" name="transaction_subject" value="Wroupon transcation - test" />
 	<input type="hidden" name="item_name" value="{$subject}" />
 	<input type="hidden" name="item_number" value="{$out_trade_no}" />
-	<input type="hidden" name="currency_code" value="USD" />
+	<input type="hidden" name="currency_code" value="{$currency}" />
 	<input type="hidden" name="amount" value="{$total_money}" />
-	<img src="/static/css/i/paypal_logo.gif" /><br /><input type="submit" class="formbutton gotopay" value="Goto PayPal" />
+	<img src="/static/css/i/paypal_logo.gif" /><br /><input type="submit" name="confirm" class="formbutton gotopay" value="Goto PayPal" />
 </form>
 <br />
 
-<!--{elseif $order['service']=='alipay'}-->
+<!--{elseif $order['paytype']=='alipay'}-->
 <form id="order-pay-form" method="post" action="https://www.alipay.com/cooperate/gateway.do?_input_charset={$_input_charset}" target="_blank" sid="{$order['id']}">
 	<input type="hidden" name="body" value="{$body}" />
 	<input type="hidden" name="notify_url" value="{$notify_url}" />
@@ -54,18 +62,8 @@
 	<input type="hidden" name="sign" value="{$sign}" />
 	<img src="/static/css/i/alipay.png" /><br /><input type="submit" class="formbutton gotopay" value="Goto Alipay" />
 </form>
-<!--{elseif $order['service']=='chinabank'}-->
-<form id="order-pay-form" method="post" action="https://pay3.chinabank.com.cn/PayGate" target="_blank" sid="{$order['id']}">
-	<input type="hidden" name="v_mid" value="{$v_mid}" />
-	<input type="hidden" name="v_oid" value="{$v_oid}" />
-	<input type="hidden" name="v_amount" value="{$total_money}" />
-	<input type="hidden" name="v_moneytype" value="{$v_moneytype}" />
-	<input type="hidden" name="v_url" value="{$v_url}" />
-	<input type="hidden" name="v_md5info" value="{$v_md5info}" />
-	<img src="/static/css/i/chinabank.png" /><br/><input type="submit" class="formbutton gotopay" value="Internet banking pay" style="vertical-align:middle;"/>
-</form>
 <!--{/if}-->
-						<div class="back-to-check"><a href="/order/check.php?id={$order_id}">&raquo; Go back to choose other payment</a></div>
+						<div class="back-to-check"><a href="/gift_cards/index">&raquo; Go back to choose other payment</a></div>
                     </div>
                 </div>
             </div>
