@@ -49,6 +49,13 @@
 						<span class="hint">Starts at start date 00:00:00, ends at end date 00:00:00</span>
 					</div>
 					<div class="field">
+						<label>Charity</label>
+						<input type="hidden" name="deal_charity_id" value="{$charity['id']}" />
+						<select name="charity_id" class="f-input" style="width:200px;">${Utility::Option($charities,$charity['charity_id'])}</select>
+						<label style="width:125px">Charity Amount(%)</label>
+						<input type="text" size="10" name="charityvalue" id="deal-charity-value" value="{$charityvalue}" class="number" datatype="number"  />
+					</div>
+					<div class="field">
 						<label>Brief Introduction</label>
 						<div style="float:left;"><textarea cols="45" rows="5" name="summary" id="team-create-summary" class="xheditor-simple">${htmlspecialchars($team['summary'])}</textarea></div>
 					</div>
@@ -131,7 +138,7 @@
 						</div>
 						<div class="field">
 							<label>Delivery Info</label>
-							<div style="float:left;"><textarea cols="45" rows="5" name="express" id="team-create-express" class="xheditor-simple">{$team['express']}</textarea></div>
+							<div style="float:left;"><textarea cols="45" rows="5" name="express" id="team-create-express">{$team['express']}</textarea></div>
 						</div>
 					</div>
 					<input type="submit" value="OK, Submit" name="commit" id="leader-submit" class="formbutton" style="margin:10px 0 0 120px;"/>
