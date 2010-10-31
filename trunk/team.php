@@ -84,5 +84,20 @@ if ($login_user_id && $team['state'] == 'none' ) {
 				'order' => 'ORDER BY c.id DESC',
 				'select' => 'c.name,c.image',
 				));*/
+$condition = array( 'team_id='.$id );
+
+/*pageit*/
+$count = Table::Count('ask', $condition);
+list($pagesize, $offset, $pagestring) = pagestring($count, 10);
+$asks = DB::LimitQuery('ask', array(
+			'condition' => $condition,
+			'order' => 'ORDER BY id DESC',
+			'size' => $pagesize,
+			'offset' => $offset,
+			));
+/*endpage*/
+
+$user_ids = Utility::GetColumn($asks, 'user_id');
+$users = Table::Fetch('user', $user_ids);
 
 include template('team_view');
