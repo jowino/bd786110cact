@@ -1,0 +1,1265 @@
+/* Main Page */
+* {
+	padding:0;
+	margin:0;
+}
+
+.clr {clear:both;}
+
+body {
+	background-image:url(/groupon/static/images/bg.jpg);
+	background-repeat:x-repeat;
+	background-color:#343433;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#1f1f1f;
+}
+
+#main-wrapper {
+	width:995px;
+	margin:0 auto;
+	
+}
+
+#header {
+	height:175px;
+	width:;
+}
+
+.logo {
+	float:left;
+	width:274px;
+	height:auto;
+}
+
+.header-box-2 {
+	float:left;
+	width:339px;
+	height:175px;
+	background-image:url(/groupon/static/images/header-box-2-bg.jpg);
+}
+
+.header-box-2 ul{
+	padding-left:20px;
+}
+
+.header-box-3 {
+	float:left;
+	width:195px;
+	height:auto;
+	padding-left:182px;
+}
+
+ul.button {
+	list-style:none;
+	width:150px;
+}
+
+ul.button li.button-left {
+	background-image:url(/groupon/static/images/header-button-left.jpg);
+	width:5px;
+	height:21px;
+	background-repeat:no-repeat;
+	padding:0;
+}
+
+ul.button li{
+	float:left;
+	background-image:url(/groupon/static/images/header-button-bg.jpg);
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#FFFFFF;
+	padding-bottom:2px;
+	padding-top:4px;
+}
+
+ul.button li.button-right {
+	background-image:url(/groupon/static/images/header-button-right.jpg);
+	width:5px;
+	height:21px;
+	background-repeat:no-repeat;
+	padding:0;
+}
+
+.button-arrow {
+	background-image:url(/groupon/static/images/button-arrow.jpg);
+	width:10px;
+	height:7px;
+	display:block;
+	float:right;
+	margin:5px;
+	margin-right:0px;
+}
+
+p.telephone {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#4d4d4d;
+	background-image:url(/groupon/static/images/telephone-icon.jpg);
+	background-repeat:no-repeat;
+	text-align:right;
+	padding-top:8px;
+	padding-bottom:1px;
+	background-position:35px 5px;
+	padding-right:15px;
+	font-size:16px;
+}
+
+.mailto {
+	color:#78a22f;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	text-align:right;
+	padding-right:15px;
+	margin-top:7px;
+}
+
+.mailto a{
+	color:#78a22f;
+	text-decoration:none;
+}
+
+.social-button {
+	margin-top:2px;
+	text-align:right;
+	padding-right:15px;
+	margin-top:9px;
+}
+
+#header-menu {
+	height:38px;
+	width:auto;
+}
+
+.main-menu {
+	width:auto;
+	height:38px;
+	float:left;
+}
+
+.main-menu ul{
+	list-style:none;
+}
+
+.main-menu li{
+	float:left;
+}
+
+.fb-connect {
+	float:left;
+	margin-top:8px;
+	margin-left:69px;
+}
+
+.sign-in {
+	float:left;
+	margin-top:9px;
+	margin-left:9px;
+}
+
+#main-content {
+	width:auto;
+}
+
+#left {
+	width:780px;
+	float:left;	
+	margin-top:5px;
+}
+
+#right {
+	width:203px;
+	height:auto;
+	float:left;
+	margin-top:5px;
+}
+
+.side-bar-1 {
+	margin-top:5px;
+	background-image:url(/groupon/static/images/subscribe-bg.jpg);
+	height:97px;
+	width:202px;
+}
+
+.side-bar-heading {
+	width:auto;
+	height:22px;
+	background-color:#78a22f;
+}
+
+.side-bar-heading h2{
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	padding-left:5px;
+	height:22px;
+	
+}
+
+.field {
+	background-image:url(/groupon/static/images/field-bg.jpg);
+	background-repeat:no-repeat;
+	border:medium none;
+	color:#A6A6A6;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	margin-left:10px;
+	margin-top:12px;
+	padding-bottom:4px;
+	padding-left:5px;
+	padding-top:4px;
+	width:180px;
+}
+
+.submit {
+	background-image:url(/groupon/static/images/submit-bg.jpg);
+	background-repeat:no-repeat;
+	border:medium none;
+	color:#FFFFFF;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	margin-left:119px;
+	margin-top:5px;
+	padding-bottom:2px;
+	padding-top:3px;
+	width:75px;
+}
+
+.side-bar-2 {
+	margin-top:35px;
+	height:auto;
+	width:202px;
+}
+
+.side-bar-inner {
+	border-top:1px solid #818180;
+	border-bottom:1px solid #818180;
+	background-color:#ffffff;
+}
+
+.side-bar-2 p{
+	margin-left:10px;
+	margin-top:7px;
+	margin-bottom:6px;
+}
+
+.side-bar-2 img, .side-bar-3 img{
+	margin-left:5px;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+.side-bar-2 .valued {
+	margin-left:5px;
+	margin-top:-50px;
+	position:absolute;
+	width:17%;
+}
+
+.side-bar-2 span{
+	list-style:none;
+	background-image:url(/groupon/static/images/side-bar-2-value-bg.jpg);
+	background-repeat:repeat-x;
+}
+
+.side-bar-2 span{
+	background-image:url(/groupon/static/images/side-bar-2-li-bg.jpg);
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+	float:left;
+	font-family:Helvetica,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	height:20px;
+	padding-left:18px;
+	padding-top:5px;
+}
+
+.side-bar-2 .show-value {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#424141;
+	float:none;
+	background-image:none;
+	background-color:#dbf3b1;
+	width:85px;
+	padding-left:5px;
+}
+
+.side-bar-3 {
+	margin-top:34px;
+	height:auto;
+	width:202px;
+}
+
+.side-bar-3 p{
+	margin-left:10px;
+	margin-top:0px;
+	margin-bottom:6px;
+}
+
+.side-bar-4 {
+	margin-top:32px;
+	height:auto;
+	width:204px;
+}
+
+.side-bar-4 img{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+.left-content-top {
+	background-image:url(/groupon/static/images/left-content-top.jpg);
+	width:776px;
+	height:26px;
+}
+.left-content-middle {
+	background-image:url(/groupon/static/images/left-content-middle.jpg);
+	width:776px;
+	height:auto;
+}
+.left-content-bottom {
+	background-image:url(/groupon/static/images/left-content-bottom.jpg);
+	width:776px;
+	height:26px;
+}
+
+.left-2-left {
+	float:left;
+	height:auto;
+	width:530px;
+	margin-left:15px;
+}
+
+.left-2-right {
+	float:left;
+	width:190px;
+}
+
+.break {
+	border-right:1px solid #bcbcbc;
+}
+
+.left-2 h1, .left-3 h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#000000;
+	font-weight:normal;
+}
+
+.left-2-right {
+	margin-left:15px;
+}
+
+.break-2 {
+	border-top:1px solid #bcbcbc;
+	margin-top:8px;
+	margin-bottom:8px;
+}
+
+.left-2 a, .left-3 a{
+	color:#628B1C;
+	text-decoration:none;
+}
+
+.left-3 h1{
+margin-left:42px;
+}
+
+p.green {
+	color:#628B1C;
+	margin-top:27px;
+	font-weight:bold;
+}
+
+.comment {
+	margin-left:60px;
+}
+ 
+.comment-top {
+	background-image:url(/groupon/static/images/comment-top.jpg);
+	background-repeat:no-repeat;
+	width:644px;
+	height:25px;
+}
+
+.comment-middle {
+	background-image:url(/groupon/static/images/comment-middle.jpg);
+	background-repeat:no-repeat;
+	height:auto;
+	width:644px;
+	background-repeat:repeat-y;
+}
+
+.comment-bottom {
+	background-image:url(/groupon/static/images/comment-bottom.jpg);
+	background-repeat:no-repeat;
+	height:25px;
+	width:644px;
+}
+
+
+.comment-box {
+	margin-top:5px;
+}
+
+.comment-box p{
+	margin-left:35px;
+}
+
+.p2 {
+	text-align:right;
+	margin-right:70px;
+	font-weight:bold;
+	color:#888888;
+}
+
+.footer-top {
+	background-image:url(/groupon/static/images/footer-top.jpg);
+	background-repeat:no-repeat;
+	height:6px;
+}
+
+.footer-middle {
+	background-color:#141414;
+	height:auto;
+	width:994px;
+	background-image:url(/groupon/static/images/footer-logo.jpg);
+	background-repeat:no-repeat;
+	background-position:right 0;
+}
+
+.footer-bottom {
+	background-image:url(/groupon/static/images/footer-bottom.jpg);
+	background-repeat:no-repeat;
+	height:6px;
+}
+
+#footer {
+	margin-top:15px;
+}
+
+#footer p{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#9B9B9B;
+	font-size:11px;
+}
+
+#footer a{
+	color:#9C9C9C;
+	text-decoration:none;
+}
+
+#footer a:hover{
+	color:#FFFFFF;
+}
+
+#footer h1{
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:normal;
+}
+
+.footer-box-1 {
+	height:auto;
+	width:125px;
+	float:left;
+	margin-left:40px;
+}
+
+.footer-box-2 {
+	height:auto;
+	float:left;
+	margin-left:27px;
+}
+
+.footer-box-3 {
+	height:auto;
+	float:left;
+	margin-left:27px;
+}
+
+.footer-box-4 {
+	height:auto;
+	float:left;
+	margin-left:27px;
+}
+
+.footer-box-5 {
+	height:auto;
+	float:left;
+	margin-left:27px;
+}
+
+.footer-box-5 p{
+	width:250px;
+}
+
+.footer-middle ul{
+	list-style:none;
+}
+
+.footer-middle li{
+	color:#9B9B9B;
+}
+
+.copyright {
+	width:927px;
+	margin-top:25px;
+}
+
+.rights-reserved {
+	float:left;
+	margin-left:40px;
+	margin-top:5px;
+}
+
+.designed-by {
+	float:right;
+}
+
+.left-1 h1{
+	margin-left:15px;
+	width:530px;
+}
+
+.left-1-left {
+	height:auto;
+	width:247px;
+	float:left;
+	margin-left:15px;
+	position:relative;
+}
+
+.left-1-right {
+	height:auto;
+	width:497px;
+	float:left;
+}
+
+span.green {
+	color:#81A83D;
+}
+
+.main-deal-img {
+	background-image:url(/groupon/static/images/main-deal-img-bg.jpg);
+	background-repeat:no-repeat;
+	width:496px;
+	height:312px;
+	margin-top:30px;
+}
+
+.main-deal-img img{
+	margin:8px;
+}
+
+.share {
+	background-image:url(/groupon/static/images/share.png);
+	background-repeat:no-repeat;
+	position:absolute;
+	width:181px;
+	height:46px;
+	margin-left:307px;
+	margin-top:21px;
+}
+
+.share p{
+	padding-left:5px;
+	float:left;
+	margin-top:7px;
+}
+
+.share img{
+	float:right;
+	margin-top:0px;
+	margin-left:2px;
+}
+
+.discuss {
+	
+}
+
+.discuss ul{
+	list-style:none;
+	float:right;
+	margin-right:10px;
+}
+
+.discuss li{
+	background-color:#78A22F;
+	float:left;
+	height:17px;
+	color:#FFFFFF;
+}
+
+.discuss a{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+li.discuss-left {
+	background-image:url(/groupon/static/images/discuss-left.jpg);
+	background-repeat:no-repeat;
+	height:17px;
+	width:8px;
+}
+
+li.discuss-right {
+	background-image:url(/groupon/static/images/discuss-right.jpg);
+	background-repeat:no-repeat;
+	height:17px;
+	width:8px;
+}
+
+.the-fine-print {
+	width:200px;
+	float:left;
+	margin-left:11px;
+	padding-right:10px;
+}
+
+.the-fine-print a{
+	color:#81A83D;
+}
+
+.highlights {
+	width:200px;
+	float:left;
+	margin-left:22px;
+}
+
+.the-fine-print p, .highlights p{
+	margin-top:10px;
+}
+
+.green-break {
+	border-right:3px solid #78A22F;
+}
+
+.main-deal-buy {
+	background-image:url(/groupon/static/images/main-deal-buy.png);
+	background-repeat:no-repeat;
+	width:259px;
+	height:67px;
+	margin-top:30px;
+}
+
+.main-deal-buy h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#FFFFFF;
+	padding-top:18px;
+	padding-left:30px;
+}
+.main-deal-expired {
+	background-image:url(/groupon/static/images/deal_expired.jpg);
+	background-repeat:no-repeat;
+	width:259px;
+	height:67px;
+	margin-top:30px;
+}
+.main-deal-expired h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#FFFFFF;
+	padding-top:18px;
+	padding-left:30px;
+}
+.main-deal-soldout {
+	background-image:url(/groupon/static/images/deal_soldout.jpg);
+	background-repeat:no-repeat;
+	width:259px;
+	height:67px;
+	margin-top:30px;
+}
+.main-deal-soldout h1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#FFFFFF;
+	padding-top:18px;
+	padding-left:30px;
+}
+
+.count-down p{
+	float:left;
+	margin:10px 0 0 20px;
+	padding-right:8px;
+	color:#FFFFFF;
+	text-align:center;
+}
+
+.count-down {
+	background-image:url(/groupon/static/images/main-deal-time-bg.jpg);
+	background-repeat:no-repeat;
+	width:231px;
+	height:145px;
+}
+
+.count-down h1{
+	font-size:16px;
+	padding-left:35px;
+	padding-top:20px;
+}
+
+.input-field {
+	margin-left:35px;
+	margin-top:5px;
+}
+
+.count-down input {
+	background-image:url(/groupon/static/images/time-input-bg.jpg);
+	background-repeat:no-repeat;
+	border:medium none;
+	color:#4B4B4B;
+	float:left;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:20px;
+	height:33px;
+	margin-left:9px;
+	padding-left:7px;
+	width:32px;
+}
+
+p.hrs {
+	margin-left:53px;
+	color:#4B4B4B;
+	margin-top:0;
+}
+
+p.min {
+	margin-left:20px;
+	color:#4B4B4B;
+	margin-top:0;
+}
+
+p.sec {
+	margin-left:23px;
+	color:#4B4B4B;
+	margin-top:0;
+}
+
+.bought {
+	background-image:url(/groupon/static/images/bought-bg.jpg);
+	background-repeat:no-repeat;
+	width:231px;
+	height:128px;
+}
+
+.bought h1{
+	margin-left:40px;
+	margin-bottom:5px;
+}
+
+.bought img{
+	margin-left:20px;
+}
+
+.bought a{
+	color:#57810F;
+	text-decoration:none;
+}
+
+.bought p{
+	margin-left:20px;
+	text-align:center;
+	width:170px;
+	margin-top:10px;
+}
+
+.buy-friend {
+	background-image:url(/groupon/static/images/buy-friend.jpg);
+	background-repeat:no-repeat;
+	width:228px;
+	height:53px;
+}
+
+.buy-friend p{
+	padding-left:75px;
+	padding-top:16px;
+	font-size:16px;
+}
+
+.buy-friend a{
+	color:#272727;
+	text-decoration:none;
+}
+
+/*Inner Pages*/
+
+.inner-content-top {
+	background-image:url(/groupon/static/images/inner-content-top.jpg);
+	background-repeat:no-repeat;
+	width:1006px;
+	height:19px;
+	margin-top:5px;
+}
+
+.inner-content-middle {
+	background-image:url(/groupon/static/images/inner-content-middle.jpg);
+	background-repeat:y-repeat;
+	width:1006px;
+	height:auto;
+}
+
+.inner-content-bottom {
+	background-image:url(/groupon/static/images/inner-content-bottom.jpg);
+	background-repeat:no-repeat;
+	width:1006px;
+	height:19px;
+}
+
+.inner-content-middle h1{
+	background-image:url(/groupon/static/images/inner-heading-bg.jpg);
+	background-repeat:no-repeat;
+	height:32px;
+	margin-left:20px;
+	padding:8px;
+	width:967px;
+}
+
+.inner-content-middle h3{
+	font-size:20px;
+}
+
+h2.contact-heading-bg {
+	background-image:url(/groupon/static/images/contact-heading-bg.jpg);
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+	font-weight:normal;
+	height:29px;
+	margin-left:30px;
+	margin-top:-3px;
+	padding-left:10px;
+	padding-top:5px;
+	position:relative;
+	width:943px;
+}
+
+.inner-left {
+	float:left;
+	height:auto;
+	width:620px;
+}
+
+.inner-right {
+	float:left;
+	height:auto;
+	width:335px;
+	margin-top:50px;
+}
+
+.inner-right p{
+	color:#6F6F6F;
+	font-size:13px;	
+}
+
+.inner-left form{
+	margin-left:68px;
+	margin-top:57px;
+}
+
+.caption {
+	float:left;
+	font-size:13px;
+	font-weight:bold;
+	width:180px;
+}
+
+.inner-left input{
+	margin-bottom:5px;
+	border:1px solid #ABADB3;
+	height:22px;
+	color:#ABADB3;
+}
+
+.inner-left span{
+	float:left;
+	margin-right:8px;
+	text-align:left;
+	color:#ABADB3;
+}
+
+.inner-left textarea{
+	border:1px solid #ABADB3;
+	width:302px;
+	color:#ABADB3;
+}
+
+span.red {
+	color:#CC0000;
+	float:none !important;
+}
+
+.clear {
+	background-image:url(/groupon/static/images/clear-button-bg.jpg);
+	background-repeat:no-repeat;
+	width:75px;
+	height:22px;
+	border:none !important;
+	color:#FFFFFF !important;
+	margin-left:322px;
+}
+
+.submit {
+	background-image:url(/groupon/static/images/submit-button-bg.jpg);
+	background-repeat:no-repeat;
+	width:75px;
+	border:none !important;
+	color:#FFFFFF !important;
+	margin-left:12px;
+}
+
+/*past-deals*/
+h1.past-deals {
+	height:32px;
+	margin-left:20px;
+	padding:8px;
+	width:967px;
+	background-image:none;
+	width:auto;
+	float:left;
+}
+
+h2.past-deals {
+	font-weight:normal;
+	font-size:18px;
+	width:auto;
+	float:left;
+	margin-top:14px;
+	
+}
+
+.input-pasrt-deals {
+	float:right;
+	margin-right:40px;
+	margin-top:13px;
+}
+
+.input-pasrt-deals input{
+	height:22px;
+	border:none;
+	float:left;
+}
+
+input.past-deals-submit{
+	background-image:url(/groupon/static/images/past-deals-submit-button-bg.jpg);
+	height:22px;
+	width:75px;
+	color:#393939;
+	font-size:13px;
+	margin-left:6px;
+	float:left;
+}
+
+.past-deals-heading {
+	height:45px;
+	background-image:url(/groupon/static/images/past-deals-heading-bg.jpg);
+	background-repeat:no-repeat;
+	margin-left:20px;
+}
+
+.past-deals-box{
+	float:left;
+	height:184px;
+	margin-left:17px;
+	margin-top:20px;
+	width:310px;
+}
+
+.products-details-box {
+	background-image:url(/groupon/static/images/past-details-product-bg.jpg);
+	background-repeat:no-repeat;
+	height:169px;
+	width:310px;;
+}
+
+.past-deals-box p{
+	margin-left:5px;
+}
+
+.products-details-box h3{
+	color:#1F1F1F;
+	font-size:14px;
+	font-weight:normal;
+	height:30px;
+	padding-left:15px;
+	padding-top:10px;
+	width:290px;
+}
+
+.products-details-box-left{
+	width:125px;
+	height:auto;
+	float:left;
+	margin-left:13px;
+	position:absolute;
+}
+
+.products-details-box-right{
+	float:left;
+	height:105px;
+	margin-left:108px;
+	margin-top:9px;
+	width:186px;
+}
+
+.products-details-box-right img {
+	border:2px solid #EBEBEB;
+	background-color:#EBEBEB;
+}
+
+.products-details-box-left ul {
+background-image:url("/groupon/static/images/side-bar-2-value-bg.jpg");
+background-repeat:repeat-x;
+list-style:none outside none;
+}
+
+.products-details-box-left span{
+	background-image:url("/groupon/static/images/side-bar-2-li-bg.jpg");
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+	float:left;
+	font-family:Helvetica,sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	height:18px;
+	padding-left:18px;
+	padding-top:6px;
+}
+
+span.value-arrow {
+	background-image:url("/groupon/static/images/side-bar-2-value-li-arrow.png");
+	background-repeat:no-repeat;
+	background-position:right;
+	height:25px;
+	display:inline-block;
+	padding:0 17px 0 0 !important;
+}
+
+.products-details-box-left .show-value {
+	background-color:#DBF3B1;
+	background-image:none;
+	color:#262626;
+	float:none;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:11px;
+	padding-left:5px;
+	width:85px;
+	height:35px;
+	padding-top:3px;
+}
+
+.products-details-box-left .show-value p{
+	margin-left:0px;
+	text-align:left;
+}
+
+.products-details-box-left .moo-bought {
+	background-color:#DBF3B1;
+	background-image:none;
+	color:#262626;
+	float:none;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	height:37px;
+	margin-bottom:5px;
+	margin-top:10px;
+	padding-left:5px;
+	padding-top:2px;
+	text-align:center;
+	width:85px;
+}
+
+span.moo{
+	background-image:none;
+	color:#262626;
+	float:none;
+	font-size:12px;
+	font-weight:normal;
+	text-align:center;
+	padding-left:0px;
+	font-weight:normal;
+}
+
+/*Daily-deals*/
+
+#daily-deals-left {
+	float:left;
+	padding-left:22px;
+	width:740px;
+}
+
+#daily-deals-right {
+	width:213px;
+	float:left;
+	margin-left:12px;
+}
+
+#daily-deals-left h2{
+	margin-bottom:10px;
+}
+
+.daily-deals-right-top {
+	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-top.jpg);
+	background-repeat:no-repeat;
+	height:14px;
+	width:auto;
+}
+
+.daily-deals-right-middle {
+	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-middle.jpg);
+	height:auto;
+	padding-left:15px;
+	padding-right:15px;
+	width:186px;
+}
+
+.daily-deals-right-middle h2{
+	color:#222222;
+	font-weight:normal;
+	font-size:16px;
+}
+
+.daily-deals-right-middle h3{
+	color:#78A22F;
+	font-weight:normal;
+	font-size:14px;
+}
+
+.daily-deals-right-bottom {
+	height:14px;
+	width:auto;
+	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-bottom.jpg);
+	background-repeat:no-repeat;
+	padding-bottom:10px;
+}
+#cart { 
+	background:url(/groupon/static/images/cart_bottom_bg.png) no-repeat 0 100%;
+}
+
+#cart th { 
+	background:url(/groupon/static/images/cart_th_bg.png) repeat-x scroll 0 0;
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:14px; 
+	color:#222222; 
+	font-weight:normal;
+	border-right:
+	1px solid #C0C0C0;
+	padding:9px 0;
+}
+
+#cart td td { 
+	border-right:1px solid #C0C0C0;
+}
+
+#cart td{
+	height:96px;
+	color:#222222;
+	font-size:14px;
+}
+
+#cart td p{
+	padding-left:10px;
+	padding-top:15px;
+}
+
+#cart td input{
+	background-image:url(/groupon/static/images/cart-input-bg.jpg);
+	background-repeat:no-repeat;
+	border:medium none;
+	height:20px;
+	margin-left:13px;
+	margin-top:16px;
+	padding:3px 5px 3px 3px;
+	text-align:center;
+	width:44px;
+}
+
+#cart .cart-last {
+	border-right:none ;
+	height:15px;
+}
+
+#cart .cart-left-bg {
+	background:url(/groupon/static/images/cart-left-bg.jpg) no-repeat scroll 0 0;
+	border-right:1;
+}
+
+#cart .cart-right-bg {
+	background:url(/groupon/static/images/cart-right-bg.jpg) no-repeat scroll 100% 0;
+	border-right:none
+}
+
+#cart td img{
+	padding-left:10px;
+	padding-top:15px;
+}
+
+#daily-deals-left .cart-button {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.cancel {
+	background-image:url("/groupon/static/images/cancel-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	height:22px;
+	margin-left:0px;
+	width:75px;
+	cursor:pointer;
+}
+
+.update-shopping-cart {
+	background-image:url("/groupon/static/images/update-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	height:22px;
+	margin-left:520px;
+	width:144px;
+	cursor:pointer;
+}
+.deal-buy {
+	background-image:url(/groupon/static/images/deal-buy.png);
+	background-repeat:no-repeat;
+	width:117px;
+	height:51px;
+	margin-top:30px;
+}
+.button-left {
+	background-image:url(/groupon/static/images/header-button-left.jpg);
+	width:5px;
+	height:21px;
+	background-repeat:no-repeat;
+	padding:0;
+	float:left;
+}
+
+.change{
+	float:left;
+	background-image:url(/groupon/static/images/header-button-bg.jpg);
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#FFFFFF;
+	padding-bottom:2px;
+	padding-top:4px;
+	float:left;
+	cursor:pointer;
+}
+
+.button-right {
+	background-image:url(/groupon/static/images/header-button-right.jpg);
+	width:5px;
+	height:21px;
+	background-repeat:no-repeat;
+	padding:0;
+	float:left;
+}
+.city-list{display:none;clear:both;float:left;width:345px;margin-top:0px;padding:10px 10px;background:#515151;position:relative;z-index:10;}
