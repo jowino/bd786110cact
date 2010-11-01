@@ -6,14 +6,17 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_order('pay'); ?></ul>
 	</div>
-    <div id="content" class="coupons-box clear mainwide">
-		<div class="box clear">
+    <div id="content" class="coupons-box clr mainwide">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">
                     <h2>Paid Order</h2>
 					<ul class="filter">
-						<li><form action="/manage/order/pay.php" method="get">User's Email：<input type="text" name="uemail" value="<?php echo htmlspecialchars($uemail); ?>" >&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/><form></li>
+						<li><form name='main-form' action="/manage/order/pay.php" method="get">User's Email：<input type="text" name="uemail" value="<?php echo htmlspecialchars($uemail); ?>" >&nbsp;<input type="submit" name="mysubmit" value="Filter" class="formbutton"  style="padding:1px 6px;"/>
+						&nbsp;<input type="submit"  name="mysubmit" value="Export" class="formbutton"  style="padding:1px 6px;"/><form>
+						
+						</li>
 					</ul>
 				</div>
                 <div class="sect">

@@ -6,15 +6,15 @@
 	<div class="dashboard" id="dashboard">
 		<ul>${mcurrent_team(null)}</ul>
 	</div>
-	<div id="content" class="clear mainwide">
-        <div class="clear box">
+	<div id="content" class="clr mainwide">
+        <div class="clr box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Edit</h2><span class="headtip">（{$team['title']}）</span></div>
                 <div class="sect">
 				<form id="-user-form" method="post" action="/manage/team/edit.php?id={$team['id']}" enctype="multipart/form-data" class="validator">
 					<input type="hidden" name="id" value="{$team['id']}" />
-					<div class="wholetip clear"><h3>1. Basic</h3></div>
+					<div class="wholetip clr"><h3>1. Basic</h3></div>
 					<div class="field">
 						<label>City&Category</label>
 						<select name="city_id" class="f-input" style="width:200px;">${Utility::Option($cities, $team['city_id'])}</select><select name="group_id" class="f-input" style="width:200px;">${Utility::Option($groups, $team['group_id'])}</select>
@@ -66,7 +66,7 @@
 					</div>
 					<input type="hidden" name="guarantee" value="Y" />
 					<input type="hidden" name="system" value="Y" />
-					<div class="wholetip clear"><h3>2. Information About This Deal</h3></div>
+					<div class="wholetip clr"><h3>2. Information About This Deal</h3></div>
 					<div class="field">
 						<label>Partner</label>
 						<select name="partner_id" datatype="require" require="true">${Utility::Option($partners, $team['partner_id'], '------ Choose Partner ------')}</select>
@@ -108,7 +108,7 @@
 						<label>{$INI['system']['abbreviation']} Abbreviation</label>
 						<div style="float:left;"><textarea cols="45" rows="5" name="systemreview" id="team-create-systemreview" class="xheditor-simple">${htmlspecialchars($team['systemreview'])}</textarea></div>
 					</div>
-					<div class="wholetip clear"><h3>3. Delivery Information</h3></div>
+					<div class="wholetip clr"><h3>3. Delivery Information</h3></div>
 					<div class="field">
 						<label>Delivery</label>
 						<div style="margin-top:5px;" id="express-zone-div"><input type="radio" name="delivery" value="coupon" ${$team['delivery']=='coupon'?'checked':''} />&nbsp;{$INI['system']['couponname']}&nbsp;<input type="radio" name="delivery" value='express' ${$team['delivery']=='express'?'checked':''} />&nbsp;Express Delivery&nbsp;<input type="radio" name="delivery" value='pickup' ${$team['delivery']=='pickup'?'checked':''} />&nbsp;Self Withdraw</div>

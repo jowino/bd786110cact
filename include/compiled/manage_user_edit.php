@@ -6,15 +6,15 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_user(null); ?><li class="current"><a href="/manage/user/edit.php?id=<?php echo $user['id']; ?>">Edit User</a><span></span></li></ul>
 	</div>
-	<div id="content" class="clear mainwide">
-        <div class="clear box">
+	<div id="content" class="clr mainwide">
+        <div class="clr box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Edit User</h2><b style="margin-left:20px;font-size:16px;">（<?php echo $user['email']; ?>/<?php echo $user['username']; ?>）</b></div>
                 <div class="sect">
                     <form id="login-user-form" method="post" action="/manage/user/edit.php?id=<?php echo $user['id']; ?>">
 					<input type="hidden" name="id" value="<?php echo $user['id']; ?>" />
-						<div class="wholetip clear"><h3>1. Identification</h3></div>
+						<div class="wholetip clr"><h3>1. Identification</h3></div>
                         <div class="field">
                             <label>User's Email</label>
                             <input type="text" size="30" name="email" id="user-edit-email" class="f-input" value="<?php echo $user['email']; ?>" readonly />
@@ -44,7 +44,7 @@
 				              <?php }}?>
 				            </select>
                         </div>
-						<div class="wholetip clear"><h3>2. Basic Info</h3></div>
+						<div class="wholetip clr"><h3>2. Basic Info</h3></div>
                         <div class="field">
                             <label>Post Code</label>
                             <input type="text" size="30" name="zipcode" id="user-edit-zipcode" class="f-input" value="<?php echo $user['zipcode']; ?>"/>

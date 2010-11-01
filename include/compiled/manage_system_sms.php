@@ -6,14 +6,14 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_system('sms'); ?></ul>
 	</div>
-	<div id="content" class="clear mainwide">
-        <div class="clear box">
+	<div id="content" class="clr mainwide">
+        <div class="clr box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>SMS Setting</h2></div>
                 <div class="sect">
                     <form method="post">
-						<div class="wholetip clear"><h3>1. Basic</h3></div>
+						<div class="wholetip clr"><h3>1. Basic</h3></div>
                         <div class="field">
                             <label>SMS User</label>
                             <input type="text" size="30" name="sms[user]" class="f-input" value="<?php echo $INI['sms']['user']; ?>"/>

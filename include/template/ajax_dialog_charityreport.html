@@ -10,11 +10,7 @@
 						<td>{$one['deal_id']}</td>
 						<td>${moneyit($one['dealamount'])}</td>
 						<td>
-							<!--{if $one['value']<1}-->
-							${moneyit($one['value']*$one['dealamount'])}
-							<!--{else}-->
-							${moneyit($one['value'])}
-							<!--{/if}-->
+							${moneyit($one['value']*$one['dealamount']/100)}
 						</td>
 					</tr>
 					<!--{/loop}-->

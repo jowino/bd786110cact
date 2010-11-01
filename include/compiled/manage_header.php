@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<link href="<?php echo $INI['system']['wwwprefix']; ?>/feed.php" rel="alternate" title="Subscribe" type="application/rss+xml" />
 	<link rel="shortcut icon" href="/static/icon/favicon.ico" />
-
+<link rel="stylesheet" href="/static/styles/style.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="screen" charset="utf-8" />
 	
 	<script type="text/javascript">var WEB_ROOT = '<?php echo WEB_ROOT; ?>';</script>
@@ -25,18 +25,15 @@
 <script type="text/javascript" src="/static/js/xheditor/xheditor.js"></script>
 <script type="text/javascript" src="/static/js/xheditor/jquery/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="/static/js/util.js"></script>
-<div id="hdw">
-	<div id="hd">
-		<div id="logo"><a href="/index.php" class="link" target="_blank"><img src="/static/css/i/logo.png" /></a></div>
-		<div class="guides">
-			<div class="city">
-				<h2>Backend</h2>
-			</div>
-			<div id="guides-city-change" class="change"><?php echo $login_user['realname']; ?></div>
-		</div>
-		<ul class="nav cf"><?php echo current_backend('super'); ?></ul>
-	</div>
-</div>
+
+<div id="header">
+
+    <div class="logo"><a href="/index.php" class="link" target="_blank"><img src="/static/images/logo.jpg" title="Moosavings" alt="Moosavings"/></a></div>
+    </div>
+    <div class="clr"></div>
+        <div id="header-menu"><div id="hd">
+    <ul class="nav cf"><?php echo current_backend('super'); ?></ul>
+    </div></div>
 
 <?php if($session_notice=Session::Get('notice',true)){?>
 <div class="sysmsgw" id="sysmsg-success"><div class="sysmsg"><p><?php echo $session_notice; ?></p><span class="close">Close</span></div></div>
