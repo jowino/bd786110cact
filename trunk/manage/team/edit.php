@@ -40,7 +40,8 @@ if ($_POST) {
 			$dealinsert=array('charity_id','value','deal_id',);
 			$dcTable->update($dealinsert);
 		}
-			//Utility::Redirect( WEB_ROOT. "/manage/team/edit.php?id={$team['id']}");
+			Session::Set('notice', 'Modify deal information successfully');
+			Utility::Redirect( WEB_ROOT. "/manage/team/index.php");
 		} else {
 			Session::Set('error', 'Modify team information failed, check your system setting please.');
 		}

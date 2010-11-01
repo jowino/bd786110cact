@@ -23,7 +23,7 @@ if ($title) {
 }
 
 $count = Table::Count('ask', $condition);
-list($pagesize, $offset, $pagestring) = pagestring($count, 20);
+list($pagesize, $offset, $pagestring) = pagestring($count, 10);
 
 $asks = DB::LimitQuery('ask', array(
 	'condition' => $condition,
