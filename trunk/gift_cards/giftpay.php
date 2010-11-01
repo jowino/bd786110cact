@@ -8,10 +8,10 @@ if (is_post()&&isset($_POST['giftpay'])) {
 	}
 	$table = new Table('gift_card', $_POST);
 	$table->code = Utility::GenSecret(8,'mix');
-	if($_POST['delivery']=='print')
+	if($_POST['gift_card']['delivery']=='print')
 		$talbe->email='';
 	else 
-		$talbe->email=$_POST['delivery']['email_address'];
+		$talbe->email=$_POST['gift_card']['delivery']['email_address'];
 	$table->create_time = time();
 	$table->user_id=$login_user_id;
 	$order_id=$table->Insert(array(
