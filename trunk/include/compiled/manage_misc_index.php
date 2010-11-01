@@ -6,20 +6,20 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_misc('index'); ?></ul>
 	</div>
-    <div id="content" class="coupons-box clear mainwide">
-		<div class="box clear">
+    <div id="content" class="coupons-box clr mainwide">
+		<div class="box clr">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">
                     <h2>Home</h2>
 				</div>
                 <div class="sect">
-					<div class="wholetip clear"><h3>Today's Data</h3></div>
+					<div class="wholetip clr"><h3>Today's Data</h3></div>
 					<div style="margin:0 20px;">
 						<p>New Registered: <?php echo $user_today_count; ?></p>
 						<p>Today's Order: <?php echo $order_today_count; ?></p>
 					</div>
-					<div class="wholetip clear"><h3>Statistics</h3></div>
+					<div class="wholetip clr"><h3>Statistics</h3></div>
 					<div style="margin:0 20px;">
 						<p>Deals: <?php echo $team_count; ?></p>
 						<p>Registered: <?php echo $user_count; ?></p>

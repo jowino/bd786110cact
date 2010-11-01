@@ -6,14 +6,14 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_system('city'); ?></ul>
 	</div>
-	<div id="content" class="clear mainwide">
-        <div class="clear box">
+	<div id="content" class="clr mainwide">
+        <div class="clr box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>City</h2></div>
                 <div class="sect">
                     <form method="post">
-						<div class="wholetip clear"><h3>1. Basic</h3></div>
+						<div class="wholetip clr"><h3>1. Basic</h3></div>
                         <div class="field">
                             <label>City</label>
 							<div style="float:left;"><textarea cols="45" rows="5" name="hotcity"><?php echo $hotcity; ?></textarea></div>

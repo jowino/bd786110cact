@@ -47,15 +47,15 @@
                 </tr>
             </table>
 			<!--{if $team['delivery']=='express'}-->
-			<div class="wholetip clear"><h3>Receiver Info</h3></div>
+			<div class="wholetip clr"><h3>Receiver Info</h3></div>
 			<div class="field username">
 				<label>Receptant</label>
 				<input type="text" size="30" name="realname" id="settings-realname" class="f-input" value="{$login_user['realname']}" require="true" datatype="require" />
 			</div>
 			<div class="field mobile">
-				<label>Handphone</label>
+				<label>Mobile</label>
 				<input type="text" size="30" name="mobile" id="settings-mobile" class="number" value="{$login_user['mobile']}" require="true" datatype="mobile" maxLength="11" />
-				<span class="hint">Handphone is very important to us.</span>
+				<span class="hint">Mobile is very important to us.</span>
 			</div>
 			<div class="field mobile">
 				<label>Post code</label>
@@ -66,6 +66,34 @@
 				<input type="text" size="30" name="address" id="settings-address" class="f-input" value="{$login_user['address']}" require="true" datatype="require" />
 				<span class="hint">Address format should be like this: -----------</span>
 			</div>
+			<!--{/if}-->
+			<!--{if $buyforfriend}-->
+			<input type="hidden" name="isgift" value="Y">
+			<div class="wholetip clr"><h3>Gift Options</h3></div>
+			<div class="field username">
+				<label>To:</label>
+				<input type="text" size="30" name="to" id="settings-realname" class="f-input" value="" require="true" datatype="require" />
+			</div>
+			<div class="field mobile">
+				<label>From</label>
+				<input type="text" size="30" name="from" id="settings-username" class="f-input" value="{$login_user['username']}" require="true" datatype="username" maxLength="11" />
+				<span class="hint">Name you want the recipient to see.</span>
+			</div>
+			<div class="field">
+                        	<label for="gift_Delivery:">Delivery:</label>
+		                    <span>
+		                      <input type="radio" value="email" name="gift[delivery]" id="gift_delivery_method_email" class="radio" checked="checked">
+		                      Email it to
+		                      <input type="text" title="Enter email here" size="30" name="gift[delivery][email_address]" id="gift_delivery_email_address" class="f-input" style="width:130px;float:none;" autocomplete="off"><br/>
+		                      <input type="radio" value="print" name="gift[delivery]" id="gift_delivery_method_print" class="radio">
+		                      I'll print it myself
+		                    
+		                    </span>
+                </div>
+			 <div class="field message">
+                            <label for="feedback-suggest">Personal Message: <span>(Optional)</span></label>
+                            <textarea cols="36" rows="5" name="message" id="gift_message" class="f-input" ></textarea>
+                 </div>
 			<!--{/if}-->
             <input id="deal-buy-cardcode" type="hidden" name="cardcode" maxlength="8" value="" />
             <input type="hidden" name="id" value="{$order['id']}" />

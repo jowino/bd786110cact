@@ -1,10 +1,10 @@
-<!--{include manage_header}-->
+<?php include template("manage_header");?>
 
 <div id="bdw" class="bdw">
 <div id="bd" class="cf">
 <div id="partner">
 	<div class="dashboard" id="dashboard">
-		<ul>${mcurrent_partner('create')}</ul>
+		<ul><?php echo mcurrent_partner('create'); ?></ul>
 	</div>
 	<div id="content" class="clr mainwide">
         <div class="clr box">
@@ -16,7 +16,7 @@
 						<div class="wholetip clr"><h3>1. Login Info</h3></div>
                         <div class="field">
                             <label>Username</label>
-                            <input type="text" size="30" name="username" id="partner-create-username" class="f-input" value="{$partner['username']}" require="true" datatype="require" />
+                            <input type="text" size="30" name="username" id="partner-create-username" class="f-input" value="<?php echo $partner['username']; ?>" require="true" datatype="require" />
                         </div>
                         <div class="field password">
                             <label>Password</label>
@@ -26,23 +26,23 @@
 						<div class="wholetip clr"><h3>2. Basic Info</h3></div>
                         <div class="field">
                             <label>Name</label>
-                            <input type="text" size="30" name="title" id="partner-create-title" class="f-input" value="{$partner['title']}"/>
+                            <input type="text" size="30" name="title" id="partner-create-title" class="f-input" value="<?php echo $partner['title']; ?>"/>
                         </div>
                         <div class="field">
                             <label>Website</label>
-                            <input type="text" size="30" name="homepage" id="partner-create-homepage" class="f-input" value="{$partner['homepage']}"/>
+                            <input type="text" size="30" name="homepage" id="partner-create-homepage" class="f-input" value="<?php echo $partner['homepage']; ?>"/>
                         </div>
                         <div class="field">
                             <label>Contacts</label>
-                            <input type="text" size="30" name="contact" id="partner-create-contact" class="f-input" value="{$partner['contact']}"/>
+                            <input type="text" size="30" name="contact" id="partner-create-contact" class="f-input" value="<?php echo $partner['contact']; ?>"/>
 						</div>
                         <div class="field">
                             <label>Tel.</label>
-                            <input type="text" size="30" name="phone" id="partner-create-phone" class="f-input" value="{$partner['phone']}" maxLength="12"/>
+                            <input type="text" size="30" name="phone" id="partner-create-phone" class="f-input" value="<?php echo $partner['phone']; ?>" maxLength="12"/>
 						</div>
                         <div class="field">
                             <label>Handphone</label>
-                            <input type="text" size="30" name="mobile" id="partner-create-mobile" class="f-input" value="{$partner['mobile']}" maxLength="11" />
+                            <input type="text" size="30" name="mobile" id="partner-create-mobile" class="f-input" value="<?php echo $partner['mobile']; ?>" maxLength="11" />
 						</div>
                         <div class="field">
                             <label>Location</label>
@@ -55,15 +55,15 @@
 						<div class="wholetip clr"><h3>3. Bank Account Info</h3></div>
                         <div class="field">
                             <label>Bank Name</label>
-                            <input type="text" size="30" name="bank_name" id="partner-create-bankname" class="f-input" value="{$partner['bank_name']}"/>
+                            <input type="text" size="30" name="bank_name" id="partner-create-bankname" class="f-input" value="<?php echo $partner['bank_name']; ?>"/>
                         </div>
                         <div class="field">
                             <label>Name on account</label>
-                            <input type="text" size="30" name="bank_user" id="partner-create-bankuser" class="f-input" value="{$partner['bank_user']}"/>
+                            <input type="text" size="30" name="bank_user" id="partner-create-bankuser" class="f-input" value="<?php echo $partner['bank_user']; ?>"/>
                         </div>
                         <div class="field">
                             <label>Account No.</label>
-                            <input type="text" size="30" name="bank_no" id="partner-create-bankno" class="f-input" value="{$partner['bank_no']}"/>
+                            <input type="text" size="30" name="bank_no" id="partner-create-bankno" class="f-input" value="<?php echo $partner['bank_no']; ?>"/>
                         </div>
                         <div class="act">
                             <input type="submit" value="New" name="commit" id="partner-submit" class="formbutton"/>
@@ -82,4 +82,4 @@
 </div> <!-- bd end -->
 </div> <!-- bdw end -->
 
-<!--{include footer}-->
+<?php include template("footer");?>

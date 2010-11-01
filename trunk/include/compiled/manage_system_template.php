@@ -6,14 +6,14 @@
 	<div class="dashboard" id="dashboard">
 		<ul><?php echo mcurrent_system('template'); ?></ul>
 	</div>
-	<div id="content" class="clear mainwide">
-        <div class="clear box">
+	<div id="content" class="clr mainwide">
+        <div class="clr box">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head"><h2>Edit Template</h2></div>
                 <div class="sect">
                     <form method="post">
-						<div class="wholetip clear"><h3>include/template/Writable files are editable</h3></div>
+						<div class="wholetip clr"><h3>include/template/Writable files are editable</h3></div>
 						<div class="field">
 							<label>Choose Template</label>
 							<select name="template_id" id="manage_system_template_id" class="f-input" onchange="X.manage.loadtemplate(this.options[this.selectedIndex].value);"><?php echo Utility::Option($may, $template_id, '-'); ?></select>

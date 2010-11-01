@@ -7,7 +7,7 @@
 	<input type="hidden" name="zone" value="<?php echo $zone[0]; ?>" />
 	<table width="96%" class="coupons-table">
 		<tr><td width="80" nowrap><b>Full Name: </b></td><td><input type="text" name="name" value="<?php echo $category['name']; ?>" require="true" datatype="require" class="f-input" /></td></tr>
-		<tr><td nowrap><b>Short Name:</b></td><td><input type="text" name="ename" value="<?php echo $category['ename']; ?>" require="true" datatype="english" class="f-input" style="text-transform:lowercase;" /></td></tr>
+		<tr><td nowrap><b>Short Name:</b></td><td><input type="text" name="ename" value="<?php echo $category['ename']; ?>" require="true" datatype="english" class="f-input" style="text-transform:uppercase;" /></td></tr>
 		<tr><td nowrap><b>First Letter: </b></td><td><input type="text" name="letter" value="<?php echo $category['letter']; ?>" maxLength="1" require="true" datatype="english" class="f-input" style="text-transform:uppercase;" /></td></tr>
 		<tr><td nowrap><b>Category: </b></td><td><input type="text" name="czone" value="<?php echo $category['czone']; ?>" class="f-input" /></td></tr>
 		<tr><td colspan="2" height="10">&nbsp;</td></tr>
@@ -15,4 +15,4 @@
 	</table>
 </form>
 	</div>
-</div>
+</div> 

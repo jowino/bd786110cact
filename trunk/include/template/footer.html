@@ -100,7 +100,7 @@
 
         <p class="rights-reserved">&copy; 2010 Moosavings, All rights reserved.</p>
 
-        <p class="designed-by"><img src="static/images/copyright.jpg" title="DESIGNED BY CACTIMEDIA" alt="DESIGNED BY CACTIMEDIA"/></p>
+        <p class="designed-by"><img src="/static/images/copyright.jpg" title="DESIGNED BY CACTIMEDIA" alt="DESIGNED BY CACTIMEDIA"/></p>
 
       </div>
 

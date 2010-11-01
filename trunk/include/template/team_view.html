@@ -1,10 +1,8 @@
 <!--{include header}-->
 
 
-<!--{if is_newbie()}--><div id="sysmsg-guide"><div class="link"><a href="/help/tour.php"></a></div><a id="sysmsg-guide-close" href="javascript:void(0);" class="close">Close</a></div><!--{/if}-->
-
 <!--{if in_array($team['state'],array('success','soldout'))}-->
-<div id="sysmsg-tip" class="sysmsg-tip-deal-close"><div class="sysmsg-tip-top"></div><div class="sysmsg-tip-content"><div class="deal-close"><div class="focus">Sorry, you are late, <br /> this deal is over.</div><div id="tip-deal-subscribe-body" class="body"><form id="tip-deal-subscribe-form1" name="tip_sbuscribe1" method="post" action="/subscribe.php" class="validator"><table><tr><td>Don't miss other deals, subscribe our daily deal news now:&nbsp;</td><td><input type="text" name="email" class="f-text" value="" require="true" datatype="email" /></td><td>&nbsp;<input class="commit" type="submit" value="Subscribe" /></td></tr></table></form></div></div><span id="sysmsg-tip-close" class="sysmsg-tip-close">Close</span></div><div class="sysmsg-tip-bottom"></div></div>
+<div id="sysmsg-tip" class="sysmsg-tip-deal-close"><div class="sysmsg-tip-top"></div><div class="sysmsg-tip-content"><div class="deal-close"><div class="focus">Sorry, you are late, <br /> this deal is over.</div><div id="tip-deal-subscribe-body" class="body"><form id="tip-deal-subscribe-form1" name="tip_sbuscribe1" method="post" action="/subscribe.php" class="validator"><table><tr><td>Don't miss other deals, subscribe our daily deal news now:&nbsp;</td><td><input type="text" name="email" class="f-text" value="" require="true" datatype="email" /></td><td>&nbsp;<input class="commit" type="submit" value="" /></td></tr></table></form></div></div><span id="sysmsg-tip-close" class="sysmsg-tip-close">Close</span></div><div class="sysmsg-tip-bottom"></div></div>
 <!--{/if}-->
 
 <!--{if $order}-->
@@ -72,21 +70,31 @@
 			
 					<h1>{$team['now_number']} bought</h1>
 			
-					<img src="images/progress.jpg" />
+					<!--<img src="images/progress.jpg" />-->
 			
 					<p>{$team['min_number']-$team['now_number']} more need to be bought for the 
 			
 			deal to tip. <a href="#">Learn more</a><br /></p>
 			
 					</div>
+							<div class="buy-friend">
+
+				<p><a href="/team/buy.php?id={$team['id']}&action=buyforfriend">Buy it for a friend!</a></p>
+		
+				</div>
 		<!--{else}-->
 			<div class="bought">
 			
 					<h1>{$team['now_number']} bought</h1>
 			
-					<img src="images/progress.jpg" />
+					<!-- <img src="images/progress.jpg" /> -->
 					<p>The deal is tipped!
 					<!--{if $team['max_number']>$team['now_number']||$team['max_number']==0}--><br/>You can buy it now. <!--{/if}--></p>
+			
+					</div>
+							<div class="buy-friend">
+
+					<p><a href="/team/buy.php?id={$team['id']}&action=buyforfriend">Buy it for a friend!</a></p>
 			
 					</div>
 					<!--{/if}-->
@@ -97,11 +105,7 @@
 					
 					</div>
 	<!--{/if}-->
-		<div class="buy-friend">
 
-		<p><a href="#">Buy it for a friend!</a></p>
-
-		</div>
 
 		</div>
 
@@ -158,7 +162,7 @@
 
 			<div class="highlights">
 
-			<{$team['notice']}
+			{$team['notice']}
 
 			</div>
 
