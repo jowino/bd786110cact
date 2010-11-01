@@ -2,7 +2,7 @@
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 
 $id = abs(intval($_GET['id']));
-
+$buyforfriend=$_GET['action'];
 $team = Table::Fetch('team', $id);
 if ( $team ) {
 	$leader = Table::Fetch('leader', $team['user_id'], 'user_id');
@@ -19,7 +19,9 @@ if ( $_POST ) {
 		Session::Set('error', 'Can not buy less than 1.');
 		Utility::Redirect( WEB_ROOT . "/team/buy.php?id={$team['id']}");
 	}
-
+	if(isset($_POST['isgift'])){
+		$table->isgift=$_POST['isgift'];
+	}
 	$table->user_id = $login_user_id;
 	$table->team_id = $team['id'];
 	$table->city_id = $team['city_id'];
@@ -33,35 +35,84 @@ if ( $_POST ) {
 			'user_id', 'team_id', 'city_id', 'state', 
 			'fare', 'express', 'origin',
 			'address', 'zipcode', 'realname', 'mobile', 'quantity',
-			'create_time',
+			'create_time','isgift',
 		);
 	
 	if ($flag = $table->update($insert)) {
-		if ($table->id) Utility::Redirect( WEB_ROOT. "/order/check.php?id={$table->id}");
+		if ($table->id) {
+					if(isset($_POST['isgift'])){
+				$giftorder=Table::Fetch('order_gift',$table->id,'order_id');
+				$ginsert=array('order_id','to','delivery','message','email');
+				if($giftorder)
+				{
+					$_POST['id']=$giftorder['id'];
+				}
+				$gorder=new Table('order_gift',$_POST);
+				$gorder->order_id=$table->id;
+				if($_POST['gift']['delivery']=='print')
+				{
+					$gorder->delivery='print';
+				}
+				else 
+				{
+					$gorder->email=$_POST['gift']['delivery']['email_address'];
+					$gorder->delivery='email';
+				}
+				if($giftorder)
+				{
+					$gorder->Update($ginsert);
+				}
+				else {
+					$gorder->Insert($ginsert);
+				}
+			}
+			Utility::Redirect( WEB_ROOT. "/order/check.php?id={$table->id}");
+		}
 		Utility::Redirect( WEB_ROOT . "/order/check.php?id={$flag}");
 	}
 }
-
-$ex_con = array(
+if(!isset($buyforfriend))
+{
+	$ex_con = array(
 		'user_id' => $login_user_id,
 		'team_id' => $team['id'],
+		'isgift'=>'N',
 		);
-$order = DB::LimitQuery('order', array(
-	'condition' => $ex_con,
-	'one' => true,
-));
-
-//each user per day per buy
-if (!$order) { 
-	$order = array();
-	$order['quantity'] = 1;
-} else {
-	if ($order['state']!='unpay'||$order['service']=='cash') {
-		Session::Set('error', 'Only buy once for each person, you have bought.');
-		Utility::Redirect( WEB_ROOT . '/index.php'); 
+	$order = DB::LimitQuery('order', array(
+		'condition' => $ex_con,
+		'one' => true,
+	));
+	
+	//each user per day per buy
+	if (!$order) { 
+		$order = array();
+		$order['quantity'] = 1;
+	} else {
+		if ($order['state']!='unpay'||$order['service']=='cash') {
+			Session::Set('error', 'Only buy once for each person, you have bought.');
+			Utility::Redirect( WEB_ROOT . '/index.php'); 
+		}
+	}
+	//end;
+}
+else {
+		$ex_con = array(
+		'user_id' => $login_user_id,
+		'team_id' => $team['id'],
+		'isgift'=>'Y',
+		'state'=>'unpay',
+		"service!='cash'",
+		);
+	$order = DB::LimitQuery('order', array(
+		'condition' => $ex_con,
+		'one' => true,
+	));
+	if (!$order) { 
+		$order = array();
+		$order['quantity'] = 1;
 	}
 }
-//end;
+
 
 $order['origin'] = ($order['quantity'] * $team['team_price']) + ($team['delivery']=='express' ? $team['fare'] : 0);
 
