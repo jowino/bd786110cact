@@ -28,7 +28,7 @@ class Mailer {
 			messageId		= null
 			encoding		= 'UTF-8'
 	 */
-	static function SendMail($from, $to, $subject, $message, $options=null, $bcc=array())
+	static function SendMail($from, $to, $subject, $message, $options=null, $bcc=array(),$attached=null)
 	{
 		global $INI; $from = "{$INI['system']['sitename']} <{$from}>";
 		if ( !isset($options['subjectenc']) )
@@ -125,7 +125,7 @@ class Mailer {
 			$mail->Body = $body;
 		}
 		$mail->AddAddress($to);
-
+		if($attached)
 			$mail->AddStringAttachment($attached,'coupon.pdf','base64','application/pdf');
 		
 		return $mail->Send();
