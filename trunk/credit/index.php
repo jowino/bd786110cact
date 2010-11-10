@@ -4,7 +4,7 @@ require_once(dirname(dirname(__FILE__)) . '/app.php');
 need_login();
 $condition = array( 'user_id' => $login_user['id'],);
 $count = Table::Count('flow', $condition);
-list($pagesize, $offset, $pagestring) = pagestring($count, 20);
+list($pagesize, $offset, $pagestring) = pagestring($count, 5);
 
 $flows = DB::LimitQuery('flow', array(
 			'condition'=>$condition,
