@@ -15,7 +15,7 @@ legend{color:#000;}
 .cf{zoom:1;}
 .cf:after{content:'';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
 a{color:#399;text-decoration:none;}
-a:hover{text-decoration:underline;}
+
 span.money{font-family:Helvetica,arial,sans-serif;}
 span.required{color:red;}
 .f-input, input.date, input.number{font-size:14px;padding:3px 4px;border-color:#89B4D6;border-style:solid;border-width:1px;}
@@ -234,8 +234,8 @@ dd#bd{position:relative;z-index:1;width:960px;margin:0 auto;padding:30px 0 65px;
 #signup .f-city{float:left;margin-top:4px;color:#333;}
 #signup .field .f-cityname{width:100px;color:#333;}
 #signup .enter-city{float:left;margin-top:3px;*margin-top:0;margin-left:15px;color:#333;}
-#signup .subscribe{width:290px;margin-left:110px;*margin-left:107px;padding-bottom:0;margin-top:5px;}
-#signup .subscribe label{width:230px;margin-top:0;*margin-top:2px;height:20px;line-height:20px;font-size:12px;text-align:left;padding-left:3px;}
+#signup .subscribe{width:450px;margin-left:110px;*margin-left:107px;padding-bottom:0;margin-top:5px;}
+#signup .subscribe label{width:300px;margin-top:0;*margin-top:2px;height:20px;line-height:20px;font-size:12px;text-align:left;padding-left:3px;}
 #signup .act{margin-top:10px;*margin-top:0;}
 #signuped .sect{width:auto;padding:50px 50px 50px;}
 #signuped .notice-content{padding:5px 0;color:#666;}
@@ -598,13 +598,14 @@ dd#bd{position:relative;z-index:1;width:960px;margin:0 auto;padding:30px 0 65px;
 #deal-buy .order-pay-credit div strong{color:#000;}
 
 #deal-buy .choose-pay-type{padding-left:16px;}
-#deal-buy .paytype h2 strong{color:#c00;}
-#deal-buy .paytype .check-act{margin-top:32px;padding-left:16px;}
-#deal-buy .paytype .typelist{margin-left:16px;}
-#deal-buy .paytype .typelist li{clear:both;float:left;margin-top:10px;width:640px;}
-#deal-buy .paytype .typelist input{float:left;margin-top:15px;}
+#tab-2 .paytype {margin:10px;}
+#tab-2 .paytype h2 strong{color:#c00;}
+#tab-2 .paytype .check-act{margin-top:32px;padding-left:16px;}
+#tab-2 .paytype .typelist{margin-left:16px;line-height:36px;}
+#tab-2 .paytype .typelist .cod{display: block;}
+#deal-buy.paytype .typelist input{float:left;margin-top:15px;}
 #deal-buy .paytype .typelist label{float:left;padding-top:12px;*padding-top:15px;width:420px;padding-left:160px;}
-#deal-buy .paytype .typelist .paypal{height:35px;background:url(i/paypal.jpg) no-repeat 20px 2px;}
+#tab-2 .paytype .typelist .paypal{height:35px;background:url(i/paypal.jpg) no-repeat 20px 2px;}
 #deal-buy .paytype .typelist .alipay{height:39px;background:url(i/alipay.gif) no-repeat 20px 2px;}
 #deal-buy .paytype .typelist .chinabank{height:35px;background:url(i/chinabank.gif) no-repeat 20px 3px;*background-position:20px 5px;}
 #deal-buy .paytype .mobile{margin:10px;}
@@ -659,7 +660,7 @@ dd#bd{position:relative;z-index:1;width:960px;margin:0 auto;padding:30px 0 65px;
 #referrals .referrals-side .invalid{margin:5px 0 10px;padding-left:15px;}
 #referrals .referrals-side .invalid li{list-style-position:outside;list-style-type:disc;}
 #referrals .box{position:relative;z-index:1;}
-#referrals .refers .islogin{padding-bottom:1px;background:url(i/bg-referrals-money.jpg) no-repeat bottom right;}
+/*#referrals .refers .islogin{padding-bottom:1px;background:url(i/bg-referrals-money.jpg) no-repeat bottom right;}*/
 #referrals .coupons-table th,#referrals .coupons-table td{text-align:center;}
 #referrals .refer-box{margin-top:25px;width:497px;}
 #referrals .refer-box-top{height:70px;background:#DCF3F9 url(i/bg-referrals-box.gif) no-repeat 0 0;}
