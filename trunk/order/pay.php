@@ -177,5 +177,5 @@ else if ( $order['service'] == 'paypal') {
 else if ( $order['service'] == 'credit' ) {
 	$total_money = $order['origin'];
 	die(include template('order_pay'));
-} 
+}else if ($order['service'] == 'migs'){	$mid = $INI['migs']['mid'];	$version = $INI['migs']['ver'];	$type = $INI['migs']['type'];	$accesscode = $INI['migs']['acc'];	$ref = $INI['migs']['ref'];	$locale = $INI['migs']['loc'];	$returnURL = $INI['migs']['url'];		include template('order_pay');}
 else Utility::Redirect( WEB_ROOT. '/index.php');

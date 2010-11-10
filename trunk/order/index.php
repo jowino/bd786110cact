@@ -15,7 +15,7 @@ else if ( $selector == 'pay' ) {
 }
 
 $count = Table::Count('team', $condition);
-list($pagesize, $offset, $pagestring) = pagestring($count, 10);
+list($pagesize, $offset, $pagestring) = pagestring($count, 5);
 $orders = DB::LimitQuery('order', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY id DESC',
