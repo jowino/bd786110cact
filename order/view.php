@@ -26,5 +26,5 @@ if ( $team['delivery'] == 'coupon' ) {
 				'condition' => $cc,
 				));
 }
-
+//mail_coupon($team, $partner, $order, $login_user, $coupons[0]);
 include template('order_view');
