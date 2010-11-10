@@ -17,6 +17,10 @@ class ZCoupon
 		$team = Table::FetchForce('team', $order['team_id']);
 		if ( $team['now_number'] >= $team['min_number'] ) {
 			//init coupon create;
+			if($team['now_number'] == $team['min_number'])
+			{
+				self::TipSuccess($order);
+			}
 			if ($team['now_number']-$team['min_number']<5) {
 				$orders = DB::LimitQuery('order', array(
 					'condition' => array(
@@ -60,5 +64,20 @@ class ZCoupon
 			$count = Table::Count('coupon', $ccon);
 			mail_coupon($team, $partner, $order, $login_user, $coupon);
 		}
+	}
+	
+	static public function TipSuccess($order)
+	{
+		$orders = DB::LimitQuery('order', array(
+					'condition' => array(
+						'team_id' => $order['team_id'],
+						'state' => 'pay',
+					),
+				));
+	foreach($orders AS $order) {
+					$team=Table::Fetch('team',$order['team_id']);
+					$user=Table::Fetch('user',$order['user_id']);
+					mail_tipped($team, $order, $user);
+				}
 	}
 }
