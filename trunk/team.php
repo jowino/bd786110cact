@@ -54,7 +54,7 @@ if ( abs(intval($INI['system']['sideteam'])) ) {
 				'size' => abs(intval($INI['system']['sideteam'])),
 				));
 }
-
+if($team['state']=='none')
 $team['state'] = team_state($team);
 
 /* your order */
