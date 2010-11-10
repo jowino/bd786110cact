@@ -7,7 +7,7 @@
 .clr {clear:both;}
 
 body {
-	background-image:url(/groupon/static/images/bg.jpg);
+	background-image:url(/static/images/bg.jpg);
 	background-repeat:x-repeat;
 	background-color:#343433;
 	font-family:Arial, Helvetica, sans-serif;
@@ -36,7 +36,7 @@ body {
 	float:left;
 	width:339px;
 	height:175px;
-	background-image:url(/groupon/static/images/header-box-2-bg.jpg);
+	background-image:url(/static/images/header-box-2-bg.jpg);
 }
 
 .header-box-2 ul{
@@ -52,11 +52,11 @@ body {
 
 ul.button {
 	list-style:none;
-	width:150px;
+	width:170px;
 }
 
 ul.button li.button-left {
-	background-image:url(/groupon/static/images/header-button-left.jpg);
+	background-image:url(/static/images/header-button-left.jpg);
 	width:5px;
 	height:21px;
 	background-repeat:no-repeat;
@@ -65,7 +65,7 @@ ul.button li.button-left {
 
 ul.button li{
 	float:left;
-	background-image:url(/groupon/static/images/header-button-bg.jpg);
+	background-image:url(/static/images/header-button-bg.jpg);
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
 	color:#FFFFFF;
@@ -74,7 +74,7 @@ ul.button li{
 }
 
 ul.button li.button-right {
-	background-image:url(/groupon/static/images/header-button-right.jpg);
+	background-image:url(/static/images/header-button-right.jpg);
 	width:5px;
 	height:21px;
 	background-repeat:no-repeat;
@@ -82,7 +82,7 @@ ul.button li.button-right {
 }
 
 .button-arrow {
-	background-image:url(/groupon/static/images/button-arrow.jpg);
+	background-image:url(/static/images/button-arrow.jpg);
 	width:10px;
 	height:7px;
 	display:block;
@@ -95,7 +95,7 @@ p.telephone {
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
 	color:#4d4d4d;
-	background-image:url(/groupon/static/images/telephone-icon.jpg);
+	background-image:url(/static/images/telephone-icon.jpg);
 	background-repeat:no-repeat;
 	text-align:right;
 	padding-top:8px;
@@ -176,7 +176,7 @@ p.telephone {
 
 .side-bar-1 {
 	margin-top:5px;
-	background-image:url(/groupon/static/images/subscribe-bg.jpg);
+	background-image:url(/static/images/subscribe-bg.jpg);
 	height:97px;
 	width:202px;
 }
@@ -198,7 +198,7 @@ p.telephone {
 }
 
 .field {
-	background-image:url(/groupon/static/images/field-bg.jpg);
+	background-image:url(/static/images/field-bg.jpg);
 	background-repeat:no-repeat;
 	border:medium none;
 	color:#A6A6A6;
@@ -213,7 +213,7 @@ p.telephone {
 }
 
 .submit {
-	background-image:url(/groupon/static/images/submit-bg.jpg);
+	background-image:url(/static/images/submit-bg.jpg);
 	background-repeat:no-repeat;
 	border:medium none;
 	color:#FFFFFF;
@@ -259,12 +259,12 @@ p.telephone {
 
 .side-bar-2 span{
 	list-style:none;
-	background-image:url(/groupon/static/images/side-bar-2-value-bg.jpg);
+	background-image:url(/static/images/side-bar-2-value-bg.jpg);
 	background-repeat:repeat-x;
 }
 
 .side-bar-2 span{
-	background-image:url(/groupon/static/images/side-bar-2-li-bg.jpg);
+	background-image:url(/static/images/side-bar-2-li-bg.jpg);
 	background-repeat:no-repeat;
 	color:#FFFFFF;
 	float:left;
@@ -311,17 +311,17 @@ p.telephone {
 }
 
 .left-content-top {
-	background-image:url(/groupon/static/images/left-content-top.jpg);
+	background-image:url(/static/images/left-content-top.jpg);
 	width:776px;
 	height:26px;
 }
 .left-content-middle {
-	background-image:url(/groupon/static/images/left-content-middle.jpg);
+	background-image:url(/static/images/left-content-middle.jpg);
 	width:776px;
 	height:auto;
 }
 .left-content-bottom {
-	background-image:url(/groupon/static/images/left-content-bottom.jpg);
+	background-image:url(/static/images/left-content-bottom.jpg);
 	width:776px;
 	height:26px;
 }
@@ -379,14 +379,14 @@ p.green {
 }
  
 .comment-top {
-	background-image:url(/groupon/static/images/comment-top.jpg);
+	background-image:url(/static/images/comment-top.jpg);
 	background-repeat:no-repeat;
 	width:644px;
 	height:25px;
 }
 
 .comment-middle {
-	background-image:url(/groupon/static/images/comment-middle.jpg);
+	background-image:url(/static/images/comment-middle.jpg);
 	background-repeat:no-repeat;
 	height:auto;
 	width:644px;
@@ -394,7 +394,7 @@ p.green {
 }
 
 .comment-bottom {
-	background-image:url(/groupon/static/images/comment-bottom.jpg);
+	background-image:url(/static/images/comment-bottom.jpg);
 	background-repeat:no-repeat;
 	height:25px;
 	width:644px;
@@ -417,7 +417,7 @@ p.green {
 }
 
 .footer-top {
-	background-image:url(/groupon/static/images/footer-top.jpg);
+	background-image:url(/static/images/footer-top.jpg);
 	background-repeat:no-repeat;
 	height:6px;
 }
@@ -426,13 +426,13 @@ p.green {
 	background-color:#141414;
 	height:auto;
 	width:994px;
-	background-image:url(/groupon/static/images/footer-logo.jpg);
+	background-image:url(/static/images/footer-logo.jpg);
 	background-repeat:no-repeat;
 	background-position:right 0;
 }
 
 .footer-bottom {
-	background-image:url(/groupon/static/images/footer-bottom.jpg);
+	background-image:url(/static/images/footer-bottom.jpg);
 	background-repeat:no-repeat;
 	height:6px;
 }
@@ -545,7 +545,7 @@ span.green {
 }
 
 .main-deal-img {
-	background-image:url(/groupon/static/images/main-deal-img-bg.jpg);
+	background-image:url(/static/images/main-deal-img-bg.jpg);
 	background-repeat:no-repeat;
 	width:496px;
 	height:312px;
@@ -557,19 +557,20 @@ span.green {
 }
 
 .share {
-	background-image:url(/groupon/static/images/share.png);
+	background-image:url(/static/images/share.png);
 	background-repeat:no-repeat;
 	position:absolute;
 	width:181px;
 	height:46px;
 	margin-left:307px;
-	margin-top:21px;
+	margin-top:15px;
 }
 
 .share p{
 	padding-left:5px;
 	float:left;
 	margin-top:7px;
+	width:170px;
 }
 
 .share img{
@@ -577,6 +578,7 @@ span.green {
 	margin-top:0px;
 	margin-left:2px;
 }
+*+html .share { margin-top:-15px; } /* IE7 */
 
 .discuss {
 	
@@ -601,14 +603,14 @@ span.green {
 }
 
 li.discuss-left {
-	background-image:url(/groupon/static/images/discuss-left.jpg);
+	background-image:url(/static/images/discuss-left.jpg);
 	background-repeat:no-repeat;
 	height:17px;
 	width:8px;
 }
 
 li.discuss-right {
-	background-image:url(/groupon/static/images/discuss-right.jpg);
+	background-image:url(/static/images/discuss-right.jpg);
 	background-repeat:no-repeat;
 	height:17px;
 	width:8px;
@@ -640,7 +642,7 @@ li.discuss-right {
 }
 
 .main-deal-buy {
-	background-image:url(/groupon/static/images/main-deal-buy.png);
+	background-image:url(/static/images/main-deal-buy.png);
 	background-repeat:no-repeat;
 	width:259px;
 	height:67px;
@@ -655,7 +657,7 @@ li.discuss-right {
 	padding-left:30px;
 }
 .main-deal-expired {
-	background-image:url(/groupon/static/images/deal_expired.jpg);
+	background-image:url(/static/images/main-deal-expired.png);
 	background-repeat:no-repeat;
 	width:259px;
 	height:67px;
@@ -669,7 +671,7 @@ li.discuss-right {
 	padding-left:30px;
 }
 .main-deal-soldout {
-	background-image:url(/groupon/static/images/deal_soldout.jpg);
+	background-image:url(/static/images/deal_soldout.jpg);
 	background-repeat:no-repeat;
 	width:259px;
 	height:67px;
@@ -692,7 +694,7 @@ li.discuss-right {
 }
 
 .count-down {
-	background-image:url(/groupon/static/images/main-deal-time-bg.jpg);
+	background-image:url(/static/images/main-deal-time-bg.jpg);
 	background-repeat:no-repeat;
 	width:231px;
 	height:145px;
@@ -710,7 +712,7 @@ li.discuss-right {
 }
 
 .count-down input {
-	background-image:url(/groupon/static/images/time-input-bg.jpg);
+	background-image:url(/static/images/time-input-bg.jpg);
 	background-repeat:no-repeat;
 	border:medium none;
 	color:#4B4B4B;
@@ -742,7 +744,7 @@ p.sec {
 }
 
 .bought {
-	background-image:url(/groupon/static/images/bought-bg.jpg);
+	background-image:url(/static/images/bought-bg.jpg);
 	background-repeat:no-repeat;
 	width:231px;
 	height:128px;
@@ -770,7 +772,7 @@ p.sec {
 }
 
 .buy-friend {
-	background-image:url(/groupon/static/images/buy-friend.jpg);
+	background-image:url(/static/images/buy-friend.jpg);
 	background-repeat:no-repeat;
 	width:228px;
 	height:53px;
@@ -790,7 +792,7 @@ p.sec {
 /*Inner Pages*/
 
 .inner-content-top {
-	background-image:url(/groupon/static/images/inner-content-top.jpg);
+	background-image:url(/static/images/inner-content-top.jpg);
 	background-repeat:no-repeat;
 	width:1006px;
 	height:19px;
@@ -798,21 +800,21 @@ p.sec {
 }
 
 .inner-content-middle {
-	background-image:url(/groupon/static/images/inner-content-middle.jpg);
+	background-image:url(/static/images/inner-content-middle.jpg);
 	background-repeat:y-repeat;
 	width:1006px;
 	height:auto;
 }
 
 .inner-content-bottom {
-	background-image:url(/groupon/static/images/inner-content-bottom.jpg);
+	background-image:url(/static/images/inner-content-bottom.jpg);
 	background-repeat:no-repeat;
 	width:1006px;
 	height:19px;
 }
 
 .inner-content-middle h1{
-	background-image:url(/groupon/static/images/inner-heading-bg.jpg);
+	background-image:url(/static/images/inner-heading-bg.jpg);
 	background-repeat:no-repeat;
 	height:32px;
 	margin-left:20px;
@@ -825,7 +827,7 @@ p.sec {
 }
 
 h2.contact-heading-bg {
-	background-image:url(/groupon/static/images/contact-heading-bg.jpg);
+	background-image:url(/static/images/contact-heading-bg.jpg);
 	background-repeat:no-repeat;
 	color:#FFFFFF;
 	font-weight:normal;
@@ -874,6 +876,9 @@ h2.contact-heading-bg {
 	height:22px;
 	color:#ABADB3;
 }
+.inner-left .f-input{
+	color:#000;
+}
 
 .inner-left span{
 	float:left;
@@ -894,7 +899,7 @@ span.red {
 }
 
 .clear {
-	background-image:url(/groupon/static/images/clear-button-bg.jpg);
+	background-image:url(/static/images/clear-button-bg.jpg);
 	background-repeat:no-repeat;
 	width:75px;
 	height:22px;
@@ -904,7 +909,7 @@ span.red {
 }
 
 .submit {
-	background-image:url(/groupon/static/images/submit-button-bg.jpg);
+	background-image:url(/static/images/submit-button-bg.jpg);
 	background-repeat:no-repeat;
 	width:75px;
 	border:none !important;
@@ -945,7 +950,7 @@ h2.past-deals {
 }
 
 input.past-deals-submit{
-	background-image:url(/groupon/static/images/past-deals-submit-button-bg.jpg);
+	background-image:url(/static/images/past-deals-submit-button-bg.jpg);
 	height:22px;
 	width:75px;
 	color:#393939;
@@ -956,7 +961,7 @@ input.past-deals-submit{
 
 .past-deals-heading {
 	height:45px;
-	background-image:url(/groupon/static/images/past-deals-heading-bg.jpg);
+	background-image:url(/static/images/past-deals-heading-bg.jpg);
 	background-repeat:no-repeat;
 	margin-left:20px;
 }
@@ -970,7 +975,7 @@ input.past-deals-submit{
 }
 
 .products-details-box {
-	background-image:url(/groupon/static/images/past-details-product-bg.jpg);
+	background-image:url(/static/images/past-details-product-bg.jpg);
 	background-repeat:no-repeat;
 	height:169px;
 	width:310px;;
@@ -991,17 +996,15 @@ input.past-deals-submit{
 }
 
 .products-details-box-left{
-	width:125px;
+	width:95px;
 	height:auto;
 	float:left;
 	margin-left:13px;
-	position:absolute;
 }
 
 .products-details-box-right{
 	float:left;
 	height:105px;
-	margin-left:108px;
 	margin-top:9px;
 	width:186px;
 }
@@ -1012,13 +1015,13 @@ input.past-deals-submit{
 }
 
 .products-details-box-left ul {
-background-image:url("/groupon/static/images/side-bar-2-value-bg.jpg");
+background-image:url("/static/images/side-bar-2-value-bg.jpg");
 background-repeat:repeat-x;
 list-style:none outside none;
 }
 
 .products-details-box-left span{
-	background-image:url("/groupon/static/images/side-bar-2-li-bg.jpg");
+	background-image:url("/static/images/side-bar-2-li-bg.jpg");
 	background-position:left center;
 	background-repeat:no-repeat;
 	color:#FFFFFF;
@@ -1032,7 +1035,7 @@ list-style:none outside none;
 }
 
 span.value-arrow {
-	background-image:url("/groupon/static/images/side-bar-2-value-li-arrow.png");
+	background-image:url("/static/images/side-bar-2-value-li-arrow.png");
 	background-repeat:no-repeat;
 	background-position:right;
 	height:25px;
@@ -1105,14 +1108,14 @@ span.moo{
 }
 
 .daily-deals-right-top {
-	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-top.jpg);
+	background-image:url(/static/images/daily-deals-sidebar-bg-top.jpg);
 	background-repeat:no-repeat;
 	height:14px;
 	width:auto;
 }
 
 .daily-deals-right-middle {
-	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-middle.jpg);
+	background-image:url(/static/images/daily-deals-sidebar-bg-middle.jpg);
 	height:auto;
 	padding-left:15px;
 	padding-right:15px;
@@ -1134,16 +1137,16 @@ span.moo{
 .daily-deals-right-bottom {
 	height:14px;
 	width:auto;
-	background-image:url(/groupon/static/images/daily-deals-sidebar-bg-bottom.jpg);
+	background-image:url(/static/images/daily-deals-sidebar-bg-bottom.jpg);
 	background-repeat:no-repeat;
 	padding-bottom:10px;
 }
 #cart { 
-	background:url(/groupon/static/images/cart_bottom_bg.png) no-repeat 0 100%;
+	background:url(/static/images/cart_bottom_bg.png) no-repeat 0 100%;
 }
 
 #cart th { 
-	background:url(/groupon/static/images/cart_th_bg.png) repeat-x scroll 0 0;
+	background:url(/static/images/cart_th_bg.png) repeat-x scroll 0 0;
 	font-family:Arial, Helvetica, sans-serif; 
 	font-size:14px; 
 	color:#222222; 
@@ -1169,7 +1172,7 @@ span.moo{
 }
 
 #cart td input{
-	background-image:url(/groupon/static/images/cart-input-bg.jpg);
+	background-image:url(/static/images/cart-input-bg.jpg);
 	background-repeat:no-repeat;
 	border:medium none;
 	height:20px;
@@ -1186,12 +1189,12 @@ span.moo{
 }
 
 #cart .cart-left-bg {
-	background:url(/groupon/static/images/cart-left-bg.jpg) no-repeat scroll 0 0;
+	background:url(/static/images/cart-left-bg.jpg) no-repeat scroll 0 0;
 	border-right:1;
 }
 
 #cart .cart-right-bg {
-	background:url(/groupon/static/images/cart-right-bg.jpg) no-repeat scroll 100% 0;
+	background:url(/static/images/cart-right-bg.jpg) no-repeat scroll 100% 0;
 	border-right:none
 }
 
@@ -1206,7 +1209,7 @@ span.moo{
 }
 
 .cancel {
-	background-image:url("/groupon/static/images/cancel-button-bg.jpg");
+	background-image:url("/static/images/cancel-button-bg.jpg");
 	background-repeat:no-repeat;
 	border:medium none !important;
 	color:#FFFFFF !important;
@@ -1217,7 +1220,7 @@ span.moo{
 }
 
 .update-shopping-cart {
-	background-image:url("/groupon/static/images/update-button-bg.jpg");
+	background-image:url("/static/images/update-button-bg.jpg");
 	background-repeat:no-repeat;
 	border:medium none !important;
 	color:#FFFFFF !important;
@@ -1226,15 +1229,198 @@ span.moo{
 	width:144px;
 	cursor:pointer;
 }
+
+#container-dailydeals-1 ul{
+	background-image:url(/static/images/checkout-1.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+#container-dailydeals-1 li{
+	float:left;
+	margin-right:25px;
+	margin-top:8px;
+	padding-left:20px;
+	text-decoration:none;
+}
+#container-dailydeals-2 ul{
+	background-image:url(/static/images/checkout-2.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+#container-dailydeals-2 li{
+	float:left;
+	margin-right:25px;
+	margin-top:8px;
+	padding-left:20px;
+	text-decoration:none;
+}
+#container-dailydeals-3 ul{
+	background-image:url(/static/images/checkout-3.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+#container-dailydeals-3 li{
+	float:left;
+	margin-right:25px;
+	margin-top:8px;
+	padding-left:20px;
+	text-decoration:none;
+}
+#container-dailydeals-4 ul{
+	background-image:url(/static/images/checkout-4.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+#container-dailydeals-4 li{
+	float:left;
+	margin-right:25px;
+	margin-top:8px;
+	padding-left:20px;
+	text-decoration:none;
+}
+
+#container-dailydeals-5 ul{
+	background-image:url(/static/images/checkout-5.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+#container-dailydeals-5 li{
+	float:left;
+	margin-right:25px;
+	margin-top:8px;
+	padding-left:20px;
+	text-decoration:none;
+}
+
+li.white {
+	color:#FFFFFF;
+}
+
+#tab-1 {
+	background-image:url(/static/images/tab-bg.jpg);
+	height:268px;
+	width:740px;
+}
+
+#tab-1 h2{
+	padding-top:20px;
+	padding-left:60px;
+	font-size:14px;
+}
+
+#tab-1 h3{
+	color:#545454;
+	font-size:14px;
+	padding-left:60px;
+	font-size:14px;
+}
+
+#tab-1 p{
+	color:#545454;
+	padding-left:60px;
+	margin-top:10px;
+}
+
+#tab-1 strong{
+	margin-left:225px;
+	margin-top:5px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#tab-1 img{
+}
+
+#tab-1 a{
+	
+}
+
+#tab-1 input{
+	margin-left:60px;
+	margin-top:2px;
+	color:#545454;
+	border:1px solid #D0D0D0;
+	width:215px;
+}
+
+#tab-1 input.login{
+	background-image:url("/static/images/submit-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	height:22px;
+	margin-left:12px;
+	padding-bottom:4px;
+	padding-top:2px;
+	width:75px;
+	cursor:pointer;
+}
+
+#tab-1 input.register{
+	background-image:url("/static/images/submit-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	cursor:pointer;
+	height:22px;
+	margin-left:250px;
+	margin-top:10px;
+	padding-bottom:4px;
+	padding-top:2px;
+	width:75px;
+}
+
+#tab-1 #left{
+	border-right:2px solid #CFCFCF;
+	float:left;
+	margin-top:8px;
+	padding-bottom:8px;
+	width:360px;
+}
+
+#tab-1 #right{
+	float:left;
+	width:335px;
+}
+
+#tab-1 #right h2{
+	padding-top:20px;
+	padding-left:35px;
+	font-size:14px;
+}
+
+#tab-1 #right h3{
+	color:#545454;
+	font-size:14px;
+	padding-left:35px;
+	font-size:14px;
+}
+
+#tab-1 #right p{
+	color:#545454;
+	padding-left:35px;
+	margin-top:10px;
+	font-size:14px;
+}
 .deal-buy {
-	background-image:url(/groupon/static/images/deal-buy.png);
+	background-image:url(/static/images/deal-buy.png);
 	background-repeat:no-repeat;
 	width:117px;
 	height:51px;
 	margin-top:30px;
 }
 .button-left {
-	background-image:url(/groupon/static/images/header-button-left.jpg);
+	background-image:url(/static/images/header-button-left.jpg);
 	width:5px;
 	height:21px;
 	background-repeat:no-repeat;
@@ -1244,7 +1430,7 @@ span.moo{
 
 .change{
 	float:left;
-	background-image:url(/groupon/static/images/header-button-bg.jpg);
+	background-image:url(/static/images/header-button-bg.jpg);
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
 	color:#FFFFFF;
@@ -1255,7 +1441,7 @@ span.moo{
 }
 
 .button-right {
-	background-image:url(/groupon/static/images/header-button-right.jpg);
+	background-image:url(/static/images/header-button-right.jpg);
 	width:5px;
 	height:21px;
 	background-repeat:no-repeat;
@@ -1263,3 +1449,232 @@ span.moo{
 	float:left;
 }
 .city-list{display:none;clear:both;float:left;width:345px;margin-top:0px;padding:10px 10px;background:#515151;position:relative;z-index:10;}
+
+#container-account .account-1{
+	background-image:url(/static/images/account-1.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+#container-account  li.current a {
+	color:#FFFFFF;
+}
+#container-account .account-1 li,#container-account .account-2 li,#container-account .account-3 li,#container-account .account-4 li,
+#container-account .account-5 li{
+	float:left;
+	margin-right:58px;
+	margin-top:8px;
+	padding-left:34px;
+	text-decoration:none;
+}
+#container-account .account-2{
+	background-image:url(/static/images/account-2.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+#container-account .account-3{
+	background-image:url(/static/images/account-3.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+#container-account .account-4{
+	background-image:url(/static/images/account-4.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+#container-account .account-5{
+	background-image:url(/static/images/account-5.jpg);
+	height:31px;
+	width:740px;
+	list-style:none;
+}
+
+
+#account { 
+	background:url(/static/images/cart_bottom_bg.png) no-repeat 0 100%;
+}
+
+#account th { 
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:14px; 
+	color:#222222; 
+	font-weight:bo;
+	border-right:
+	1px solid #C0C0C0;
+	padding:9px 0;
+	text-align:center;
+}
+
+#account td td { 
+	border-right:1px solid #C0C0C0;
+	text-align:center;
+}
+
+#account td{
+	height:70px;
+	color:#222222;
+	font-size:14px;
+}
+
+#account td p{
+	padding-left:10px;
+	padding-top:15px;
+}
+
+#account td input{
+	border:medium none;
+	height:20px;
+	margin-left:13px;
+	margin-top:16px;
+	padding:3px 5px 3px 3px;
+	text-align:center;
+	width:44px;
+}
+#account .submit {
+	background-image:url(/static/images/submit-bg.jpg);
+	background-repeat:no-repeat;
+	border:medium none;
+	color:#FFFFFF;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	margin-top:5px;
+	padding-bottom:2px;
+	padding-top:3px;
+	width:75px;
+}
+
+#account .cart-left-bg {
+	background:url(/static/images/cart-left-bg.jpg) no-repeat scroll 0 0;
+	border-right:1;
+}
+
+#account .cart-right-bg {
+	background:url(/static/images/cart-right-bg.jpg) no-repeat scroll 100% 0;
+	border-right:none
+}
+
+#account-tab-1 {
+}
+#account-category .filter{float:right;margin:10px;}
+#account-category .filter li{float:left;margin:0 5px 0 0;font-size:12px;}
+#account-category .filter a{padding:3px 1px;}
+#account-category .filter .current a{padding:3px 7px;background:#00ADB2;color:#fff;-moz-border-radius:2px;-webkit-border-radius:2px;}
+#account-tab-1 h2{
+	padding-top:20px;
+	padding-left:60px;
+	font-size:14px;
+}
+
+#account-tab-1 h3{
+	color:#545454;
+	font-size:14px;
+	padding-left:60px;
+	font-size:14px;
+}
+
+#account-tab-1 p{
+	color:#545454;
+	padding-left:60px;
+	margin-top:10px;
+}
+
+#account-tab-1 strong{
+	margin-left:225px;
+	margin-top:5px;
+	margin-bottom:5px;
+	float:left;
+}
+
+#account-tab-1 img{
+}
+
+#account-tab-1 input{
+	margin-left:60px;
+	margin-top:2px;
+	color:#545454;
+	border:1px solid #D0D0D0;
+	width:75px;
+}
+
+#account-tab-1 input.login{
+	background-image:url("/static/images/submit-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	height:22px;
+	margin-left:12px;
+	padding-bottom:4px;
+	padding-top:2px;
+	width:75px;
+	cursor:pointer;
+}
+
+#account-tab-1 input.register{
+	background-image:url("/static/images/submit-button-bg.jpg");
+	background-repeat:no-repeat;
+	border:medium none !important;
+	color:#FFFFFF !important;
+	cursor:pointer;
+	height:22px;
+	margin-left:250px;
+	margin-top:10px;
+	padding-bottom:4px;
+	padding-top:2px;
+	width:75px;
+}
+
+#account-tab-1 #left{
+	border-right:2px solid #CFCFCF;
+	float:left;
+	margin-top:8px;
+	padding-bottom:8px;
+	width:360px;
+}
+
+#account-tab-1 #right{
+	float:left;
+	width:335px;
+}
+
+#account-tab-1 #right h2{
+	padding-top:20px;
+	padding-left:35px;
+	font-size:14px;
+}
+
+#account-tab-1 #right h3{
+	color:#545454;
+	font-size:14px;
+	padding-left:35px;
+	font-size:14px;
+}
+
+#account-tab-1 #right p{
+	color:#545454;
+	padding-left:35px;
+	margin-top:10px;
+	font-size:14px;
+}
+
+#account .cart-last {
+	border-right:none ;
+	height:15px;
+}
+
+#account-tab-1 a{
+	color:#769c35;
+}
+
+#account td .highlight {
+	text-align:left;
+	padding-left:10px;
+	border-left:1px solid #C0C0C0;
+}
+
+#account td .normal {
+	padding-left:10px;
+	text-align:left;
+}
