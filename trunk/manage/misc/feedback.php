@@ -39,5 +39,5 @@ $asks = DB::LimitQuery('feedback', array(
 $user_ids = Utility::GetColumn($asks, 'user_id');
 $users = Table::Fetch('user', $user_ids);
 
-$feedcate = array('suggest'=>'Feedback', 'seller'=>'Business suggestion');
+$feedcate = array('suggest'=>'Feedback', 'seller'=>'Business suggestion','contactus'=>'Contact us');
 include template('manage_misc_feedback');

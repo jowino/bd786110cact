@@ -10,7 +10,6 @@ $pages = array(
 	'help_faqs' => 'FAQ',
 	'help_zuitu' => 'What is ' . $INI['system']['abbreviation'],
 	'help_api' => 'Develope API',
-	'about_contact' => 'Contact',
 	'about_us' => 'About ' . $INI['system']['abbreviation'],
 	'about_job' => 'Job',
 	'about_terms' => 'Terms&Conditions',
