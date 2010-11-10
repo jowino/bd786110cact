@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/app.php');
+//require_once(dirname(dirname(__FILE__)) . '/api/openinviter/openinviter.php');
 
 $pagetitle = 'Refer friends, get gift';
 
@@ -14,6 +15,10 @@ $condition = array(
 		);
 $money = Table::Count('invite', $condition, 'credit');
 $count = Table::Count('invite', $condition);
+
+//$inviter=new OpenInviter();
+//$oi_services=$inviter->getPlugins();
+print_r($oi_services);
 
 $team = current_team($city['id']);
 if ($team) {
