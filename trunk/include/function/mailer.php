@@ -7,7 +7,7 @@ function mail_sign($user) {
 
 	$vars = array( 'user' => $user,);
 	$message = render('mail_sign_verify', $vars);
-	$subject = 'Thank you for your '.$INI['system']['sitename'].', please verify this Email';
+	$subject = 'Your Moosavings registration';
 	$options = array(
 		'contentType' => 'text/plain',
 	);
@@ -63,14 +63,14 @@ function mail_subscribe($city, $team, $partner, $subscribe)
 		'notice_email' => $INI['mail']['reply'],
 	);
 	$message = render('mail_subscribe_team', $vars);
-	$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	$mesasge = mb_convert_encoding($mesage,'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
-		'encoding' => 'GBK',
+		'encoding' => 'UTF-8',
 	);
 	$from = $INI['mail']['from'];
 	$to = $subscribe['email'];
-	$subject = $INI['system']['sitename'] . "Today's Deal: {$team['title']}";
+	$subject ="Today¡¯s amazing moosaving ¨C moove fast and grab it!";
 
 	if ($INI['mail']['mail']=='mail') {
 		Mailer::SendMail($from, $to, $subject, $message, $options);
@@ -96,10 +96,10 @@ function mail_purchase($city, $team, $partner,$order, $subscribe)
 		'notice_email' => $INI['mail']['reply'],
 	);
 	$message = render('mail_order_info', $vars);
-	$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	$mesasge = mb_convert_encoding($mesage,'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
-		'encoding' => 'GBK',
+		'encoding' => 'UTF-8',
 	);
 	$from = $INI['mail']['from'];
 	$to = $subscribe['email'];
@@ -157,4 +157,62 @@ function  createpdf($content)
 	file_put_contents($newTemp,$dompdf->output());
 	return $dompdf->output();
 	//return $newTemp;
+}
+
+function mail_nottipped($team) 
+{
+	global $INI;
+	$c = array(
+			'team_id' => $team['id'],
+		);
+	$os = DB::LimitQuery('order', array(
+		'condition' => $c,
+			));
+	foreach ($os as $order)
+	{
+		$user=Table::Fetch('user',$order['user_id']);
+		$vars = array(
+		'user' => $user,
+	);
+	$message = render('mail_order_nottipped', $vars);
+	$mesasge = mb_convert_encoding($mesage,'UTF-8');
+	$options = array(
+		'contentType' => 'text/html',
+		'encoding' => 'UTF-8',
+	);
+	$from = $INI['mail']['from'];
+	$to = $user['email'];
+	$subject = 'Information about your Moosavings deal';
+
+	if ($INI['mail']['mail']=='mail') {
+		Mailer::SendMail($from, $to, $subject, $message, $options);
+	} else {
+		Mailer::SmtpMail($from, $to, $subject, $message, $options);
+	}
+	}
+}
+function mail_tipped($team,$order,$user) 
+{
+	global $INI;
+		$vars = array(
+		'user' => $user,
+		'team'=>$team,
+		'order'=>$order,
+	);
+	$message = render('mail_order_tipped', $vars);
+	$mesasge = mb_convert_encoding($mesage,'UTF-8');
+	$options = array(
+		'contentType' => 'text/html',
+		'encoding' => 'UTF-8',
+	);
+	$from = $INI['mail']['from'];
+	$to = $user['email'];
+	$subject = 'Congratulations! Your Moosaving deal has tipped ';
+
+	if ($INI['mail']['mail']=='mail') {
+		Mailer::SendMail($from, $to, $subject, $message, $options);
+	} else {
+		Mailer::SmtpMail($from, $to, $subject, $message, $options);
+	}
+	
 }
