@@ -21,10 +21,15 @@
 					<tr><th width="200">Customer</th><th width="80">Type</th><th width="360">Context</th><th width="80">Status</th><th width="80">Date</th><th width="100">Operation</th></tr>
 					<!--{loop $asks $index $one}-->
 					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<!--{if $one['category']=='contactus'}-->
+						<td>{$one['firstname']} {$one['lastname']}<br/>{$one['contact']}<br/>{$one['mobile']}</td>
+						<!--{else}-->
 						<td>{$one['title']}<br/>{$one['contact']}</td>
+						<!--{/if}-->
 						<td>{$feedcate[$one['category']]}</td>
 						<td>${htmlspecialchars($one['content'])}</td>
 						<td>${$one['user_id']?$users[$one['user_id']]['username']:''}</td>
+						
 						<td>${date('Y-n-j',$one['create_time'])}</td>
 						<td class="op"><a href="/manage/misc/feedback.php?action=r&id={$one['id']}&r={$currefer}" class="remove-record">Delete</a><!--{if !$one['user_id']}-->｜<a href="/manage/misc/feedback.php?action=m&id={$one['id']}&r={$currefer}">Processed</a><!--{/if}--></td>
 					</tr>

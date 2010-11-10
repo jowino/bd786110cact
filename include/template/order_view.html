@@ -1,130 +1,67 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="order-detail">
-	<div class="dashboard" id="dashboard">
-		<ul>${current_account(null)}</ul>
-	</div>
-    <div id="content">
-		<div class="box clr">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head">
-                    <h2>Order Detail</h2>
-                </div>
-                <div class="sect">
+ <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<div id="daily-deals-left">
+		 <div id="account-category" style="float:right;">
+			Order Number: 
+        <strong>{$order['id']}</strong>
+        Order Time:
+        ${date('m.d.Y:i',$order['create_time'])}
+		</div>
+		<h2>Your purchase:</h2>
 
-<table cellspacing="0" cellpadding="0" border="0" class="data-table">
-    <tr>
-        <th>Order Number: </th>
-        <td class="orderid"><strong>{$order['id']}</strong></td>
-        <th>Order Time:</th>
-        <td><span>${date('m.d.Y:i',$order['create_time'])}</span></td>
-    </tr>
-</table>
+		<div id="container-account">
+			<ul class="account-1">${current_account('/order/index.php')}</ul>
 
-<table cellspacing="0" cellpadding="0" border="0" class="info-table">
-    <tr>
-        <th class="left" width="auto">Deal Item</th>
-        <th width="35">Value</th>
-        <th width="10"></th>
-        <th width="45">Quantity</th>
-        <th width="10"></th>
-        <th width="45">Total amount</th>
-        <th width="45">Payment Method</th>
-        <th width="150">Status</th>
-    </tr>
-    <tr>
-        <td class="left"><a class="deal-title" href="/team.php?id={$order['team_id']}" target="_blank">{$team['title']}</a></td>
-        <td><span class="money">{$currency}</span>${moneyit($team['team_price'])}</td>
-        <td>x</td>
-        <td>{$order['quantity']}</td>
-        <td>=</td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($team['team_price']*$order['quantity'])}</td>
-        <td>${$order['service']=='cash'?"Cash on Delivery":$order['service']}</td>
-        <td class="status"><!--{if $order['state']=='unpay'}-->Pending<!--{elseif !$express}-->Done<!--{else}-->-<!--{/if}--></td>
-    </tr>
+			<div id="account-tab-1">
+            <table width="743" border="0" cellpadding="0" cellspacing="0" id="account" >
+			<tr>
+				<td>
+					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:separate">
+					<tr>
+						<th class="left" width="auto">Deal Item</th>
+						<th width="35">Value</th>
+						<th width="45">Quantity</th>
+						<th width="45">Total amount</th>
+						<th width="45">Payment Method</th>
+						<th width="150">Status</th>
+					</tr>
+					  <tr valign="middle" style="background-color:#ebffc7">
+					    <td class="normal">
+						<a class="deal-title" href="/team.php?id={$order['team_id']}" target="_blank">{$team['title']}</a>
+						</td>
+					    <td><span class="money">{$currency}</span>${moneyit($team['team_price'])}</td>
+					    <td>{$order['quantity']}</td>
+					    <td><span class="money">{$currency}</span>${moneyit($team['team_price']*$order['quantity'])}</td>
+						<td>${$order['service']=='cash'?"Cash on Delivery":$order['service']}</td>
+						<td class="status"><!--{if $order['state']=='unpay'}-->Pending<!--{elseif !$express}-->Done<!--{else}-->-<!--{/if}--></td>
+				      </tr>
+				  </table>
+				</td>
+			</tr>
 
-<!--{if $express}-->
-    <tr>
-        <td class="left">Express Delivery</td>
-        <td>${moneyit($team['fare'])}</td>
-        <td>x</td>
-        <td>1</td>
-        <td>=</td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($team['fare'])}</td>
-        <td class="status">-</td>
-    </tr>
-    <tr>
-        <td class="left"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="total"><span class="money">{$currency}</span>${moneyit($order['origin'])}</td>
-        <td class="status">Done</td>
-    </tr>
-<!--{/if}-->
-
-</table>
-
-<!--{if $team['delivery']=='coupon'}-->
-<table cellspacing="0" cellpadding="0" border="0" class="data-table">
+		</table>
+		<table cellspacing="0" cellpadding="0" border="0" class="data-table" style="font-size:16px;">
     <tr>
         <th>{$INI['system']['couponname']}：</th>
         <td class="other-coupon"><!--{if empty($coupons)}-->{$INI['system']['couponname']}System will send it when the deal is on.<!--{/if}--><!--{loop $coupons $one}--><p>{$one['id']} - {$one['secret']}</p><!--{/loop}--></td>
     </tr>
     <tr>
-        <th>How To Use: </th>
-        <td>Please show {$INI['system']['couponname']} when you are using this coupon. Be cooperative when your coupon and password is confirmed.</td>
+        <th width="115px">How To Use: </th>
+        <td><p>Please show {$INI['system']['couponname']} when you are using this coupon. Be cooperative when your coupon and password is confirmed.<p></td>
     </tr>
 </table>
-<!--{elseif $team['delivery']=='express'}-->
-<table cellspacing="0" cellpadding="0" border="0" class="data-table">
-    <tr>
-        <th>Delivery: </th>
-        <td class="other-coupon"></td>
-    </tr>
-    <tr>
-        <th>Recieptant: </th>
-        <td>{$order['realname']}</td>
-    </tr>
-    <tr>
-        <th>Order Address: </th>
-        <td>{$order['address']}</td>
-    </tr>
-    <tr>
-        <th>Handphone:  </th>
-        <td>{$order['mobile']}</td>
-    </tr>
-</table>
-<!--{elseif $team['delivery']=='pickup'}-->
-<table cellspacing="0" cellpadding="0" border="0" class="data-table">
-    <tr>
-        <th>Self Withdraw: </th>
-        <td class="other-coupon"></td>
-    </tr>
-    <tr>
-        <th>Withdraw Address: </th>
-        <td>{$team['address']}</td>
-    </tr>
-    <tr>
-        <th>Handphone: </th>
-        <td>{$team['mobile']}</td>
-    </tr>
-</table>
-<!--{/if}-->
-                </div>
             </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-    <div id="sidebar">
-    </div>
-</div>
-
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+		</div>
+		</div>
+		<!--{include block_side_aboutorder}-->
+		
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
 
 <!--{include footer}-->

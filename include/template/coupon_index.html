@@ -1,54 +1,65 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="coupons">
-	<div class="dashboard" id="dashboard">
-		<ul>${current_account('/coupon/index.php')}</ul>
-	</div>
-    <div id="content" class="coupons-box clr">
-		<div class="box clr">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head">
-                    <h2>My {$INI['system']['couponname']}</h2>
-                    <ul class="filter">
-						<li class="label">Category:  </li>
-						${current_coupon_sub('index')}
-					</ul>
-				</div>
-                <div class="sect">
-                <form action="/coupon/couponprint.php" method="post">
-					<div style="float:right;margin-right:20px;"><input type="submit" value="Print Coupons" /></div>
-				
-					<!--{if $selector=='index'&&!$coupons}-->
-					<div class="notice">There is no usable {$INI['system']['couponname']}</div>
-					<!--{/if}-->
-					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
-						<tr><th width="300">Deal Item</th><th width="100" nowrap>Coupon's Number</th><th width="60" nowrap>Coupon's Password</th><th width="100" nowrap>Valid Date</th><th width="40">Operation</th></tr>
-					<!--{loop $coupons $index $one}-->
-						<tr ${$index%2?'':'class="alt"'}>
-							<td><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
-							<td>{$one['id']}</td>
-							<td>{$one['secret']}</td>
-							<td>${date('Y-m-d', $one['expire_time'])}</td>
-							<td><a href="/coupon/couponprint.php?id={$one['id']}" >Print</a></td>
-							<td><input type="checkbox" name="print[]" value="{$one['id']}" /></td>
-						</tr>	
-					<!--{/loop}-->
-						<tr><td colspan="5">{$pagestring}</td></tr>
-                    </table>
-                    </form>
-				</div>
+
+
+  <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<div id="daily-deals-left">
+		 <div id="account-category">
+			<ul class="filter">
+				<li class="label">Category:  </li>
+					${current_coupon_sub('index')}
+			</ul>
+		 </div>
+		<h2>Your purchase:</h2>
+		<div id="container-account">
+			<ul class="account-2">${current_account('/coupon/index.php')}</ul>
+
+			<div id="account-tab-1">
+			<form action="/coupon/couponprint.php" method="post">
+            <table width="743" border="0" cellpadding="0" cellspacing="0" id="account">
+			<tr>
+				<td>
+					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:separate">
+					  <tr>
+                      	<th class="normal">Deal Item</th>
+						<th style="width:155px;">Voucher Code</th>
+
+						<th style="width:130px;">Expires ON</th>
+						<th style="width:95px;">Operation</th>
+						<th style="width:115px;"><input type="submit" value="Print" class="submit"></th>
+					  </tr>
+					 <!--{loop $coupons $index $one}-->
+					  <tr valign="middle" ${$index%2?'':'style="background-color:#ebffc7"'}>
+					    <td ${$index%2?'class="normal"':'class="highlight"'}>
+						<a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a>
+						</td>
+					    <td>{$one['id']}</td>
+
+					    <td>${date('Y-m-d', $one['expire_time'])}</td>
+					    <td><a href="/coupon/couponprint.php?id={$one['id']}" >Print</a></td>
+					    <td><input type="checkbox" name="print[]" value="{$one['id']}" /></td>
+				      </tr>
+					  <!--{/loop}-->
+					  <tr><td colspan="5">{$pagestring}</td></tr>
+				  </table>
+				</td>
+			</tr>
+
+		</table>
+		</form>
             </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-    <div id="sidebar">
+		</div>
+		</div>
 		<!--{include block_side_aboutcoupon}-->
-    </div>
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+		
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
+
+
 
 <!--{include footer}-->

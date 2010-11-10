@@ -2,47 +2,128 @@
 <html xmlns="http://www.w3.org/1999/xhtml">	
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link href="/static/styles/voucher.css" rel="stylesheet" type="text/css" />
 </head> 
 <body onclick="window.print();"> 
 		<!--{loop $coupons $index $one}-->
-		<div style="border-bottom:#000000 1px solid;border-left:#000000 1px solid;padding-bottom:10px;margin:0px auto;padding-left:10px;width:600px;padding-right:10px;font-size:14px;border-top:#000000 1px solid;border-right:#000000 1px solid;padding-top:10px;">
-		<table class="dataEdit" cellspacing="0" cellpadding="0">
-			<tbody>
-				<tr>
-					<td width="57%"><img border="0" alt="" src="/static/images/logo.jpg" /></td> 
-					<td style="font-family:verdana;font-size:22px;font-weight:bolder;" width="43%">{$one['id']}<br>{$one['secret']}</br></td> 
-				</tr> 
-				<tr><td height="8" colspan="2"><br /> 
-				</td> 
-				</tr> 
-				<tr><td bgcolor="#000000" height="1" colspan="2"></td> 
-				</tr> 
-				<tr><td height="8" colspan="2"><br /> 
-				</td> 
-				</tr> 
-				<tr><td style="padding-bottom:5px;padding-left:5px;padding-right:5px;font-family:Arial;height:50px;font-size:28px;font-weight:bolder;padding-top:5px;" colspan="2">
-					{$one['title']}</td> 
-				</tr> 
-				<tr><td colspan="2">&nbsp;</td> 
-				</tr> 
-				<tr><td style="line-height:22px;padding-right:20px;" width="400">User:
-				{$one['username']}<br /> 
-				Expire time:${date('Y-m-d', $one['expire_time'])}<br /> 
-				Company：{$one['contact']}<br /> 
-				Location:{$one['location']}
-				</td> 
-				<td><div style="width:255px;height:255px;" id="map_canvas"></div> 
-				<br /> 
-				</td> 
-				</tr> 
-				<tr><td style="line-height:22px;"><br /> 
-				</td> 
-				<td align="middle">
-				</td> 
-				</tr> 
-		</tbody> 
-	</table> 
-</div> 
+		<div id="main-wrapper">
+
+	<div id="content-1">
+
+	<div class="logo"> <img src="/static/images/logo.jpg" title="Moosavings" alt="Moosavings"/> </div>
+
+	<h1 class="voucher">voucher code:<br />
+
+<span style="font-size:30px;">{$one['id']}</span></h1>
+
+	<div class="clr"></div>
+
+	<div style="border-top:5px solid #79A12F;margin:0 auto;width:870px;height:10px;"></div>
+
+	<div id="left">
+
+	<h2>Elements</h2>
+
+	<p>{$team['title']}</p>
+
+	<h2>Expires On</h2>
+
+	<p>${date('Y-m-d', $one['expire_time'])}</p>
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr valign="middle">
+
+    <td width="20%">cash paid</td>
+
+    <td><input class="field" type="text" /></td>
+
+  </tr>
+
+  <tr valign="middle">
+
+    <td>group size</td>
+
+    <td><input class="field" type="text" /></td>
+
+  </tr>
+
+  <tr valign="middle">
+
+    <td><input type="checkbox" /><label>first visit</label></td>
+
+    <td><input type="checkbox" /><label>occasional</label><input style="margin-left:5px;;" type="checkbox" /><label>regular</label></td>
+
+  </tr>
+
+</table>
+
+
+	</div>
+
+	<div id="right">
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	</div>
+
+	</div>
+
+	<div id="content-2">
+
+	<h2 class="how-to-moosavings">How to Moosavings it:</h2>
+
+	<ol>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+
+	</ol>
+
+	</div>
+
+	<div id="content-3">
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	<h2>Elements</h2>
+
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+	</div>
+
+	</div>
 	<!--{/loop}-->
 	
 </body> 

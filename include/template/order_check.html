@@ -1,49 +1,63 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="content">
-    <div id="deal-buy" class="box">
-        <div class="box-top"></div>
-        <div class="box-content">
-            <div class="head"><h2>Your Orders</h2></div>
-            <div class="sect">
-                <table class="order-table">
-                    <tr>
-                        <th class="deal-buy-desc">Item</th>
-                        <th class="deal-buy-quantity">Quantity</th>
-                        <th class="deal-buy-multi"></th>
-                        <th class="deal-buy-price">Price</th>
-                        <th class="deal-buy-equal"></th>
-                        <th class="deal-buy-total">Total Amount</th>
-                    </tr>
-                    <tr>
-                        <td class="deal-buy-desc">{$team['title']}</td>
-                        <td class="deal-buy-quantity">{$order['quantity']}</td>
-                        <td class="deal-buy-multi">x</td>
-                        <td class="deal-buy-price" id="deal-buy-price"><span class="money">{$currency}<span>{$team['team_price']}</td>
-                        <td class="deal-buy-equal">=</td>
-                        <td class="deal-buy-total" id="deal-buy-total"><span class="money">{$currency}</span>{$team['team_price']*$order['quantity']}</td>
-                    </tr>
-					<!--{if $team['delivery']=='express'}-->
-					<tr>
-						<td class="deal-buy-desc">Express Delivery</td>
-						<td class="deal-buy-quantity"></td>
-						<td class="deal-buy-multi"></td>
-						<td class="deal-buy-price"><span class="money">{$currency}</span><span id="deal-express-price">{$team['fare']}</span></td>
-						<td class="deal-buy-equal">=</td>
-						<td class="deal-buy-total"><span class="money">{$currency}</span><span id="deal-express-total">{$team['fare']}</span></td>
-					</tr>
-					<!--{/if}-->
-					<tr class="order-total">
-                        <td class="deal-buy-desc"><strong>You should pay: </strong></td>
-                        <td class="deal-buy-quantity"></td>
-                        <td class="deal-buy-multi"></td>
-                        <td class="deal-buy-price"></td>
-                        <td class="deal-buy-equal">=</td>
-                        <td class="deal-buy-total"><span class="money">{$currency}</span>{$order['origin']}</td>
-                    </tr>
-                </table>
+  <div class="clr"></div>
+
+  <div id="inner-content">
+
+  	<div class="inner-content-top"></div>
+
+	<div class="inner-content-middle">
+
+		<div id="daily-deals-left">
+		<h2>Your purchase:</h2>
+
+		<table width="743" border="0" cellpadding="0" cellspacing="0" id="cart">
+			<tr>
+				<td>
+					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0">
+					  <tr>
+						<th class="cart-left-bg" style="width:125px;">&nbsp;</th>
+						<th style="width:338px;">Product Name</th>
+						<th style="width:95px;">Unit Price</th>
+						<th style="width:75px;">Qty</th>
+						<th class="cart-right-bg" style="width:106px;">Subtotal</th>
+					  </tr>
+					  <tr valign="top">
+						<td><img src="${team_image($team['image'])}" width="110px"/></td>
+						<td><p>{$team['title']}</p></td>
+						<td><p>{$team['team_price']}</p></td>
+						<td><input type="text" value="{$order['quantity']}" readonly>
+						</td>
+						<td class="cart-last"><p>{$team['team_price']*$order['quantity']}</p></td>
+					  </tr>
+				  </table>
+				</td>
+			</tr>
+		</table>
+
+		<div class="cart-button"><input type="button" value="Cancel" class="cancel"><input type="button" value="Update shopping cart" class="update-shopping-cart"></div>
+
+		<div class="clr"></div>
+
+		<h2>Your purchase:</h2>
+	<div id="container-dailydeals-4">
+
+			<ul>
+
+				<li>1 Checkout Method</li>
+
+				<li>2 Buy For Friend</li>
+
+				<li>3 Billing Information</li>
+
+				<li class="white">4 Payment Information</li>
+
+				<li>5 Order Review</li>
+
+			</ul>
+
+			<div id="tab-2">
+				
 				<div class="paytype">
                 <form action="/order/pay.php" method="post" class="validator">
 				<div class="order-check-form ">
@@ -53,18 +67,21 @@
 						<div class="other_pay">{$INI['other']['pay']}</div>
 					</div>  
 				<!--{if $login_user['money']<$order['origin']}-->
-					<ul class="typelist">
-					<li><input id="check-cod" type="radio" name="paytype" value="cash" {$ordercheck['cod']} /><label for="check-paypal" class="cod">Cash on Delivery</label></li>
+					<div class="typelist">
+					<span class="cod"><input id="check-cod" type="radio" name="paytype" value="cash" {$ordercheck['cod']} /><label for="check-paypal" style="padding-left:30px;">Cash on Delivery</label></span>
 					<!--{if $INI['paypal']['mid']}-->
-						<li><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal">PayPal payment for international users</label></li>
+						<span class="pay"><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal" style="padding-left: 110px; padding-top: 12px;">PayPal payment</label></span>
 					<!--{/if}-->					
 					<!--{if $INI['alipay']['mid']}-->
-						<li><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">Apipay payment for taobao users</label></li>
+						<span><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">Apipay payment for taobao users</label></</span>>
+					<!--{/if}-->
+					<!--{if $INI['migs']['mid']}-->
+						<span><input id="check-migs" type="radio" name="paytype" value="migs" {$ordercheck['migs']} /><label for="check-migs" class="chinabank"> MIGS payment</label></</span>>
 					<!--{/if}-->
 					<!--{if $INI['chinabank']['mid']}-->
-						<li><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></li>
+						<span><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></</span>>
 					<!--{/if}-->
-					</ul>
+					</div>
 				<!--{else}-->
 					<input type="hidden" name="paytype" value="credit" />
 				<!--{/if}-->
@@ -81,15 +98,109 @@
 					</p>
 				</div>
 				</form>
-				</div>
+				</div>					
+
 			</div>
+
 		</div>
-		<div class="box-bottom"></div>
+			<!--{/if}-->
+		</div>
+
+		<div id="daily-deals-right">
+
+		<div class="daily-deals-right-top"></div>
+
+		<div class="daily-deals-right-middle">
+
+		<h2>Your Checkout Progress<br />
+
+		  <br />
+
+		</h2>
+
+		<p>Billing Address<br />Payment Method</p>
+
+		</div>
+
+		<div class="daily-deals-right-bottom"></div>
+
+		<div class="daily-deals-right-top"></div>
+
+		<div class="daily-deals-right-middle">
+
+		<h2>Online Payment & Security<br />
+
+		  <br />
+
+		</h2>
+
+		<h3>Questions about payment?</h3>
+
+		<p>Billing Address<br />Payment Method<br />
+
+		  <br />
+
+		</p>
+
+		<h2>Call: +971-4-2831911</h2>
+
+		<p>email: support@moosavings.com<br />
+
+		  <br />
+
+		</p>
+
+		<h3>How secure is buying here?</h3>
+
+		<p>Extremely secure. We don't store payment info on our servers. We use eBay-owned PayPal to process credit card and PayPal payments, and we use VeriSign's highest level of SSL encryption (click the logo below; check for the green address bar).
+
+          <br />
+
+		  <br />
+
+		</p>
+
+		<h3>Am I charged right away?
+
+</h3>
+
+		<p>f the deal hasn't tipped yet, no. We first authorize your credit card. When the deal tips, we charge your card and send you a receipt. If the deal doesn't tip we cancel this card authorization, and you're not charged.<br />
+
+		  <br />
+
+		</p>
+
+		<h3>What's happens after tipping/buying?
+
+</h3>
+
+		<p>You'll get your receipt right away. You'll get your Nabit voucher the next business day after the deal closes.
+
+          <br />
+
+		  <br />
+
+		</p>
+
+<h3>Do you give refunds?</h3>
+
+<p>We handle all refund enquiries ourselves, not the local business. More info here.</p>
+
+		</div>
+
+		<div class="daily-deals-right-bottom"></div>
+
+		</div>
+
+		<div class="clr"></div>
+
 	</div>
-</div>
-<div id="side">
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+
+	<div class="inner-content-bottom"></div>  
+
+  </div>
+
+
+
 
 <!--{include footer}-->

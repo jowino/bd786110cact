@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+Hi {$user['name']}
+We’ve got great news!
+Today’s Moosaving has tipped and we have received the minimum amount of moos by users to offer the deal. So you can now enjoy moore savings and more fun! 
+The cost of the moopon has been charged to the credit card associated to your account.
+You will receive an email soon with your moopon printable voucher for redeeming the moosaving.
+The voucher is also available inside your account in “my moosavings” section. 
+Your Order id: {$order['id']} 
+Billing Information:		
+{$order['realname']}
+{$order['address']}
+{$order['zipcode']}
+{$order['mobile']} 	 	
+
+Payment Method:{$order['service']}
+
+<table>
+ <tr>
+   <th>Item</th>
+   <th>Qty</th>
+   <th>Subtotal</th>
+   </tr>
+   <tr>
+   <td>{$team['title']}</td>
+   <td>{$order['quantity']}</td>
+   <td>{$team['team_price']*$order['quantity']}</td>
+   </tr>
+   <tr><td colspan="3">Grand Total: {$team['team_price']*$order['quantity']}</td></tr>
+</table>
+
+Enjoy moore value and moore savings – and keep grabbing the best daily deals on moosavings.com
+The Moosavings Team
+
+</body>
+</html>

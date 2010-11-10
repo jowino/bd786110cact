@@ -46,8 +46,46 @@
                             <label>password</label>
                             <input type="text" size="30" name="chinabank[sec]" class="f-input" value="{$INI['chinabank']['sec']}"/>
                         </div>
-
-						<div class="wholetip clr"><h3>4. Other payment</h3></div>
+						<div class="wholetip clr"><h3>4. MIGS payment(keep blank if you do not support)</h3></div>
+                        <div class="field">
+                            <label>MerchantID</label>
+                            <input type="text" size="30" name="migs[mid]" class="f-input" value="{$INI['migs']['mid']}"/>
+                        </div>
+                        <div class="field">
+                            <label>VPC Version</label>
+                            <input type="text" size="30" name="migs[ver]" class="f-input" value="{$INI['migs']['ver']}"/>
+                        </div>
+						<div class="field">
+                            <label>Command Type</label>
+                            <input type="text" size="30" name="migs[type]" class="f-input" value="{$INI['migs']['type']}"/>
+                        </div>
+						<div class="field">
+                            <label>AccessCode</label>
+                            <input type="text" size="30" name="migs[acc]" class="f-input" value="{$INI['migs']['acc']}"/>
+                        </div>
+						<div class="field">
+                            <label>TransactionReference</label>
+                            <input type="text" size="30" name="migs[ref]" class="f-input" value="{$INI['migs']['ref']}"/>
+                        </div>
+						<div class="field">
+                            <label>Language Locale</label>
+                            <input type="text" size="30" name="migs[loc]" class="f-input" value="{$INI['migs']['loc']}"/>
+                        </div>
+						<div class="field">
+                            <label>ReceiptReturnURL</label>
+                            <input type="text" size="30" name="migs[url]" class="f-input" value="{$INI['migs']['url']}"/>
+                        </div>
+						<div class="field">
+                            <label>TransactionSubtype</label>
+							<select name="migs[subtype]">
+								<option value="">Please Select</option>
+								<option value="SINGLE">Indicates a single payment to complete order</option>
+								<option value="INSTALLMENT">Indicates an installment transaction</option>
+								<option value="RECURRING">Indicates a recurring transaction</option>
+							</select>
+                        </div>
+						
+						<div class="wholetip clr"><h3>5. Other payment</h3></div>
                         <div class="field">
                             <label>payment info</label>
                             <div style="float:left;"><textarea cols="45" rows="5" name="other[pay]" class="xheditor-simple">${htmlspecialchars($INI['other']['pay'])}</textarea></div>
