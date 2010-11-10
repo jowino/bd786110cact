@@ -435,7 +435,12 @@ function team_state(&$team) {
 	else if ( $team['end_time'] <= time() ) {
 		$team['close_time'] = $team['end_time'];
 		if ( $team['now_number'] < $team['min_number'] )
+		{
+			$team['state'] = 'failure';
+			$table = new Table('team', $team);
+			$table->update(array( 'close_time', 'state',));
 			return $team['state'] = 'failure';
+		}
 		return $team['state'] = 'success';
 	}
 	return $team['state'] = 'none';
