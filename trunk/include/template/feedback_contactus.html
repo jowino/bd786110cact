@@ -1,0 +1,51 @@
+<!--{include header}-->
+
+  <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<h1>Contact Us</h1>
+		<h2 class="contact-heading-bg">The easiest way to contact us is to simply fill out the form below</h2>
+		<div class="clr"></div>
+		<div class="inner-left">
+		<form id="feedback-user-form" method="post" action="/feedback/contactus.php" class="validator">
+			<div class="caption">Your e-mail address:</div><div><input type="text" size="35" name="contact" value="{$login_user['email']}" require="true"  datatype="require"/>
+			<span class="red">*</span></div>
+			<div class="caption">First Name:</div><div><input type="text" size="35" name="firstname" require="true" datatype="require" />
+			<span class="red">*</span></div>
+			<div class="caption">Last Name:</div><div><input type="text" size="35" name="lastname" require="true" datatype="require" />
+			<span class="red">*</span></div>
+			<div class="caption">Phone number:</div><span>country<br />
+code<br />
+<input type="text" size="8" name="countrycode" />
+			</span><span>area<br />
+code<br />
+<input type="text" size="8" name="areacode" />
+			</span><span><br /><br />
+
+<input type="text" size="20" name="phoneno" />
+			</span><br class="clr"/>
+			<div class="caption">Description:</div><div><textarea cols="35" rows="10" name="content"></textarea>
+			</div>
+			<div><input class="clear" type="reset" value="Clear" /><input class="submit" type="submit" name="conmit" value="Submit" /></div>
+		</form>
+		</div>
+		<div class="inner-right">
+		<h3>Question about today's deal?
+</h3><p>We can try to help, but you should probably try the business first - you can find a link to their website on the main deal page.<br /><br />
+Or just check out today's discussion board for the deal!
+
+</p>
+		<br />
+<h3>Trouble accessing your Moosavings?
+</h3><p>From the homepage click on "Sign in" on the right side of the blue band at the top of the page. Sign in using your email address and password, or if you originally used Facebook connect when you made the purchase, sign in that way. Next, click on "My Stuff," and then select "My Groupons". Any Groupon that you've purchased will always show up here, so come back as often as you'd like!
+</p>
+		<br />
+<h3>Having trouble using Moosavings?</h3><p>Email Groupon at support@groupon.com or call 1 (877) 788-7858 (during normal business hours, central time)</p>
+		</div>
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
+
+<!--{include footer}-->

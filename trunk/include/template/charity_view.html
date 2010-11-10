@@ -10,14 +10,14 @@
                 <div class="head"><h2>Charities</h2></div>
 					<!--{loop $charities $index $one}-->
 						<div style="background:#f7fff6; padding:10px; border:1px solid #d1eece;display:block;margin:0px 10px;"> 
-			              <div style="width:220px;  margin-right:10px; float:left;"> <img src="${team_image($one['image'])}"> </div> 
+			              <div style="width:220px;  margin-right:10px; float:left;"> <img src="${team_image($one['image'])}" style="width:200px;"> </div> 
 			              <div style="width:385px; float:right; text-align:justify; "> 
 			                <div style="color:#386a32; font-size:16px; margin-bottom:10px; font-weight:bold; border-bottom:1px dotted #afd1ab; padding-bottom:10px;">{$one['name']}</div> 
 			                <p>{$one['description']}</p> </div> 
-			              <div class="clear"></div> 
+			              <div class="clr"></div> 
 			            </div>
 					<!--{/loop}-->
-					<div class="clear"></div>
+					<div class="clr"></div>
 					<div>{$pagestring}</div>
 				</div>
             </div>
@@ -25,9 +25,8 @@
         </div>
     </div>
 	<div id="sidebar">
-		<!--{include block_side_subscribe}-->
+		
 	</div>
-</div>
     </div> <!-- bd end -->
 </div> <!-- bdw end -->
 

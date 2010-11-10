@@ -1,114 +1,306 @@
 <!--{include header}-->
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="content">
-    <form name="team-main-form" action="/team/buy.php?id={$team['id']}" method="post" class="validator">
-	<input id="deal-per-number" value="{$team['per_number']}" type="hidden" />
-    <div id="deal-buy" class="box">
-        <div class="box-top"></div>
-        <div class="box-content">
-            <div class="head"><h2>Submit Order</h2></div>
-            <div class="sect">
-            <table class="order-table">
-                <tr>
-                    <th class="deal-buy-desc">Item</th>
-                    <th class="deal-buy-quantity">Amount</th>
-                    <th class="deal-buy-multi"></th>
-                    <th class="deal-buy-price">Price</th>
-                    <th class="deal-buy-equal"></th>
-                    <th class="deal-buy-total">Total</th>
-                </tr>
-                <tr>
-                    <td class="deal-buy-desc">{$team['title']}</td>
-                    <td class="deal-buy-quantity"><input type="text" class="input-text f-input" maxlength="4" name="quantity" value="{$order['quantity']}" id="deal-buy-quantity-input" ${$team['per_number']==1?'readonly':''} /><br /><span style="font-size:12px;color:gray;">at most {$team['per_number']} unit</span></td>
-                    <td class="deal-buy-multi">x</td>
-                    <td class="deal-buy-price"><span class="money">{$currency}</span><span id="deal-buy-price">{$team['team_price']}</span></td>
-                    <td class="deal-buy-equal">=</td>
-                    <td class="deal-buy-total"><span class="money">{$currency}</span><span id="deal-buy-total">{$order['quantity']*$team['team_price']}</span></td>
-                </tr>
-				<!--{if $team['delivery']=='express'}-->
-                <tr>
-                    <td class="deal-buy-desc">Express Delivery</td>
-                    <td class="deal-buy-quantity"></td>
-                    <td class="deal-buy-multi"></td>
-                    <td class="deal-buy-price"><span class="money">{$currency}</span><span id="deal-express-price">{$team['fare']}</span></td>
-                    <td class="deal-buy-equal">=</td>
-                    <td class="deal-buy-total"><span class="money">{$currency}</span><span id="deal-express-total">{$team['fare']}</span></td>
-                </tr>
-				<!--{/if}-->
+<style>
+	.field{
+		background:none;
+}
+</style>
+  <div class="clr"></div>
 
-				<tr class="order-total">
-                    <td class="deal-buy-desc"><strong>Total Amount: </strong></td>
-                    <td class="deal-buy-quantity"></td>
-                    <td class="deal-buy-multi"></td>
-                    <td class="deal-buy-price"></td>
-                    <td class="deal-buy-equal">=</td>
-                    <td class="deal-buy-total"><span class="money">{$currency}</span><strong id="deal-buy-total-t">{$order['origin']}</strong></td>
-                </tr>
-            </table>
-			<!--{if $team['delivery']=='express'}-->
-			<div class="wholetip clr"><h3>Receiver Info</h3></div>
+  <div id="inner-content">
+
+  	<div class="inner-content-top"></div>
+
+	<div class="inner-content-middle">
+
+		<div id="daily-deals-left">
+<form name="team-main-form" action="/team/buy.php?id={$team['id']}" method="post" class="validator">
+		<h2>Your purchase:</h2>
+
+		<table width="743" border="0" cellpadding="0" cellspacing="0" id="cart">
+			<tr>
+				<td>
+					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0">
+					  <tr>
+						<th class="cart-left-bg" style="width:125px;">&nbsp;</th>
+						<th style="width:338px;">Product Name</th>
+						<th style="width:95px;">Unit Price</th>
+						<th style="width:75px;">Qty</th>
+						<th class="cart-right-bg" style="width:106px;">Subtotal</th>
+					  </tr>
+					  <tr valign="top">
+						<td><img src="${team_image($team['image'])}" width="110px"/></td>
+						<td><p>{$team['title']}</p></td>
+						<td><p>{$team['team_price']}</p></td>
+						<td><input type="text" class="input-text f-input" maxlength="4" name="quantity" value="{$order['quantity']}" id="deal-buy-quantity-input" ${$team['per_number']==1?'readonly':''} />
+						</td>
+						<td class="cart-last"><p>{$order['quantity']*$team['team_price']}</p></td>
+					  </tr>
+				  </table>
+				</td>
+			</tr>
+		</table>
+
+		<div class="cart-button"><input type="button" value="Cancel" class="cancel"><input type="button" value="Update shopping cart" class="update-shopping-cart"></div>
+
+		<div class="clr"></div>
+
+		<h2>Your purchase:</h2>
+  <!--{if !is_login()}-->
+     <!-- {if ($buyforfriend)} -->
+    <input type="hidden" value="Y" name="gift">
+    <!-- {/if} -->
+		<div id="container-dailydeals-1">
+
+			<ul>
+
+				<li class="white">1 Checkout Method</li>
+
+				<li>2 Buy For Friend</li>
+
+				<li>3 Billing Information</li>
+
+				<li>4 Payment Information</li>
+
+				<li>5 Order Review</li>
+
+			</ul>
+
+			<div id="tab-1">
+
+			<div id="left">
+
+			
+
+				<h2>Login</h2>
+
+				<h3>Please log in below:</h3>
+
+				<p>Email Address</p>
+
+				 <input type="text" size="30" name="email" id="login-email-address" class="f-input" value="" require="true" datatype="email" />
+
+				<p>Password</p>
+
+				<input type="password" size="30" name="password" id="login-password" class="f-input" require="true" datatype="require" />
+
+				<p><span class="lostpassword"><a href="/account/repass.php">Forgot your password?</a></span> 
+				<input type="submit" value="Login" name="login" id="login-submit" class="login"/></p>
+
+
+				<strong>or</strong>
+
+				<div class="clr"></div>
+
+				<a href="/fb_connector.php" style="margin-left:126px;"><img src="/static/images/fb-connect.jpg" border="0" /></a> </div>
+
+				<div id="right">
+
+				<h2>REGISTER TO CREATE AN ACCOUNT</h2>
+
+				<h3>Register and save time!</h3>
+
+				<p>Register with us for future convenience:</p>
+
+				<p><img src="/static/images/bullet.jpg" border="0"/>&nbsp;Fast and easy check out<br /><img src="/static/images/bullet.jpg" border="0"/>&nbsp;Easy access to your order history and status</p>
+
+				<input type="button" value="Register" class="register" onclick="location.href='/groupon/account/signup.php'">
+
+				</div>
+
+			</div>
+
+		</div>
+    <!--{elseif ($buyforfriend)}-->
+    
+	<div id="container-dailydeals-2">
+
+			<ul>
+
+				<li>1 Checkout Method</li>
+
+				<li class="white">2 Buy For Friend</li>
+
+				<li>3 Billing Information</li>
+
+				<li>4 Payment Information</li>
+
+				<li>5 Order Review</li>
+
+			</ul>
+
+			<div id="content">
+					<input id="deal-per-number" value="{$team['per_number']}" type="hidden" />
+					<input type="hidden" name="isgift" value="Y">
+					<div class="wholetip clr"><h3>Gift Options</h3></div>
+					<div class="field username">
+						<label>To:</label>
+						<input type="text" size="30" name="to" id="settings-realname" class="f-input" value="" require="true" datatype="require" />
+					</div>
+					<div class="field mobile">
+						<label>From</label>
+						<input type="text" size="30" name="from" id="settings-username" class="f-input" value="{$login_user['username']}" require="true" datatype="username" maxLength="11" />
+						<span class="hint">Name you want the recipient to see.</span>
+					</div>
+					<div class="field">
+									<label for="gift_Delivery:">Delivery:</label>
+									<span>
+									  <input type="radio" value="email" name="gift[delivery]" id="gift_delivery_method_email" class="radio" checked="checked">
+									  Email it to
+									  <input type="text" title="Enter email here" size="30" name="gift[delivery][email_address]" id="gift_delivery_email_address" class="f-input" style="width:130px;float:none;" autocomplete="off"><br/>
+									  <input type="radio" value="print" name="gift[delivery]" id="gift_delivery_method_print" class="radio">
+									  I'll print it myself
+									
+									</span>
+						</div>
+					 <div class="field message">
+									<label for="feedback-suggest">Personal Message: <span>(Optional)</span></label>
+									<textarea cols="36" rows="5" name="message" id="gift_message" class="f-input" ></textarea>
+						 </div>
+
+			</div>
+
+		</div>
+					 <input id="deal-buy-cardcode" type="hidden" name="cardcode" maxlength="8" value="" />
+            <input type="hidden" name="id" value="{$order['id']}" />
+			<div class="form-submit"><input type="submit" class="formbutton" name="buy" value="Confirm and buy"/></div>
+		<!--{elseif ($billing)}-->
+			<div id="container-dailydeals-3">
+
+			<ul>
+
+				<li>1 Checkout Method</li>
+
+				<li>2 Buy For Friend</li>
+
+				<li class="white">3 Billing Information</li>
+
+				<li>4 Payment Information</li>
+
+				<li>5 Order Review</li>
+
+			</ul>
+			<div id="content">
+		<div class="wholetip clr"><h3>Billing Info</h3></div>
 			<div class="field username">
-				<label>Receptant</label>
+				<label>Name</label>
 				<input type="text" size="30" name="realname" id="settings-realname" class="f-input" value="{$login_user['realname']}" require="true" datatype="require" />
 			</div>
 			<div class="field mobile">
-				<label>Mobile</label>
-				<input type="text" size="30" name="mobile" id="settings-mobile" class="number" value="{$login_user['mobile']}" require="true" datatype="mobile" maxLength="11" />
-				<span class="hint">Mobile is very important to us.</span>
+				<label>Telephone</label>
+				<input type="text" size="30" name="mobile" id="settings-mobile" class="number" value="{$login_user['mobile']}"/>
+				<span class="hint">we only use this for customer service.</span>
 			</div>
 			<div class="field mobile">
-				<label>Post code</label>
-				<input type="text" size="30" name="zipcode" id="settings-mobile" class="number" value="{$login_user['zipcode']}" require="true" datatype="zip" maxLength="6" />
+				<label>Zip/Postal Code </label>
+				<input type="text" size="30" name="zipcode" id="settings-mobile" class="number" value="{$login_user['zipcode']}" require="true" />
 			</div>
 			<div class="field username">
-				<label>Receptant Address</label>
+				<label>Address</label>
 				<input type="text" size="30" name="address" id="settings-address" class="f-input" value="{$login_user['address']}" require="true" datatype="require" />
-				<span class="hint">Address format should be like this: -----------</span>
+				
 			</div>
-			<!--{/if}-->
-			<!--{if $buyforfriend}-->
-			<input type="hidden" name="isgift" value="Y">
-			<div class="wholetip clr"><h3>Gift Options</h3></div>
-			<div class="field username">
-				<label>To:</label>
-				<input type="text" size="30" name="to" id="settings-realname" class="f-input" value="" require="true" datatype="require" />
 			</div>
-			<div class="field mobile">
-				<label>From</label>
-				<input type="text" size="30" name="from" id="settings-username" class="f-input" value="{$login_user['username']}" require="true" datatype="username" maxLength="11" />
-				<span class="hint">Name you want the recipient to see.</span>
-			</div>
-			<div class="field">
-                        	<label for="gift_Delivery:">Delivery:</label>
-		                    <span>
-		                      <input type="radio" value="email" name="gift[delivery]" id="gift_delivery_method_email" class="radio" checked="checked">
-		                      Email it to
-		                      <input type="text" title="Enter email here" size="30" name="gift[delivery][email_address]" id="gift_delivery_email_address" class="f-input" style="width:130px;float:none;" autocomplete="off"><br/>
-		                      <input type="radio" value="print" name="gift[delivery]" id="gift_delivery_method_print" class="radio">
-		                      I'll print it myself
-		                    
-		                    </span>
-                </div>
-			 <div class="field message">
-                            <label for="feedback-suggest">Personal Message: <span>(Optional)</span></label>
-                            <textarea cols="36" rows="5" name="message" id="gift_message" class="f-input" ></textarea>
-                 </div>
-			<!--{/if}-->
-            <input id="deal-buy-cardcode" type="hidden" name="cardcode" maxlength="8" value="" />
+						 <input id="deal-buy-cardcode" type="hidden" name="cardcode" maxlength="8" value="" />
             <input type="hidden" name="id" value="{$order['id']}" />
 			<div class="form-submit"><input type="submit" class="formbutton" name="buy" value="Confirm and buy"/></div>
-            </div>
-        </div>
-        <div class="box-bottom"></div>
-    </div>
-    </form>
-</div>
-<div id="sidebar">
-	<!--{include block_side_credit}-->
-	<!--{include block_side_redemptions}-->
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+			</div>
+			<!--{/if}-->
+			</form>
+		</div>
+
+		<div id="daily-deals-right">
+
+		<div class="daily-deals-right-top"></div>
+
+		<div class="daily-deals-right-middle">
+
+		<h2>Your Checkout Progress<br />
+
+		  <br />
+
+		</h2>
+
+		<p>Billing Address<br />Payment Method</p>
+
+		</div>
+
+		<div class="daily-deals-right-bottom"></div>
+
+		<div class="daily-deals-right-top"></div>
+
+		<div class="daily-deals-right-middle">
+
+		<h2>Online Payment & Security<br />
+
+		  <br />
+
+		</h2>
+
+		<h3>Questions about payment?</h3>
+
+		<p>Billing Address<br />Payment Method<br />
+
+		  <br />
+
+		</p>
+
+		<h2>Call: +971-4-2831911</h2>
+
+		<p>email: support@moosavings.com<br />
+
+		  <br />
+
+		</p>
+
+		<h3>How secure is buying here?</h3>
+
+		<p>Extremely secure. We don't store payment info on our servers. We use eBay-owned PayPal to process credit card and PayPal payments, and we use VeriSign's highest level of SSL encryption (click the logo below; check for the green address bar).
+
+          <br />
+
+		  <br />
+
+		</p>
+
+		<h3>Am I charged right away?
+
+</h3>
+
+		<p>f the deal hasn't tipped yet, no. We first authorize your credit card. When the deal tips, we charge your card and send you a receipt. If the deal doesn't tip we cancel this card authorization, and you're not charged.<br />
+
+		  <br />
+
+		</p>
+
+		<h3>What's happens after tipping/buying?
+
+</h3>
+
+		<p>You'll get your receipt right away. You'll get your Nabit voucher the next business day after the deal closes.
+
+          <br />
+
+		  <br />
+
+		</p>
+
+<h3>Do you give refunds?</h3>
+
+<p>We handle all refund enquiries ourselves, not the local business. More info here.</p>
+
+		</div>
+
+		<div class="daily-deals-right-bottom"></div>
+
+		</div>
+
+		<div class="clr"></div>
+
+	</div>
+
+	<div class="inner-content-bottom"></div>  
+
+  </div>
+
 
 <!--{include footer}-->

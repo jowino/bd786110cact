@@ -1,62 +1,39 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="signup">
-    <div id="content" class="signup-box">
-        <div class="box">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>Register </h2><span>&nbsp;or <a href="/account/login.php">Login</a></span></div>
-                <div class="sect">
-                    <form id="signup-user-form" method="post" action="/account/signup.php" class="validator">
-                        <div class="field email">
-                            <label for="signup-email-address">Email</label>
-                            <input type="text" size="30" name="email" id="signup-email-address" class="f-input" value="{$_POST['email']}" require="true" datatype="email" />
-                            <span class="f-input-tip">Please key in a valid Email address.</span> 
-                            <span class="hint">For login and password reset use, will not public.</span>
-                        </div>
-                        <div class="field username">
-                            <label for="signup-username">Username</label>
-                            <input type="text" size="30" name="username" id="signup-username" class="f-input" value="{$_POST['username']}" datatype="limit" require="true" min="2" max="16" maxLength="16" />
-                            <span class="hint">4-16 characters only</span>
-                        </div>
-                        <div class="field password">
-                            <label for="signup-password">Password</label>
-                            <input type="password" size="30" name="password" id="signup-password" class="f-input" require="true" datatype="require" />
-                            <span class="hint">At least 4 characters</span>
-                        </div>
-                        <div class="field password">
-                            <label for="signup-password-confirm">Confirm password</label>
-                            <input type="password" size="30" name="password2" id="signup-password-confirm" class="f-input" require="true" datatype="compare" compare="signup-password" />
-                        </div>
-						<div class="field subscribe">
-                            <input tabindex="3" type="checkbox" value="1" name="subscribe" id="subscribe" class="f-check" checked="checked" />
-                            <label for="subscribe">Subscribe <b>{$city['name']}</b> daily deal information.</label>
-						</div>
-                        <div class="act">
-                            <input type="submit" value="Register " name="commit" id="signup-submit" class="formbutton"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-    <div id="sidebar">
-        <div class="sbox">
-            <div class="sbox-top"></div>
-            <div class="sbox-content">
-                <div class="side-tip">
-                    <h2>Have {$INI['system']['abbreviation']} account? </h2>
-                    <p><a href="/account/login.php">Login</a> please. </p>
-                </div>
-            </div>
-            <div class="sbox-bottom"></div>
-        </div>
-    </div>
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+ <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<h1>Sign Up&nbsp;or&nbsp;<a href="/account/login.php">Sign In </a></h1>
+		
+		<div class="clr"></div>
+		<div class="inner-left">
+		<div id="content">
+		<form id="signup-user-form" method="post" action="/account/signup.php" class="validator">
+			<div class="caption" style="width:100px;">Email:</div><div> <input type="text" size="30" name="email" id="signup-email-address" class="f-input" value="{$_POST['email']}" require="true" datatype="email" />
+			<span class="red">*</span>
+			<span class="hint" style="margin-left:100px;">For login and password reset use, will not public.</span></div><br>
+			<div class="caption" style="width:100px;">Username:</div><div> <input type="text" size="30" name="username" id="signup-username" class="f-input" value="{$_POST['username']}" datatype="limit" require="true" min="2" max="16" maxLength="16" />
+			<span class="red">*</span><span class="hint" style="margin-left:100px;">4-16 characters only</span>
+			  </div><br>
+			  <div class="caption" style="width:100px;">Password:</div><div> <input type="password" size="30" name="password" id="signup-password" class="f-input" require="true" datatype="require" />
+			<span class="red">*</span>
+			<span class="hint" style="margin-left:100px;">At least 4 characters</span></div><br>
+			<div class="caption" style="width:100px;">Confirm password:</div><div> <input type="password" size="30" name="password2" id="signup-password-confirm" class="f-input" require="true" datatype="compare" compare="signup-password" />
+			<span class="red">*</span></div>
+			
+			<div class="caption" style="width:430px;margin-left:100px"> <input tabindex="3" type="checkbox" value="1" name="subscribe" id="subscribe" class="f-check" checked="checked" />
+                            <label for="subscribe">Subscribe <b>{$city['name']}</b> daily deal information.</label></div>
+			<div style="clear:both;margin-left:100px;"><input type="submit" value="Sign up" name="commit" id="signup-submit" class="submit"/></div>
+		</form></div>
+		</div>
+		<div class="inner-right">
+		<h3>Have {$INI['system']['abbreviation']} account?</h3><p><a href="/account/login.php">Sign in</a> please.
+</p>
+		</div>
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
 
 <!--{include footer}-->

@@ -1,47 +1,62 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="coupons">
-	<div class="dashboard" id="dashboard">
-		<ul>${current_account('/order/index.php')}</ul>
-	</div>
-    <div id="content" class="coupons-box clr">
-		<div class="box clr">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head">
-                    <h2>My Order</h2>
-                    <ul class="filter">
-						<li class="label">Category:  </li>
-						${current_order_index($selector)}
-					</ul>
-				</div>
-                <div class="sect">
-					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
-						<tr><th width="380">Deal Item</th><th width="60">Quantity</th><th width="60">Total</th><th width="60">Status</th><th width="40">Operation</th></tr>
-					<!--{loop $orders $index $one}-->
-						<tr ${$index%2?'':'class="alt"'}>
-							<td style="text-align:left;"><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
-							<td>{$one['quantity']}</td>
-							<td><span class="money">{$currency}</span>${moneyit($one['origin'])}</td>
-							<td><!--{if $one['state']=='pay'}-->Have paid<!--{elseif $one['state']=='unpay'&&$one['service']=='cash'}-->Pending<!--{elseif $teams[$one['team_id']]['state']!='none'}-->Is expired<!--{else}-->Unpaid<!--{/if}--><!--{/if}--></td>
-							<td class="op"><!--{if ($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')&&$one['service']!='cash'}--><a href="/order/pay.php?id={$one['id']}">Pay</a><!--{elseif $one['state']=='pay'||$one['service']=='cash'}--><a href="/order/view.php?id={$one['id']}">Detail</a><!--{/if}--></td>
-						</tr>
-					<!--{/loop}-->
-						<tr><td colspan="5">{$pagestring}</td></tr>
-                    </table>
-				</div>
-            </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-    <div id="sidebar">
-		<!--{include block_side_aboutorder}-->
-    </div>
-</div>
+  <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<div id="daily-deals-left">
+		 <div id="account-category">
+			<ul class="filter">
+				<li class="label">Category:  </li>
+					${current_order_index($selector)}
+			</ul>
+		</div>
+		<h2>Your purchase:</h2>
 
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+		<div id="container-account">
+			<ul class="account-1">${current_account('/order/index.php')}</ul>
+
+			<div id="account-tab-1">
+            <table width="743" border="0" cellpadding="0" cellspacing="0" id="account" >
+			<tr>
+				<td>
+					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:separate">
+					  <tr>
+                      	<th class="normal">Deal Item</th>
+						<th style="width:95px;">Quantity</th>
+
+						<th style="width:95px;">Total</th>
+						<th style="width:95px;">Status</th>
+						<th style="width:135px;">Operation</th>
+					  </tr>
+					  <!--{loop $orders $index $one}-->
+					  <tr valign="middle" ${$index%2?'':'style="background-color:#ebffc7"'}>
+					    <td ${$index%2?'class="normal"':'class="highlight"'}>
+						<a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank"> {$teams[$one['team_id']]['title']}</a>
+						</td>
+					    <td>{$one['quantity']}</td>
+
+					    <td><span class="money">{$currency}</span>${moneyit($one['origin'])}</td>
+					    <td><!--{if $one['state']=='pay'}-->Have paid<!--{elseif $one['state']=='unpay'&&$one['service']=='cash'}-->Pending<!--{elseif $teams[$one['team_id']]['state']!='none'}-->Is expired<!--{else}-->Unpaid<!--{/if}--><!--{/if}--></td>
+					    <td><!--{if ($one['state']=='unpay'&&$teams[$one['team_id']]['state']=='none')&&$one['service']!='cash'}--><a href="/order/pay.php?id={$one['id']}">Pay</a><!--{elseif $one['state']=='pay'||$one['service']=='cash'}--><a href="/order/view.php?id={$one['id']}">Detail</a><!--{/if}--></td>
+				      </tr>
+					  <!--{/loop}-->
+					  <tr><td colspan="5">{$pagestring}</td></tr>
+				  </table>
+				</td>
+			</tr>
+
+		</table>
+            </div>
+		</div>
+		</div>
+		<!--{include block_side_aboutorder}-->
+		
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
+
+
 
 <!--{include footer}-->

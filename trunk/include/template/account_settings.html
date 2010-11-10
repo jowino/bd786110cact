@@ -1,18 +1,19 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="settings">
-	<div class="dashboard" id="dashboard">
-		<ul>${current_account('/account/settings.php')}</ul>
-	</div>
-    <div id="content" class="clr settings-box">
-		<div class="box clr">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>Setting</h2></div>
-                <div class="sect">
-                    <form id="settings-form" method="post" action="/account/settings.php" enctype="multipart/form-data" class="validator">
+
+
+  <div class="clr"></div>
+  <div id="inner-content">
+  	<div class="inner-content-top"></div>
+	<div class="inner-content-middle">
+		<div id="daily-deals-left">
+		<h2>Setting:</h2>
+		<div id="container-account">
+			<ul class="account-5">${current_account('/account/settings.php')}</ul>
+
+			<div id="account-tab-1">
+			<div id="content">
+             <form id="settings-form" method="post" action="/account/settings.php" enctype="multipart/form-data" class="validator">
 						<div class="wholetip clr"><h3>1. Basic Info</h3></div>
                         <div class="field email">
                             <label>Email</label>
@@ -36,7 +37,7 @@
                             <span class="hint">Keep blank if you don't want to change password</span>
                         </div>
                         <div class="field password">
-                            <label>Confirm New Password</label>
+                            <label>Confirm Password</label>
                             <input type="password" size="30" name="password2" id="settings-password-confirm" class="f-input" />
                         </div>
 						<div class="wholetip clr"><h3>2. Delivery Info </h3></div>
@@ -60,21 +61,21 @@
                         </div>
                         <div class="clr"></div>
                         <div class="act">
-                            <input type="submit" value="Change" name="commit" id="settings-submit" class="formbutton"/>
+                            <input type="submit" value="Change" name="commit" id="settings-submit" class="submit"/>
                         </div>
                     </form>
-                </div>
+                    </div>
             </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-    <div id="sidebar" class="rail">
+		</div>
+		</div>
 		<!--{include block_side_credit}-->
-		<div class="clr"></div>
 		<!--{include block_side_credittip}-->
-    </div>
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+		
+		<div class="clr"></div>
+	</div>
+	<div class="inner-content-bottom"></div>  
+  </div>
+
+
 
 <!--{include footer}-->
