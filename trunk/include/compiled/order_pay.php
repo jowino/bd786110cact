@@ -123,7 +123,7 @@
 </form>
 <?php } else if($order['service']=='migs') { ?>
 
-<form id="order-pay-form" method="post" action="/migsvpcphp/vpc_php_serverhost_do.php" target="_blank" sid="<?php echo $order['id']; ?>">
+<form id="order-pay-form" method="post" action="/migsvpcphp/vpc_php_serverhost_do.php" sid="<?php echo $order['id']; ?>">
 	<input type="hidden" name="Title" value="PHP VPC 3-Party">
 	<input type="hidden" name="virtualPaymentClientURL" value="https://migs.mastercard.com.au/vpcpay" maxlength="250">
 	<input type="hidden" name="vpc_Version" value="<?php echo $version;?>" size="20" maxlength="8">
