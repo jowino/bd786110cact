@@ -1,8 +1,9 @@
+<?php require_once(dirname(__FILE__) . '/app.php'); ?>
 <?php
 require 'facebook_conn.php';
 
-  $appId = '146856232017000';
-  $apisecret = '4688c44c0b99da8a9f0d92310badfea7';
+  $appId = '127413733983248';
+  $apisecret = 'a9962d08a376a79f8396f3009d9ffca2';
 
 // Create our Application instance.
 	$facebook = new Facebook(array(
@@ -41,6 +42,7 @@ require 'facebook_conn.php';
 
 ?>
 <div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script> 
 <script>
 window.fbAsyncInit = function() {
 FB.init({
@@ -67,14 +69,14 @@ window.location.reload();
 });
 };
 
-(function() {
+/*(function() {
 var e = document.createElement('script');
 e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
 e.async = true;
-document.getElementById('fb-root').appendChild(e);
-}());
+alert(document.getElementById("fb-root"));
+document.getElementById("fb-root").appendChild(e);
+}());*/
 </script>
-<?php require_once(dirname(__FILE__) . '/app.php'); ?>
 
 
 <?php
