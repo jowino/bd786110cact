@@ -131,7 +131,7 @@
 	<input type="hidden" name="vpc_MerchTxnRef" value="{$order['id']}" size="20" maxlength="40">
 	<input type="hidden" name="vpc_Merchant" value="{$mid}" size="20" maxlength="16">
 	<input type="hidden" name="vpc_OrderInfo" value="" size="20" maxlength="34">
-	<input type="hidden" name="vpc_Amount" value="{$total_money}" size="20" maxlength="10">
+	<input type="hidden" name="vpc_Amount" value="{$total_money*100}" size="20" maxlength="10">
 	<input type="hidden" name="vpc_Locale" value="{$locale}" size="20" maxlength="5">
 	<input type="hidden" name="vpc_ReturnURL" size="63" value="{$returnURL}" maxlength="250">
 	<br/><input type="submit" class="formbutton gotopay" value="MIGS payment" style="vertical-align:middle;"/>
