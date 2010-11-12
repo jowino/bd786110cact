@@ -83,7 +83,38 @@
 			<div class="line islogin"></div>
 		</div>
 		<!--{else}-->
-		    <div class="fb-connect"><a href="fb_connector.php"><img src="/static/images/fb-connect.jpg" alt="Facebook Connect" border="0" title="Facebook Connect" /></a></div>
+		    <!--<div class="fb-connect"><a href="fb_connector.php"><img src="/static/images/fb-connect.jpg" alt="Facebook Connect" border="0" title="Facebook Connect" /></a></div>-->
+			<div class="fb-connect">
+			<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script> 
+<script>
+window.fbAsyncInit = function() {
+FB.init({
+appId : '127413733983248',
+status : true, // check login status
+cookie : true, // enable cookies to allow the server to access the session
+xfbml : true // parse XFBML
+});
+/* FB.login(function(response) {
+    Log.info('FB.login callback', response);
+    if (response.session) {
+      Log.info('User is logged in');
+    } else {
+      Log.info('User is logged out');
+    }
+  });
+*/
+// whenever the user logs in, we refresh the page
+FB.Event.subscribe('auth.login', function() {
+//window.location.reload();
+window.location = "http://moosavings.com/groupon/fb_connector.php";
+//window.open("http://www.facebook.com");
+
+});
+};
+</script>
+			<fb:login-button onlogin="Groupon.FacebookConnect.onConnect()" perms="publish_stream,email,user_birthday">Connect</fb:login-button>
+			</div>
     		<div class="sign-in"><a href="/account/login.php"><img src="/static/images/sign-in.jpg" alt="Sign In" border="0" title="Sign In" /></a></div>
 		<!--{/if}-->
   </div>
