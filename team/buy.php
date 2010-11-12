@@ -62,7 +62,7 @@ if ( $_POST ) {
 		);
 	
 	if ($flag = $table->update($insert)) {
-		if ($table->id) {
+		if ($table->id||$flag) {
 					if(isset($_POST['isgift'])){
 				$giftorder=Table::Fetch('order_gift',$table->id,'order_id');
 				$ginsert=array('order_id','to','delivery','message','email');
@@ -71,7 +71,10 @@ if ( $_POST ) {
 					$_POST['id']=$giftorder['id'];
 				}
 				$gorder=new Table('order_gift',$_POST);
-				$gorder->order_id=$table->id;
+				if($table->id)
+					$gorder->order_id=$table->id;
+				else 
+					$gorder->order_id=$flag;
 				if($_POST['gift']['delivery']=='print')
 				{
 					$gorder->delivery='print';
