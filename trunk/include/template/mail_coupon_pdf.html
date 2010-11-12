@@ -11,127 +11,128 @@
 
 </head>
 
-<body style="background-color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#676767;">
-
-	<div id="main-wrapper" style="width:745px;margin:0 auto;">
-
-	<div id="content-1" style="width:745px;height:700px;">
-
-	<div class="logo" style="float:left;width:274px;height:auto;"> <img src="http://www.moosavings.com/groupon/static/images/logo.jpg" title="Moosavings" alt="Moosavings"/> </div>
-
-	<h1 class="voucher" style="color:#353535;float:right;font-size:25px;margin-right:55px;margin-top:50px;">voucher code:<br />
-
-<span style="font-size:30px;">{$coupon['id']}</span></h1>
-
-	<div class="clr" style="clear:both;"></div>
-
-	<div style="border-top:5px solid #79A12F;margin:0 auto;width:870px;height:10px;"></div>
-
-	<div id="left" style="float:left;width:351px;margin-left:10px;">
-
-	<h2 style="color:#353535;margin-top:17px;">Elements</h2>
-
-	<p>{$team['title']}</p>
-
+<body style="background-color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:8px;color:#676767;">
+    <table width="600px" style="border:2px #79A12F solid;background-image:url(http://www.moosavings.com/groupon/static/images/voucher-moo-bg.jpg);
+background-position:right bottom;
+background-repeat:no-repeat;
+border:2px solid #79A12F;
+margin-top:25px;
+width:600px;">
+	  <tr>
+		<td width="274px">
+		<img src="http://www.moosavings.com/groupon/static/images/logo.jpg" title="Moosavings" alt="Moosavings"/>
+		</td>
+		<td style="font-size:14px" valign="middle">voucher code:<br />{$coupon['id']}
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">
+		<div style="border-top:5px solid #79A12F;margin:0 auto;width:580px;height:10px;"></div>
+		</td>
+	  </tr>
+	  <tr valign="top">
+	   <td>
+		<h2 style="color:#353535;">Deal Name</h2>
+		<p>{$team['title']}</p>
+		</td>
+		<td>
+			<h2>Available starting</h2>
+			<p>${date('F d,Y', $team['end_time'])}</p>
+		</td>
+	   </tr>
+	   	  <tr valign="top">
+	   <td>
+		<h2 style="color:#353535;">Recipients</h2>
+		<p>{$user['username']}</p>
+		</td>
+		<td>
+			<h2>Location</h2>
+			<p>{$partner['location']}</p>
+		</td>
+	   </tr>
+	   	  <tr valign="top">
+	   <td>
 	<h2>Expires On</h2>
 
-	<p>${date('Y-m-d', $coupon['expire_time'])}</p>
+	<p>${date('F d,Y', $coupon['expire_time'])}</p>
+		</td>
+		<td>
+			<h2>Elements</h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		</td>
+	   </tr>
+	   <tr>
+	     <td colspan="2">
+		   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-	<h2>Elements</h2>
+			  <tr valign="middle" style="height:25px;">
 
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+				<td width="20%">cash paid</td>
 
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<td><span style="padding:5px 60px;border:1px gray solid;">&nbsp;</span></td>
 
-  <tr valign="middle" style="height:25px;">
+			  </tr>
 
-    <td width="20%">cash paid</td>
+			  <tr valign="middle" style="height:25px;">
 
-    <td><input class="field" type="text" /></td>
+				<td>group size</td>
 
-  </tr>
+				<td><span style="padding:5px 60px;border:1px gray solid;">&nbsp;</span></td>
 
-  <tr valign="middle" style="height:25px;">
+			  </tr>
 
-    <td>group size</td>
+			  <tr valign="middle" style="height:25px;">
 
-    <td><input class="field" type="text" /></td>
+				<td colspan="3"><span style="padding:0px 5px;border:1px gray solid;margin-right:5px;">&nbsp;</span><label>first visit</label>
+				<span style="padding:0px 5px;border:1px gray solid;margin-right:5px;">&nbsp;</span>
+				<label style="margin-right:5px;">occasional</label><span style="padding:0px 5px;border:1px gray solid;margin-right:5px;">&nbsp;</span><label>regular</label></td>
 
-  </tr>
+			  </tr>
 
-  <tr valign="middle" style="height:25px;">
+			</table>
+		</td>
+	   </tr>
+	   </table>
+	   <table width="600px">
+	   <tr>
+	     <td colspan="2">
+		  <h2 class="how-to-moosavings" style="padding-top:20px;">How to Moosavings it:</h2>
 
-    <td><input type="checkbox"/><label>first visit</label></td>
+			<ol style="margin-left:20px;">
 
-    <td><input type="checkbox"/><label>occasional</label><input style="margin-left:5px;;" type="checkbox" /><label>regular</label></td>
+			<li style="margin-top:5px;margin-bottom:5px;">Download and print the voucher attached to this email.</li>
 
-  </tr>
+			<li style="margin-top:5px;margin-bottom:5px;">Make sure you read the terms listed on the voucher.</li>
 
-</table>
+			<li style="margin-top:5px;margin-bottom:5px;">Call the merchant to book in advance if the service requires a booking.</li>
 
+			<li style="margin-top:5px;margin-bottom:5px;">Redeem your voucher at the respected business and notify them of your voucher.</li>
 
-	</div>
+			<li style="margin-top:5px;margin-bottom:5px;"> Enjoy your experience.</li>
 
-	<div id="right" style="float:right;width:351px;margin-right:10px;">
+			<li style="margin-top:5px;margin-bottom:5px;">Spread the word!!</li>
 
-	<h2>Elements</h2>
+			</ol>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td colspan="2">
+		  
+			<div style="background-color:#77A22F;padding-top:1px;margin-bottom:20px;padding-bottom:20px;">
 
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			<h2 style="margin-top:15px;color:#FFFFFF;font-weight:normal;margin-left:20px;">The legal</h2>
 
-	<h2>Elements</h2>
-
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-	<h2>Elements</h2>
-
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-	</div>
-
-	</div>
-
-	<div id="content-2" style="height:330px;">
-
-	<h2 class="how-to-moosavings" style="padding-top:20px;">How to Moosavings it:</h2>
-
-	<ol style="margin-left:20px;">
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	<li style="margin-top:5px;margin-bottom:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-
-	</ol>
-
-	</div>
-
-	<div id="content-3" style="background-color:#77A22F;padding-top:1px;margin-bottom:20px;padding-bottom:20px;">
-
-	<h2 style="margin-top:15px;color:#FFFFFF;font-weight:normal;margin-left:20px;">Elements</h2>
-
-	<p style="margin-top:10px;color:#FFFFFF;margin-left:20px;font-size:14px;margin-right:20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-	<h2 style="margin-top:15px;color:#FFFFFF;font-weight:normal;margin-left:20px;">Elements</h2>
-
-	<p style="margin-top:10px;color:#FFFFFF;margin-left:20px;font-size:14px;margin-right:20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-	<h2 style="margin-top:15px;color:#FFFFFF;font-weight:normal;margin-left:20px;">Elements</h2>
-
-	<p style="margin-top:10px;color:#FFFFFF;margin-left:20px;font-size:14px;margin-right:20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-	</div>
-
-	</div>
-
+			<p style="margin-top:10px;color:#FFFFFF;margin-left:20px;font-size:12px;margin-right:20px;">
+			Moosavings is not responsible for the quality and services of the merchant. The voucher could only be used in one entry and not multiple.
+		You will not be entitled to credit or cash from the merchant or Moosavings considering you purchased a good or service less than the voucher amount.
+		 Neither of the parties (merchant or Moosavings) are responsible for a loss of your voucher.
+		The voucher could only be used until the applicable date posted, it is your responsibility to redeem it on time.
+		For any further questions, contact us on <a href="mailto:support@moosavings.com">support@moosavings.com</a>
+			</p>
+			</div>
+		</td>
+		</tr>
+	</table>
 </body>
 
 </html>
