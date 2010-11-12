@@ -96,7 +96,7 @@ function mail_purchase($city, $team, $partner,$order, $subscribe)
 		'notice_email' => $INI['mail']['reply'],
 	);
 	$message = render('mail_order_info', $vars);
-	$mesasge = mb_convert_encoding($mesage,'UTF-8');
+	$mesasge = mb_convert_encoding($message,'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
 		'encoding' => 'UTF-8',
@@ -138,6 +138,16 @@ function mail_coupon( $team, $partner,$order, $user,$coupon)
 	$from = $INI['mail']['from'];
 	$to = $user['email'];
 	$subject = $INI['system']['sitename'] . ": Your Coupon Details";
+	if($order['isgift']=='Y')
+	{
+		$gift=Table::Fetch('order_gift',$order['id'],'order_id');
+		if($gift['delivery']=="email")
+		{
+			$to=$gift['email'];
+			$subject="(Your gift from".$order['realname'].")".$subject;
+		}
+	}
+	
 	$content=createpdf(render('mail_coupon_pdf',$vars));
 	if ($INI['mail']['mail']=='mail') {
 		Mailer::SendMail($from, $to, $subject, $message, $options);
