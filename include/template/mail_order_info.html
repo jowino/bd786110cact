@@ -16,10 +16,11 @@ p { line-height: 1.5em; }
 	<p width="450px" align="left">
 		Hi ,<br>
 		Thanks for being a part of Moosavings<br>
-
+		<!-- {if ($team['now_number']<$team['min_number'])} -->
 		The moopon you applied for needs {$team['min_number']-$team['now_number']} more buyers to go live. Look out for our next e-mail with the result of your bid. 
 In the meantime, why not <a href="{$INI['system']['wwwprefix']}/account/invite.php">invite your friends</a> to also bid for the deal and make it tip faster? That way, everyone wins!
 (<a href="http://ww.facebook.com">facebook</a>,<a href="www.twitter.com">twitter</a>)
+      <!-- {/if} -->
 Keep enjoying moore savings and great deals, every day!<br>
 The Moosavings team
 		
