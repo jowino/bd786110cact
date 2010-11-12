@@ -118,7 +118,6 @@ $SECURE_SECRET = "30A2E4CF6B2135C42FB35F530AD49C36";
 // get and remove the vpc_TxnResponseCode code from the response fields as we
 // do not want to include this field in the hash calculation
 $vpc_Txn_Secure_Hash = $_GET["vpc_SecureHash"];
-unset($_GET["vpc_SecureHash"]); 
 
 // set a flag to indicate if hash has been validated
 $errorExists = false;
@@ -185,6 +184,7 @@ $enrolled        = array_key_exists("vpc_3DSenrolled", $_GET)      ? $_GET["vpc_
 $xid             = array_key_exists("vpc_3DSXID", $_GET)           ? $_GET["vpc_3DSXID"]           : "No Value Returned";
 $acqECI          = array_key_exists("vpc_3DSECI", $_GET)           ? $_GET["vpc_3DSECI"]           : "No Value Returned";
 $authStatus      = array_key_exists("vpc_3DSstatus", $_GET)        ? $_GET["vpc_3DSstatus"]        : "No Value Returned";
+$amount = $amount/100;
 
 // *******************
 // END OF MAIN PROGRAM
