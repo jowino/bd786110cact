@@ -30,7 +30,8 @@ else if ( $action == 'ask' ) {
 		$table->create_time = time();
 		$table->insert(array('user_id','team_id','city_id','content','create_time'));
 	}
-	redirect('/team/ask.php?id='.$team['id']);
+	Utility::Redirect( WEB_ROOT . '/team/ask.php?id='.$team['id']);
+	//redirect('/team/ask.php?id='.$team['id']);
 }
 
 json(0);
