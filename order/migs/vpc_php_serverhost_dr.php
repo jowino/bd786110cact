@@ -118,6 +118,7 @@ $SECURE_SECRET = "30A2E4CF6B2135C42FB35F530AD49C36";
 // get and remove the vpc_TxnResponseCode code from the response fields as we
 // do not want to include this field in the hash calculation
 $vpc_Txn_Secure_Hash = $_GET["vpc_SecureHash"];
+unset($_GET["vpc_SecureHash"]); 
 
 // set a flag to indicate if hash has been validated
 $errorExists = false;
@@ -184,7 +185,6 @@ $enrolled        = array_key_exists("vpc_3DSenrolled", $_GET)      ? $_GET["vpc_
 $xid             = array_key_exists("vpc_3DSXID", $_GET)           ? $_GET["vpc_3DSXID"]           : "No Value Returned";
 $acqECI          = array_key_exists("vpc_3DSECI", $_GET)           ? $_GET["vpc_3DSECI"]           : "No Value Returned";
 $authStatus      = array_key_exists("vpc_3DSstatus", $_GET)        ? $_GET["vpc_3DSstatus"]        : "No Value Returned";
-$amount = $amount/100;
 
 // *******************
 // END OF MAIN PROGRAM
@@ -201,34 +201,64 @@ $error_message = getResponseDescription($txnResponseCode);
 $order_id = $merchTxnRef;
 // Show this page as an error page if vpc_TxnResponseCode equals '7'
 if ($txnResponseCode != "0") {
-    include template('order_return_error');
+	if($orderInfo=='gift')
+		include template('gift_pay_error');
+	else 
+    	include template('order_return_error');
 }else
 {
-	$order = Table::Fetch('order', $merchTxnRef);
-	if ( $order['state'] == 'unpay' ) {
-		//1
-		$table = new Table('order');
-		$table->SetPk('id', $merchTxnRef);
-		$table->pay_id = $transactionNo;
-		$table->state = 'pay';
-		$table->money = $amount;
-		$flag = $table->update( array('state', 'pay_id', 'money') );
-		if ( $flag ) {
-			$table = new Table('pay');
-			$table->id = $transactionNo;
-			$table->order_id = $merchTxnRef;
-			$table->money = $amount;
-			$table->currency = $v_moneytype;
-			$table->bank = $cardType;
-			$table->service = 'migs';
-			$table->create_time = time();
-			$table->insert( array('id', 'order_id', 'money', 'currency', 'service', 'create_time', 'bank') );
+	if($orderInfo=='gift')
+	{
+		$order = Table::Fetch('gift_card', $merchTxnRef);
+			$table = new Table('gift_card');
+			$table->SetPk('id', $order_id);
+			$table->pay_id = $transactionNo;
+			$table->payed = $amount;
+			$table->state = 'pay';
+			$flag = $table->update( array('state', 'pay_id', 'payed') );
 
-			//update team state//
-			ZTeam::BuyOne($order);
-		}
+			if ( $flag ) {
+				$table = new Table('pay');
+				$table->id = $transactionNo;
+				$table->order_id = $order_id;
+				$table->money = $amount;
+				$table->currency = 'AED';
+				$table->bank = $cardType.'-gift';
+				$table->service = 'migs';
+				$table->create_time = time();
+				$table->insert( array('id', 'order_id', 'money', 'currency', 'service', 'create_time', 'bank') );
+				ZOrder::BuyGift($order);
+			}
+		Utility::Redirect(WEB_ROOT . "/gift_cards/giftpay.php?id={$order_id}");
 	}
-	Utility::Redirect(WEB_ROOT . "/order/pay.php?id={$order_id}");
+	else {
+
+			$order = Table::Fetch('order', $merchTxnRef);
+			if ( $order['state'] == 'unpay' ) {
+				//1
+				$table = new Table('order');
+				$table->SetPk('id', $merchTxnRef);
+				$table->pay_id = $transactionNo;
+				$table->state = 'pay';
+				$table->money = $amount;
+				$flag = $table->update( array('state', 'pay_id', 'money') );
+				if ( $flag ) {
+					$table = new Table('pay');
+					$table->id = $transactionNo;
+					$table->order_id = $merchTxnRef;
+					$table->money = $amount;
+					$table->currency = 'AED';
+					$table->bank = $cardType;
+					$table->service = 'migs';
+					$table->create_time = time();
+					$table->insert( array('id', 'order_id', 'money', 'currency', 'service', 'create_time', 'bank') );
+		
+					//update team state//
+					ZTeam::BuyOne($order);
+				}
+			}
+			Utility::Redirect(WEB_ROOT . "/order/pay.php?id={$order_id}");
+	}
 }
     
 // This is the display title for 'Receipt' page 
