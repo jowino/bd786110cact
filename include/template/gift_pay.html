@@ -3,15 +3,14 @@
 <div class="sysmsgw" id="sysmsg-error"><div class="sysmsg"><p>This order is not paid yet, please pay it again.</p><span class="close">Close</span></div></div>
 <!--{/if}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
+<div class="clr"></div>
+<div id="main-content" style="margin-top:10px;">
+  <div id="left" style="background-color:white;width:776px;">
 <div id="order-pay">
     <div id="content">
         <div id="deal-buy" class="box">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head">
-                    <h2>You Should Pay: <strong class="total-money">${moneyit($total_money)}</strong> USD</h2>
+                <div class="head" style="margin-top:20px;">
+                    <h2>You Should Pay: <strong class="total-money">${moneyit($total_money)}</strong> AED</h2>
                 </div>
                 <div class="sect">
                     <div style="text-align:left;">
@@ -26,7 +25,7 @@
 	<input type="hidden" name="order_id" value="{$order_id}" />
 	<input type="hidden" name="service" value="cash" />
 	<label>Cash on Delivery:</label><textarea cols="45" rows="5" name="remark"></textarea><br>
-	<input type="submit" name="cod" class="formbutton gotopay" value="Confirm Order" />
+	<input type="submit" name="cod" class="submit" value="Confirm" />
 </form>
 <br />
 <!--{elseif $order['paytype']=='paypal'}-->
@@ -41,7 +40,7 @@
 	<input type="hidden" name="item_number" value="{$out_trade_no}" />
 	<input type="hidden" name="currency_code" value="{$currency}" />
 	<input type="hidden" name="amount" value="{$total_money}" />
-	<img src="/static/css/i/paypal_logo.gif" /><br /><input type="submit" name="confirm" class="formbutton gotopay" value="Goto PayPal" />
+	<img src="/static/css/i/paypal_logo.gif" /><br /><input type="submit" name="confirm" class="submit" value="Pay" />
 </form>
 <br />
 
@@ -62,16 +61,28 @@
 	<input type="hidden" name="sign" value="{$sign}" />
 	<img src="/static/css/i/alipay.png" /><br /><input type="submit" class="formbutton gotopay" value="Goto Alipay" />
 </form>
+<!--{elseif $order['paytype']=='migs'}-->
+<form id="order-pay-form" method="post" action="/migsvpcphp/vpc_php_serverhost_do.php" sid="{$order['id']}">
+	<input type="hidden" name="Title" value="PHP VPC 3-Party">
+	<input type="hidden" name="virtualPaymentClientURL" value="https://migs.mastercard.com.au/vpcpay" maxlength="250">
+	<input type="hidden" name="vpc_Version" value="{$version}" size="20" maxlength="8">
+	<input type="hidden" name="vpc_Command" value="{$type}" size="20" maxlength="16">
+	<input type="hidden" name="vpc_AccessCode" value="{$accesscode}" size="20" maxlength="8">
+	<input type="hidden" name="vpc_MerchTxnRef" value="{$order['id']}" size="20" maxlength="40">
+	<input type="hidden" name="vpc_Merchant" value="{$mid}" size="20" maxlength="16">
+	<input type="hidden" name="vpc_OrderInfo" value="gift" size="20" maxlength="34">
+	<input type="hidden" name="vpc_Amount" value="{$total_money*100}" size="20" maxlength="10">
+	<input type="hidden" name="vpc_Locale" value="{$locale}" size="20" maxlength="5">
+	<input type="hidden" name="vpc_ReturnURL" size="63" value="{$returnURL}" maxlength="250">
+	<br/><input type="submit" class="submit" value="Pay" style="vertical-align:middle;"/>
+</form>
 <!--{/if}-->
 						<div class="back-to-check"><a href="/gift_cards/index">&raquo; Go back to choose other payment</a></div>
                     </div>
                 </div>
-            </div>
-            <div class="box-bottom"></div>
         </div>
     </div>
 </div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
+</div>
 
 <!--{include footer}-->

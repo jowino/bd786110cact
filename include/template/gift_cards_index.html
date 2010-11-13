@@ -1,14 +1,12 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="feedback">
-    <div id="content" class="clr">
-        <div class="box">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>Gift Card</h2></div>
-                <div class="sect">
+<div class="clr"></div>
+<div id="main-content" style="margin-top:10px;">
+  <div id="left" style="background-color:white;width:776px;">
+		<h1 style="padding:10px;">Gift Card </h1>
+		<div id="referrals">
+		<div id="content">
+		 <div class="sect">
 					<p>Customize Your Gift Card.</p>
                     <form id="feedback-user-form" method="post" action="/gift_cards/giftpay.php" class="validator">
                         <div class="field from">
@@ -21,7 +19,7 @@
                         </div>
                         <div class="field message">
                             <label for="feedback-suggest">Personal Message: <span>(Optional)</span></label>
-                            <textarea cols="30" rows="5" name="message" id="gift_card_message" class="xheditor-simple" require="true" datatype="require"></textarea>
+                            <textarea cols="30" rows="5" name="message" id="gift_card_message" class="xheditor-simple"></textarea>
                         </div>
                         <div class="field amount">
                             <label for="feedback-suggest">Amount:</label>
@@ -51,23 +49,23 @@
 					<!--{/if}-->
 					<!--{if $INI['chinabank']['mid']}-->
 						<li><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></li>
+					<!-- {/if} -->
+					<!--{if $INI['migs']['mid']}-->
+						<li><input id="check-chinabank" type="radio" name="paytype" value="migs" {$ordercheck['migs']} /><label for="check-chinabank" class="chinabank">MIGS payment</label></li>
 					<!--{/if}-->
 					<li><input id="check-alipay" type="radio" name="paytype" value="cash" {$ordercheck['alipay']} /><label>Cash on Delivery</label></li>
 					</ul>
 					<div class="clr"></div>
 					<p class="check-act">
-					<input type="submit" name="giftpay" value="Confirm and pay the order" class="formbutton" />
+					<input type="submit" name="giftpay" value="Submit" class="submit" />
 					</p>
 				</div>
 				</div>
                     </form>
-				</div>
-            </div>
-            <div class="box-bottom"></div>
-        </div>
+				</div></div></div>
 	</div>
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
-
+	   <div id="right" style="margin-left:15px;">
+     
+    </div>
+  </div>
 <!--{include footer}-->

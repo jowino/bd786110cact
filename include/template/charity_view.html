@@ -1,14 +1,12 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="recent-deals">
-    <div id="content">
-        <div class="box">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>Charities</h2></div>
-					<!--{loop $charities $index $one}-->
+<div class="clr"></div>
+<div id="main-content" style="margin-top:10px;">
+  <div id="left" style="background-color:white;width:726px;">
+		<h1 style="padding:10px;">Charities</h1>
+		<div id="referrals">
+		<div id="content">
+		<!--{loop $charities $index $one}-->
 						<div style="background:#f7fff6; padding:10px; border:1px solid #d1eece;display:block;margin:0px 10px;"> 
 			              <div style="width:220px;  margin-right:10px; float:left;"> <img src="${team_image($one['image'])}" style="width:200px;"> </div> 
 			              <div style="width:385px; float:right; text-align:justify; "> 
@@ -19,15 +17,10 @@
 					<!--{/loop}-->
 					<div class="clr"></div>
 					<div>{$pagestring}</div>
-				</div>
-            </div>
-            <div class="box-bottom"></div>
-        </div>
-    </div>
-	<div id="sidebar">
-		
+		</div></div>
 	</div>
-    </div> <!-- bd end -->
-</div> <!-- bdw end -->
-
+	   <div id="right" style="margin-left:15px;">
+   
+    </div>
+  </div>
 <!--{include footer}-->

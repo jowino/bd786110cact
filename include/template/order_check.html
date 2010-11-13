@@ -17,10 +17,10 @@
 					<table width="741" border="0" align="center" cellpadding="0" cellspacing="0">
 					  <tr>
 						<th class="cart-left-bg" style="width:125px;">&nbsp;</th>
-						<th style="width:338px;">Product Name</th>
-						<th style="width:95px;">Unit Price</th>
-						<th style="width:75px;">Qty</th>
-						<th class="cart-right-bg" style="width:106px;">Subtotal</th>
+						<th style="width:338px;text-align:center;">Product Name</th>
+						<th style="width:95px;text-align:center;">Unit Price</th>
+						<th style="width:75px;text-align:center;">Qty</th>
+						<th class="cart-right-bg" style="width:106px;text-align:center;">Subtotal</th>
 					  </tr>
 					  <tr valign="top">
 						<td><img src="${team_image($team['image'])}" width="110px"/></td>
@@ -70,16 +70,16 @@
 					<div class="typelist">
 					<span class="cod"><input id="check-cod" type="radio" name="paytype" value="cash" {$ordercheck['cod']} /><label for="check-paypal" style="padding-left:30px;">Cash on Delivery</label></span>
 					<!--{if $INI['paypal']['mid']}-->
-						<span class="pay"><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal" style="padding-left: 110px; padding-top: 12px;">PayPal payment</label></span>
+						<span class="pay" style="display:block;"><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal" style="padding-left: 110px; padding-top: 12px;">PayPal payment</label></span>
 					<!--{/if}-->					
 					<!--{if $INI['alipay']['mid']}-->
-						<span><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">Apipay payment for taobao users</label></</span>>
+						<span><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">Apipay payment for taobao users</label></span>
 					<!--{/if}-->
 					<!--{if $INI['migs']['mid']}-->
-						<span><input id="check-migs" type="radio" name="paytype" value="migs" {$ordercheck['migs']} /><label for="check-migs" class="chinabank"> MIGS payment</label></</span>>
+						<span style="display:block;"><input id="check-migs" type="radio" name="paytype" value="migs" {$ordercheck['migs']} /><label for="check-migs" style="padding-left:30px;"> MIGS payment</label></span>
 					<!--{/if}-->
 					<!--{if $INI['chinabank']['mid']}-->
-						<span><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></</span>>
+						<span><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">Support many banks..</label></span>
 					<!--{/if}-->
 					</div>
 				<!--{else}-->

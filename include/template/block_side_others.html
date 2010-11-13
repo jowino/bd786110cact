@@ -8,8 +8,8 @@
         <!--{loop $others $one}-->
         <div class="side-bar-inner">
           <p>${++$index}. {$one['title']}</p>
-          <a href="/team.php?={$one['id']}"><img src="${team_image($one['image'])}" width="195" height="148" border="0" /></a>
-          <div class="valued">
+          <a href="/team.php?id={$one['id']}"><img src="${team_image($one['image'])}" width="195" height="148" border="0" /></a>
+          <div>
             <a href="/team.php?id={$one['id']}">&raquo;&nbsp;Check Detail</a>
           </div>
         </div>

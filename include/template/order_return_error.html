@@ -1,11 +1,9 @@
 <!--{include header}-->
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="content">
-    <div id="order-pay-return" class="box">
-        <div class="box-top"></div>
-        <div class="box-content">
-			<div class="head error"><h2>Sorry, payment is failed. </h2></div>
+<div class="clr"></div>
+<div id="main-content" style="margin-top:10px;">
+  <div id="left" style="background-color:white;width:776px;">
+		<h1 style="padding:10px;">Sorry, payment is failed.</h1>
+		<div id="content">
             <div class="sect">
 			<!--{if $order_id}-->
 				<p class="error-tip">Back<a href="/order/check.php?id={$order_id}">to Order</a> Make your payment again</p>
@@ -14,12 +12,8 @@
 			<!--{/if}-->
             </div>
 		</div>
-        <div class="box-bottom"></div>
+	</div>
+	   <div id="right" style="margin-left:15px;">
     </div>
-</div>
-<div id="sidebar">
-</div>
-</div> <!-- bd end -->
-</div> <!-- bdw end -->
-
+  </div>
 <!--{include footer}-->

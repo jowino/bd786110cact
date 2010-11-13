@@ -19,7 +19,7 @@
 					  <tr>
                       	<th class="normal">To</th>
 						<th style="width:155px;">What</th>
-
+						<th style="width:155px;">Code</th>
 						<th style="width:130px;">Purchase Date</th>
 						<th style="width:95px">Status</th>
 					  </tr>
@@ -28,8 +28,9 @@
 					    <td ${$index%2?'class="normal"':'class="highlight"'}>
 						{$one['to']}
 						</td>
-					    <td>{$one['to']}</td>
-					    <td>${date('Y-m-d', $one['create_time'])}</td>
+					    <td>{$one['message']}</td>
+					    <td>{$one['code']}</td>
+					    <td>${date('F d,Y', $one['create_time'])}</td>
 						<td>{$one['status']}</td>
 				      </tr>
 					  <!--{/loop}-->
