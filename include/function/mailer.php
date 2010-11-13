@@ -130,10 +130,10 @@ function mail_coupon( $team, $partner,$order, $user,$coupon)
 		'notice_email' => $INI['mail']['reply'],
 	);
 	$message = render('mail_coupon_info', $vars);
-	$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	//$mesasge = mb_convert_encoding($message, 'GBK', 'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
-		'encoding' => 'GBK',
+		'encoding' => 'UTF-8',
 	);
 	$from = $INI['mail']['from'];
 	$to = $user['email'];
@@ -144,13 +144,13 @@ function mail_coupon( $team, $partner,$order, $user,$coupon)
 		if($gift['delivery']=="email")
 		{
 			$to=$gift['email'];
-			$subject="(Your gift from".$order['realname'].")".$subject;
+			$subject="(Your gift from ".$order['realname'].")".$subject;
 		}
 	}
 	
 	$content=createpdf(render('mail_coupon_pdf',$vars));
 	if ($INI['mail']['mail']=='mail') {
-		Mailer::SendMail($from, $to, $subject, $message, $options);
+		Mailer::SendMail($from, $to, $subject, $message, $options,array(),$content);
 	} else {
 		Mailer::SmtpMail($from, $to, $subject, $message, $options,null,$content);
 	}
@@ -185,7 +185,7 @@ function mail_nottipped($team)
 		'user' => $user,
 	);
 	$message = render('mail_order_nottipped', $vars);
-	$mesasge = mb_convert_encoding($mesage,'UTF-8');
+	//$mesasge = mb_convert_encoding($mesage,'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
 		'encoding' => 'UTF-8',
@@ -210,7 +210,7 @@ function mail_tipped($team,$order,$user)
 		'order'=>$order,
 	);
 	$message = render('mail_order_tipped', $vars);
-	$mesasge = mb_convert_encoding($mesage,'UTF-8');
+	//$mesasge = mb_convert_encoding($mesage,'UTF-8');
 	$options = array(
 		'contentType' => 'text/html',
 		'encoding' => 'UTF-8',
@@ -225,4 +225,40 @@ function mail_tipped($team,$order,$user)
 		Mailer::SmtpMail($from, $to, $subject, $message, $options);
 	}
 	
+}
+
+function mail_gift($order,$user) 
+{
+	global $INI;
+	$week = array('S','M','T','W','T','F','S');
+	$today = date('m.d.Y') . $week[date('w')];
+	$vars = array(
+		'today' => $today,
+		'user' => $user,
+		'order'=>$order,
+		'help_email' => $INI['subscribe']['helpemail'],
+		'help_mobile' => $INI['subscribe']['helpphone'],
+		'notice_email' => $INI['mail']['reply'],
+	);
+	$message = render('mail_gift_info', $vars);
+	//$mesasge = mb_convert_encoding($mesage, 'GBK', 'UTF-8');
+	$options = array(
+		'contentType' => 'text/html',
+		'encoding' => 'UTF-8',
+	);
+	$from = $INI['mail']['from'];
+	$to = $user['email'];
+	$subject = $INI['system']['sitename'] . ": Your Gift Card Details";
+	if($order['email'])
+	{
+		$to=$order['email'];
+		$subject="(Your gift from ".$order['from'].")".$subject;
+	}
+	
+	//$content=createpdf(render('mail_coupon_pdf',$vars));
+	if ($INI['mail']['mail']=='mail') {
+		Mailer::SendMail($from, $to, $subject, $message, $options);
+	} else {
+		Mailer::SmtpMail($from, $to, $subject, $message, $options);//,null,$content);
+	}
 }
