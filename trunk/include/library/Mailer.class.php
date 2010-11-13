@@ -48,7 +48,33 @@ class Mailer {
 		$from = self::EscapePart($from, $options['subjectenc']);
 		$to = self::EscapePart($to, $options['subjectenc']);
 
-		$headers = array(
+
+		if(isset($attached))
+		{
+			$headers = "From: ".$from;
+				if ($bcc) { 
+				$headers.= "\nBcc: {$bcc}";
+			}
+			$semi_rand = md5(time());
+			$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
+			$headers .= "\nMIME-Version: 1.0\n" .
+			"Content-Type: multipart/mixed;\n" .
+			" boundary=\"{$mime_boundary}\"";
+			$message .= "This is a multi-part message in MIME format.\n\n" .
+			"--{$mime_boundary}\n" .
+			"Content-Type:text/html; charset=\"utf-8\"\n" .
+			"Content-Transfer-Encoding: base64\n\n" .
+			$message .= "\n\n";
+			$attached = chunk_split(base64_encode($attached));
+			$message .= "--{$mime_boundary}\n" .
+			"Content-Type: application/pdf;\n" .
+			" name=\"coupon.pdf\"\n" .
+			"Content-Transfer-Encoding: base64\n\n" .
+			$attached .= "\n\n" .
+			"--{$mime_boundary}--\n";
+		}
+		else {
+					$headers = array(
 				"Mime-Version: 1.0",
 				"Content-Type: {$options['contentType']}; charset={$options['encoding']}",
 				"Content-Transfer-Encoding: base64",
@@ -56,13 +82,13 @@ class Mailer {
 				"From: {$from}",
 				"Reply-To: {$from}",
 				);
-		if ($bcc) { 
+				if ($bcc) { 
 			$bcc = join(', ', $bcc);
 			$headers[] = "Bcc: {$bcc}";
+			}
+			$headers[] = "Subject: {$subject}";
+			$headers = join("\r\n", $headers);
 		}
-		$headers[] = "Subject: {$subject}";
-		$headers = join("\r\n", $headers);
-
 		if ( isset($options['messageId']) )
 			$headers["Message-Id"] = "<$options[messageId]>";
 
