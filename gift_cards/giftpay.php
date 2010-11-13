@@ -8,10 +8,7 @@ if (is_post()&&isset($_POST['giftpay'])) {
 	}
 	$table = new Table('gift_card', $_POST);
 	$table->code = Utility::GenSecret(8,'mix');
-	if($_POST['gift_card']['delivery']=='print')
-		$talbe->email='';
-	else 
-		$talbe->email=$_POST['gift_card']['delivery']['email_address'];
+	$table->email=$_POST['gift_card']['delivery']['email_address'];
 	$table->create_time = time();
 	$table->user_id=$login_user_id;
 	$order_id=$table->Insert(array(
@@ -68,7 +65,7 @@ if ( $order['paytype'] == 'paypal') {
 }
 else if ( $order['paytype'] == 'cash' ) {
 	include template('gift_pay');
-}
+}else if ($order['paytype'] == 'migs'){	$mid = $INI['migs']['mid'];	$version = $INI['migs']['ver'];	$type = $INI['migs']['type'];	$accesscode = $INI['migs']['acc'];	$ref = $INI['migs']['ref'];	$locale = $INI['migs']['loc'];	$returnURL = $INI['migs']['url'];		include template('gift_pay');}
 
 else Utility::Redirect( WEB_ROOT. '/index.php');
 	}
