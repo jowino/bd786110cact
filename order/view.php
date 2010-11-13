@@ -27,4 +27,5 @@ if ( $team['delivery'] == 'coupon' ) {
 				));
 }
 //mail_coupon($team, $partner, $order, $login_user, $coupons[0]);
+//mail_tipped($team, $order, $login_user);
 include template('order_view');
