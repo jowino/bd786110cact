@@ -62,7 +62,8 @@ class ZCoupon
 					);
 			DB::Insert('coupon', $coupon);
 			$count = Table::Count('coupon', $ccon);
-			mail_coupon($team, $partner, $order, $login_user, $coupon);
+			$user=Table::Fetch('user',$order['user_id']);
+			mail_coupon($team, $partner, $order, $user, $coupon);
 		}
 	}
 	

@@ -19,5 +19,11 @@ class ZOrder {
 		$order = Table::FetchForce('order', $order['id']);
 		ZTeam::BuyOne($order);
 	}
+	
+	static public function BuyGift($order) {
+		$order = Table::FetchForce('gift_card', $order['id']);
+		$user=Table::Fetch('user',$order['user_id']);
+		mail_gift($order, $user);
+	}
 }
 ?>
