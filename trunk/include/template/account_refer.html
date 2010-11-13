@@ -1,14 +1,12 @@
 <!--{include header}-->
 
-<div id="bdw" class="bdw">
-<div id="bd" class="cf">
-<div id="referrals">
-    <div id="content" class="invites">
-        <div class="box clear">
-            <div class="box-top"></div>
-            <div class="box-content">
-                <div class="head"><h2>List successfully invitated</h2></div>
-                <div class="sect">
+<div class="clr"></div>
+<div id="main-content" style="margin-top:10px;">
+  <div id="left" style="background-color:white;width:776px;">
+		<h1 style="padding:10px;">List successfully invitated</h1>
+		<div id="referrals">
+		<div id="content">
+		<div class="sect">
 					<p class="notice-total">You have invitated <strong>{$count}</strong> friends and get <strong><span class="money">{$currency}</span>{$money}</strong> dollar rebate, <a href="/account/invite.php">Back And Invite Others</a>.</p>
 					<table cellspacing="0" cellpadding="0" border="0" class="coupons-table">
 					<tr><th width="120">Username</th><th width="305">Deal Item</th><th width="150">Buy Time</th><th width="40">Rebate</th></tr>
@@ -17,16 +15,10 @@
 					<!--{/loop}-->
 					</table>
 				</div>
-            </div>
-            <div class="box-bottom"></div>
-        </div>
+		</div></div>
+	</div>
+	   <div id="right" style="margin-left:15px;">
+     <!--{include block_side_invitetip}-->
     </div>
-    <div id="sidebar">
-		<!--{include block_side_invitetip}-->
-    </div>
-</div>
-</div> <!-- bd end -->
-
-</div> <!-- bdw end -->
-
+  </div>
 <!--{include footer}-->

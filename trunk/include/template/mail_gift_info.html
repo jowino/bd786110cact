@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body bgcolor="#ffffff" style='padding:10px; width:720px; margin:auto;'>
+<style type='text/css'>
+body {font-family:Helvetica, Arial, sans-serif; color:#000;}
+p { line-height: 1.5em; }
+</style>
+<div style='width:670px; margin:5px 0; padding: 20px 20px 20px 20px;'>
+  <p>
+  	Hi {$order['to']},</br>
+  	<label width="600px">Congratulations! 
+  	<!--{if $order['email']}-->
+  	This is a gift from {$order['from']}.
+  	<!-- {else} -->
+  	 This is a gfit card you bought.
+  	 <!-- {/if} -->
+  	 Your gift card number is {$order['code']}.
+  	</label>
+The Moosavings Team
+  	
+  </p>
+</div>
+
+</body>
+</html>
