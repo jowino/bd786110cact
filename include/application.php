@@ -52,6 +52,7 @@ function import($funcpre) {
 /* json */
 if (!function_exists('json_encode')){function json_encode($v) {return ZendJsonEncoder::encode($v);}}
 if (!function_exists('json_decode')){function json_decode($v,$t) {return ZendJsonDecoder::decode($v,$t);}}
+
 /* end json */
 
 /* date_zone */
@@ -65,3 +66,35 @@ if(SYS_REQUEST){ ob_start(); }
 /* import */
 import('template');
 import('common');
+//for debuging
+function d($mParam, $bExit = 0, $bVarDump = 0)
+{
+
+    echo '<hr><pre>';
+    ob_start();
+    print get_back_trace("\n");
+    if (!$bVarDump)
+    {
+        print_r($mParam);
+    }
+    else
+    {
+        var_dump($mParam);
+    }
+    $sStr = htmlspecialchars(ob_get_contents());
+    ob_clean();
+    echo $sStr;
+    echo '</pre><hr>';
+    if ($bExit) exit;
+}
+function get_back_trace($NL="\n"){
+   $dbgTrace = debug_backtrace();
+   $dbgMsg = "Trace[";
+   foreach($dbgTrace as $dbgIndex => $dbgInfo) {
+       if($dbgIndex>0 && isset($dbgInfo['file'])){
+        $dbgMsg .= "\t at $dbgIndex  ".$dbgInfo['file']." (line {$dbgInfo['line']}) -> {$dbgInfo['function']}(".count($dbgInfo['args']).")$NL";
+       }
+   }
+   $dbgMsg .= "]".$NL;
+   return $dbgMsg;
+}
